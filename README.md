@@ -1,12 +1,13 @@
 #	TWiOS5ReverseAuthExample #
 ##	Summary ##
 This demo application illustrates how to use the reverse_auth endpoint to generate a user's access token and secret if you are granted access to his ACAccount instance.
-### Twitter Marks ###
-The use of the Twitter logos is governed by the [Guidelines for Use of the Twitter Trademark](https://support.twitter.com/articles/77641-guidelines-for-use-of-the-twitter-trademark)
-### Memory Management Style ###
-Main application:  Automatic Reference Counting (ARC) / Third party libraries: Manual reference counting
-### Library Credits ###
-Loren Brichter's ([@atebits](http://twitter.com/atebits)) ABOAuthCore is available for download at https://bitbucket.org/atebits/oauthcore/ (see source files for license information).
+
+To use the demo:
+
+1. Follow the directions on this page to obtain reverse auth access for your application.
+2. Add your application's consumer key and secret to TWSignedRequest.m.
+3. Build and run.
+
 ###  Author ###
 This example was created by Sean Cook ([@theSeanCook](http://twitter.com/theSeanCook)).
 ###  License ###
@@ -17,3 +18,10 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+### Twitter Marks ###
+The use of the Twitter logos is governed by the [Guidelines for Use of the Twitter Trademark](https://support.twitter.com/articles/77641-guidelines-for-use-of-the-twitter-trademark)
+### Memory Management Style ###
+Main application:  Automatic Reference Counting (ARC) / Third party libraries: Manual reference counting
+### Library Credits ###
+Loren Brichter's ([@atebits](http://twitter.com/atebits)) ABOAuthCore is available for download at [https://bitbucket.org/atebits/oauthcore](https://bitbucket.org/atebits/oauthcore) (see source files for license information).
