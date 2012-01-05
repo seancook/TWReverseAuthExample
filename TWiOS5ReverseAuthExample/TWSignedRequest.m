@@ -67,9 +67,9 @@
 - (NSURLRequest *)buildRequest
 {
     NSAssert(_url, @"You can't build a request without an URL");
-             
+
     NSString *method;
-    
+
     switch (self.method) {
         case TWSignedRequestMethodPOST:
             method = TW_HTTP_METHOD_POST;
@@ -81,37 +81,37 @@
         default:
             method = TW_HTTP_METHOD_GET;
     }
-    
+
     //  Build a parameter string from our parameters
     NSMutableString *paramsAsString = [[NSMutableString alloc] init];
     [self.parameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [paramsAsString appendFormat:@"%@=%@&", key, obj];
     }];
-    
+
     //  Obtain the authorization header that we want to attach to our request
     NSData *bodyData = [paramsAsString dataUsingEncoding:NSUTF8StringEncoding];
     NSString *authorizationHeader = OAuthorizationHeader(self.url, method, bodyData, [TWSignedRequest consumerKey], [TWSignedRequest consumerSecret], nil, nil);
-    
+
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:self.url];
     [request setHTTPMethod:method];
     [request setValue:authorizationHeader forHTTPHeaderField:TW_HTTP_HEADER_AUTHORIZATION];
     [request setHTTPBody:bodyData];
-    
+
     return request;
 }
 
-- (void)performRequestWithHandler:(TWSignedRequestHandler)handler 
+- (void)performRequestWithHandler:(TWSignedRequestHandler)handler
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSURLResponse *response;
         NSError *error;
-        NSData *data = [NSURLConnection sendSynchronousRequest:[self buildRequest] returningResponse:&response error:&error];  
-        handler(data, response, error);          
+        NSData *data = [NSURLConnection sendSynchronousRequest:[self buildRequest] returningResponse:&response error:&error];
+        handler(data, response, error);
     });
 }
 
 // OBFUSCATE YOUR KEYS!
-+ (NSString *)consumerKey 
++ (NSString *)consumerKey
 {
     NSAssert([CONSUMER_KEY length] > 0, @"Dude, seriously.  Enter your consumer key.");
     return CONSUMER_KEY;
