@@ -102,8 +102,6 @@
 
 - (void)performRequestWithHandler:(TWSignedRequestHandler)handler 
 {
-    NSAssert(handler, @"You must pass a handler to this method");
-    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSURLResponse *response;
         NSError *error;
