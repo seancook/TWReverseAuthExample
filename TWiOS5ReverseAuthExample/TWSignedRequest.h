@@ -37,13 +37,16 @@ typedef void(^TWSignedRequestHandler)(NSData *data, NSURLResponse *response, NSE
 
 @interface TWSignedRequest : NSObject
 
+@property (nonatomic, copy) NSString *authToken;
+@property (nonatomic, copy) NSString *authTokenSecret;
+
 // Creates a new request 
 - (id)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWSignedRequestMethod)requestMethod;
 
 // Perform the request, and notify handler of results
 - (void)performRequestWithHandler:(TWSignedRequestHandler)handler;
 
-// Keys are behind getters; we should ensure that we've obfuscated before shipping
+// You should ensure that you obfuscate your keys before shipping
 + (NSString *)consumerKey;
 + (NSString *)consumerSecret;
 @end

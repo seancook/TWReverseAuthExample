@@ -31,27 +31,26 @@
 #define TW_HTTP_METHOD_DELETE @"DELETE"
 #define TW_HTTP_HEADER_AUTHORIZATION @"Authorization"
 
-//  Important:  1) Your keys must be registered with Twitter to enable reverse_auth endpoint
+//  Important:  1) Your keys must be registered with Twitter to enable the reverse_auth endpoint
 //              2) You should obfuscate keys and secrets in your apps before shipping!
 
-#warning You must enter your consumer key and secret for this demo to work
 #define CONSUMER_SECRET @""
 #define CONSUMER_KEY @""
 
 @interface TWSignedRequest()
-
-@property (strong, nonatomic) NSURL *url;
-@property (strong, nonatomic) NSDictionary *parameters;
-@property (readonly, nonatomic) TWSignedRequestMethod method;
+{
+    NSURL *_url;
+    NSDictionary *_parameters;
+    TWSignedRequestMethod _signedRequestMethod;
+}
 
 - (NSURLRequest *)buildRequest;
 
 @end
 
 @implementation TWSignedRequest
-@synthesize url = _url;
-@synthesize parameters = _parameters;
-@synthesize method = _method;
+@synthesize authToken = _authToken;
+@synthesize authTokenSecret = _authTokenSecret;
 
 - (id)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWSignedRequestMethod)requestMethod;
 {
@@ -59,7 +58,7 @@
     if (self) {
         _url = url;
         _parameters = parameters;
-        _method = requestMethod;
+        _signedRequestMethod = requestMethod;
     }
     return self;
 }
@@ -70,7 +69,7 @@
 
     NSString *method;
 
-    switch (self.method) {
+    switch (_signedRequestMethod) {
         case TWSignedRequestMethodPOST:
             method = TW_HTTP_METHOD_POST;
             break;
@@ -82,17 +81,17 @@
             method = TW_HTTP_METHOD_GET;
     }
 
-    //  Build a parameter string from our parameters
+    //  Build our parameter string
     NSMutableString *paramsAsString = [[NSMutableString alloc] init];
-    [self.parameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+    [_parameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [paramsAsString appendFormat:@"%@=%@&", key, obj];
     }];
 
-    //  Obtain the authorization header that we want to attach to our request
+    //  Create the authorization header and attach to our request
     NSData *bodyData = [paramsAsString dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *authorizationHeader = OAuthorizationHeader(self.url, method, bodyData, [TWSignedRequest consumerKey], [TWSignedRequest consumerSecret], nil, nil);
+    NSString *authorizationHeader = OAuthorizationHeader(_url, method, bodyData, [TWSignedRequest consumerKey], [TWSignedRequest consumerSecret], _authToken, _authTokenSecret);
 
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:self.url];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:_url];
     [request setHTTPMethod:method];
     [request setValue:authorizationHeader forHTTPHeaderField:TW_HTTP_HEADER_AUTHORIZATION];
     [request setHTTPBody:bodyData];
