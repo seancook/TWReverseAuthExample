@@ -86,18 +86,19 @@
         TWSignedRequest *signedRequest = [[TWSignedRequest alloc] initWithURL:url parameters:dict requestMethod:TWSignedRequestMethodPOST];
 
         [signedRequest performRequestWithHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-
-            if (data == nil) {
+            if (!data) {
                 [self showAlert:@"Unable to receive a request_token." title:@"Yikes"];
                 [self _handleError:error forResponse:response];
             }
             else {
+                NSString *signedReverseAuthSignature = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+
                 //
                 //  Step 2)  Ask Twitter for the user's auth token and secret
                 //           include x_reverse_auth_target=CK2 and x_reverse_auth_parameters=signedReverseAuthSignature parameters
                 //
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                    NSString *signedReverseAuthSignature = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+
                     NSDictionary *step2Params = [NSDictionary dictionaryWithObjectsAndKeys:[TWSignedRequest consumerKey], TW_X_AUTH_REVERSE_TARGET, signedReverseAuthSignature, TW_X_AUTH_REVERSE_PARMS, nil];
                     NSURL *authTokenURL = [NSURL URLWithString:TW_OAUTH_URL_AUTH_TOKEN];
                     TWRequest *step2Request = [[TWRequest alloc] initWithURL:authTokenURL parameters:step2Params requestMethod:TWRequestMethodPOST];
@@ -119,9 +120,7 @@
                             // we can assume that we have at least one account thanks to +[TWTweetComposeViewController canSendTweet], let's return it
                             [step2Request setAccount:[accounts objectAtIndex:0]];
                             [step2Request performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
-
-                                //  Something went wrong
-                                if (responseData == nil) {
+                                if (!responseData) {
                                     [self showAlert:@"Error occurred in Step 2.  Check console for more info." title:@"Yikes"];
                                     [self _handleError:error forResponse:response];
                                 }
@@ -173,6 +172,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+
     [self performReverseAuth];
 }
 
