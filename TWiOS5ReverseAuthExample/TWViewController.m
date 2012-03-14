@@ -68,7 +68,7 @@
 {
     BOOL resp = YES;
 
-    if (![TWSignedRequest consumerKey] || [TWSignedRequest consumerSecret]) {
+    if (![TWSignedRequest consumerKey] || ![TWSignedRequest consumerSecret]) {
         [self showAlert:@"You must add reverse auth-enabled keys to TWSignedRequest.m" title:@"Yikes"];
         resp = NO;
     }
