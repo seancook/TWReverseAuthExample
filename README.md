@@ -2,14 +2,17 @@
 ##	Summary ##
 This demo application illustrates how to use the reverse_auth endpoint to generate a user's access token and secret if you are granted access to his ACAccount instance.
 
+The latest version of this project can be found at [github](https://github.com/seancook/TWiOS5ReverseAuthExample).
+
 To use the demo:
 
-1. Follow the directions on this page to obtain reverse auth access for your application.
+1. Follow the directions on ["Using Reverse Auth"](https://dev.twitter.com/docs/ios/using-reverse-auth) to obtain reverse auth access for your application.
 2. Add your application's consumer key and secret to TWSignedRequest.m.
-3. Build and run.
+3. Build and run.  Click the button labeled "Perform Reverse Authorization" to execute the token exchange.
 
 ###  Author ###
 This example was created by Sean Cook ([@theSeanCook](http://twitter.com/theSeanCook)).
+
 ###  License ###
 Copyright (c) 2012 Sean Cook
 
@@ -24,4 +27,4 @@ The use of the Twitter logos is governed by the [Guidelines for Use of the Twitt
 ### Memory Management Style ###
 Main application:  Automatic Reference Counting (ARC) / Third party libraries: Manual reference counting
 ### Library Credits ###
-Loren Brichter's ([@atebits](http://twitter.com/atebits)) ABOAuthCore is available for download at [https://bitbucket.org/atebits/oauthcore](https://bitbucket.org/atebits/oauthcore) (see source files for license information).
+Loren Brichter's ([@atebits](http://twitter.com/lorenb)) ABOAuthCore is available for download at [https://bitbucket.org/atebits/oauthcore](https://bitbucket.org/atebits/oauthcore) (see source files for license information).
