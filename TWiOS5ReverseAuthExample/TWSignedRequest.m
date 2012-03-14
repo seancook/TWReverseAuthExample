@@ -112,14 +112,12 @@
 // OBFUSCATE YOUR KEYS!
 + (NSString *)consumerKey
 {
-    NSAssert([CONSUMER_KEY length] > 0, @"Dude, seriously.  Enter your consumer key.");
     return CONSUMER_KEY;
 }
 
 // OBFUSCATE YOUR KEYS!
 + (NSString *)consumerSecret
 {
-    NSAssert([CONSUMER_SECRET length] > 0, @"Dude, seriously.  Enter your consumer secret.");
     return CONSUMER_SECRET;
 }
 
