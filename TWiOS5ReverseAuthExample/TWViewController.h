@@ -27,4 +27,8 @@
 
 @interface TWViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIButton *reverseAuthBtn;
+
+- (IBAction)performReverseAuth:(id)sender;
+
 @end

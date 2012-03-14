@@ -44,6 +44,7 @@
 #define POP_ALERT(_W,_X) [[[UIAlertView alloc] initWithTitle:_W message:_X delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show]
 
 @interface TWViewController()
+
 - (void)_handleError:(NSError *)error forResponse:(NSURLResponse *)response;
 - (void)_handleStep2Response:(NSString *)responseStr;
 
@@ -51,6 +52,7 @@
 @end
 
 @implementation TWViewController
+@synthesize reverseAuthBtn = _reverseAuthBtn;
 
 @synthesize accountStore = _accountStore;
 
@@ -60,6 +62,18 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         POP_ALERT(title, alert);
     });
+}
+
+- (BOOL)checkForKeys
+{
+    BOOL resp = YES;
+
+    if (![TWSignedRequest consumerKey] || [TWSignedRequest consumerSecret]) {
+        [self showAlert:@"You must add reverse auth-enabled keys to TWSignedRequest.m" title:@"Yikes"];
+        resp = NO;
+    }
+
+    return resp;
 }
 
 - (BOOL)checkForLocalCredentials
@@ -73,9 +87,10 @@
     return resp;
 }
 
-- (void)performReverseAuth
+- (IBAction)performReverseAuth:(id)sender
 {
-    if ([self checkForLocalCredentials]) {
+    //  Check to make sure that the user has added his credentials
+    if ([self checkForKeys] && [self checkForLocalCredentials]) {
         //
         //  Step 1)  Ask Twitter for a special request_token for reverse auth
         //
@@ -169,17 +184,17 @@
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-
-    [self performReverseAuth];
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+- (void)viewDidUnload
+{
+    [self setReverseAuthBtn:nil];
+    [super viewDidUnload];
 }
 
 @end
