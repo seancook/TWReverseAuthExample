@@ -44,7 +44,7 @@
     TWSignedRequestMethod _signedRequestMethod;
 }
 
-- (NSURLRequest *)buildRequest;
+- (NSURLRequest *)_buildRequest;
 
 @end
 
@@ -63,7 +63,7 @@
     return self;
 }
 
-- (NSURLRequest *)buildRequest
+- (NSURLRequest *)_buildRequest
 {
     NSAssert(_url, @"You can't build a request without an URL");
 
@@ -104,7 +104,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSURLResponse *response;
         NSError *error;
-        NSData *data = [NSURLConnection sendSynchronousRequest:[self buildRequest] returningResponse:&response error:&error];
+        NSData *data = [NSURLConnection sendSynchronousRequest:[self _buildRequest] returningResponse:&response error:&error];
         handler(data, response, error);
     });
 }

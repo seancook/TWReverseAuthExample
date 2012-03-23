@@ -45,6 +45,8 @@
 
 @interface TWViewController()
 
+- (BOOL)_checkForLocalCredentials;
+- (BOOL)_checkForKeys;
 - (void)_handleError:(NSError *)error forResponse:(NSURLResponse *)response;
 - (void)_handleStep2Response:(NSString *)responseStr;
 
@@ -64,7 +66,7 @@
     });
 }
 
-- (BOOL)checkForKeys
+- (BOOL)_checkForKeys
 {
     BOOL resp = YES;
 
@@ -76,7 +78,7 @@
     return resp;
 }
 
-- (BOOL)checkForLocalCredentials
+- (BOOL)_checkForLocalCredentials
 {
     BOOL resp = YES;
     if (![TWTweetComposeViewController canSendTweet]) {
@@ -90,7 +92,7 @@
 - (IBAction)performReverseAuth:(id)sender
 {
     //  Check to make sure that the user has added his credentials
-    if ([self checkForKeys] && [self checkForLocalCredentials]) {
+    if ([self _checkForKeys] && [self _checkForLocalCredentials]) {
         //
         //  Step 1)  Ask Twitter for a special request_token for reverse auth
         //
@@ -160,6 +162,7 @@
     NSLog(@"[Step Two Request Error]: Response Code:%d \"%@\" ", [urlResponse statusCode], [NSHTTPURLResponse localizedStringForStatusCode:[urlResponse statusCode]]);
 }
 
+#define RESPONSE_EXPECTED_SIZE 4
 - (void)_handleStep2Response:(NSString *)responseStr
 {
     NSDictionary *dict = [NSURL ab_parseURLQueryString:responseStr];
@@ -173,7 +176,7 @@
     //     "user_id" = ...
     // }
 
-    if ([dict count] == 4) {
+    if ([dict count] == RESPONSE_EXPECTED_SIZE) {
         [self showAlert:[NSString stringWithFormat:@"User: %@\nUser ID: %@", [dict objectForKey:TW_SCREEN_NAME], [dict objectForKey:TW_USER_ID]] title:@"Success!"];
         NSLog(@"The user's info for your server:\n%@", dict);
     }
