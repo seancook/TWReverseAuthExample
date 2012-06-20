@@ -159,8 +159,8 @@
 {
     NSHTTPURLResponse *urlResponse = (NSHTTPURLResponse *)response;
 
-    NSLog(@"[Step Two Request Error]: %@", [error localizedDescription]);
-    NSLog(@"[Step Two Request Error]: Response Code:%d \"%@\" ", [urlResponse statusCode], [NSHTTPURLResponse localizedStringForStatusCode:[urlResponse statusCode]]);
+    NSLog(@"[Error]: %@", [error localizedDescription]);
+    NSLog(@"[Error]: Response Code:%d \"%@\" ", [urlResponse statusCode], [NSHTTPURLResponse localizedStringForStatusCode:[urlResponse statusCode]]);
 }
 
 #define RESPONSE_EXPECTED_SIZE 4
