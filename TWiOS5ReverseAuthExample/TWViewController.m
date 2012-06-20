@@ -81,6 +81,7 @@
 - (BOOL)_checkForLocalCredentials
 {
     BOOL resp = YES;
+
     if (![TWTweetComposeViewController canSendTweet]) {
         [self showAlert:@"Please configure a Twitter account in Settings." title:@"Yikes"];
         resp = NO;
