@@ -179,12 +179,12 @@
 
     if ([dict count] == RESPONSE_EXPECTED_SIZE) {
         [self showAlert:[NSString stringWithFormat:@"User: %@\nUser ID: %@", [dict objectForKey:TW_SCREEN_NAME], [dict objectForKey:TW_USER_ID]] title:@"Success!"];
-        NSLog(@"The user's info for your server:\n%@", dict);
     }
     else {
         [self showAlert:@"The response doesn't seem correct.  Please check the console." title:@"Hmm..."];
-        NSLog(@"The user's info for your server:\n%@", dict);
     }
+
+    NSLog(@"The user's info for your server:\n%@", dict);
 }
 
 #pragma mark - View lifecycle
