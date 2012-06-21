@@ -138,6 +138,7 @@
                             // we can assume that we have at least one account thanks to +[TWTweetComposeViewController canSendTweet], let's return it
                             [step2Request setAccount:[accounts objectAtIndex:0]];
                             [step2Request performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+                                // Thanks to Marc Delling for pointing out that we should check the status code below
                                 if (!responseData || ((NSHTTPURLResponse*)response).statusCode >= 400) {
                                     [self showAlert:@"Error occurred in Step 2.  Check console for more info." title:@"Yikes"];
                                     [self _handleError:error forResponse:response];
