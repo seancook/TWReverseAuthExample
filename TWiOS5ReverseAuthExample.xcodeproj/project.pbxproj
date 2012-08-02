@@ -22,23 +22,10 @@
 		CDF37971142291940071ABF7 /* TWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF37970142291940071ABF7 /* TWAppDelegate.m */; };
 		CDF37974142291940071ABF7 /* TWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF37973142291940071ABF7 /* TWViewController.m */; };
 		CDF37977142291940071ABF7 /* TWViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF37975142291940071ABF7 /* TWViewController.xib */; };
-		CDF3797F142291940071ABF7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF3797E142291940071ABF7 /* SenTestingKit.framework */; };
-		CDF37980142291940071ABF7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF37960142291940071ABF7 /* UIKit.framework */; };
-		CDF37981142291940071ABF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF37962142291940071ABF7 /* Foundation.framework */; };
 		CDF379961422931E0071ABF7 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF379951422931E0071ABF7 /* Twitter.framework */; };
 		CDF37998142293220071ABF7 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF37997142293220071ABF7 /* Accounts.framework */; };
 		CDF379A514229C820071ABF7 /* TWSignedRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF379A414229C820071ABF7 /* TWSignedRequest.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		CDF37982142291940071ABF7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CDF37953142291940071ABF7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CDF3795B142291940071ABF7;
-			remoteInfo = TWiOS5ReverseAuthExample;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		CD14C12214B3A92B00B8A188 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -64,7 +51,6 @@
 		CDF37972142291940071ABF7 /* TWViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWViewController.h; sourceTree = "<group>"; };
 		CDF37973142291940071ABF7 /* TWViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWViewController.m; sourceTree = "<group>"; };
 		CDF37976142291940071ABF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TWViewController.xib; sourceTree = "<group>"; };
-		CDF3797D142291940071ABF7 /* TWiOS5ReverseAuthExampleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TWiOS5ReverseAuthExampleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF3797E142291940071ABF7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		CDF379951422931E0071ABF7 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		CDF37997142293220071ABF7 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -82,16 +68,6 @@
 				CDF37961142291940071ABF7 /* UIKit.framework in Frameworks */,
 				CDF37963142291940071ABF7 /* Foundation.framework in Frameworks */,
 				CDF37965142291940071ABF7 /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CDF37979142291940071ABF7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CDF3797F142291940071ABF7 /* SenTestingKit.framework in Frameworks */,
-				CDF37980142291940071ABF7 /* UIKit.framework in Frameworks */,
-				CDF37981142291940071ABF7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				CDF3795C142291940071ABF7 /* ReverseAuth.app */,
-				CDF3797D142291940071ABF7 /* TWiOS5ReverseAuthExampleTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,25 +168,6 @@
 			productReference = CDF3795C142291940071ABF7 /* ReverseAuth.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CDF3797C142291940071ABF7 /* TWiOS5ReverseAuthExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CDF37992142291940071ABF7 /* Build configuration list for PBXNativeTarget "TWiOS5ReverseAuthExampleTests" */;
-			buildPhases = (
-				CDF37978142291940071ABF7 /* Sources */,
-				CDF37979142291940071ABF7 /* Frameworks */,
-				CDF3797A142291940071ABF7 /* Resources */,
-				CDF3797B142291940071ABF7 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CDF37983142291940071ABF7 /* PBXTargetDependency */,
-			);
-			name = TWiOS5ReverseAuthExampleTests;
-			productName = TWiOS5ReverseAuthExampleTests;
-			productReference = CDF3797D142291940071ABF7 /* TWiOS5ReverseAuthExampleTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -234,7 +190,6 @@
 			projectRoot = "";
 			targets = (
 				CDF3795B142291940071ABF7 /* ReverseAuth */,
-				CDF3797C142291940071ABF7 /* TWiOS5ReverseAuthExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -253,30 +208,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CDF3797A142291940071ABF7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		CDF3797B142291940071ABF7 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CDF37958142291940071ABF7 /* Sources */ = {
@@ -293,22 +225,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CDF37978142291940071ABF7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CDF37983142291940071ABF7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CDF3795B142291940071ABF7 /* ReverseAuth */;
-			targetProxy = CDF37982142291940071ABF7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CDF37969142291940071ABF7 /* InfoPlist.strings */ = {
@@ -405,40 +322,6 @@
 			};
 			name = Release;
 		};
-		CDF37993142291940071ABF7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TWiOS5ReverseAuthExample.app/TWiOS5ReverseAuthExample";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TWiOS5ReverseAuthExample/TWiOS5ReverseAuthExample-Prefix.pch";
-				INFOPLIST_FILE = "TWiOS5ReverseAuthExampleTests/TWiOS5ReverseAuthExampleTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		CDF37994142291940071ABF7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TWiOS5ReverseAuthExample.app/TWiOS5ReverseAuthExample";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TWiOS5ReverseAuthExample/TWiOS5ReverseAuthExample-Prefix.pch";
-				INFOPLIST_FILE = "TWiOS5ReverseAuthExampleTests/TWiOS5ReverseAuthExampleTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -456,15 +339,6 @@
 			buildConfigurations = (
 				CDF37990142291940071ABF7 /* Debug */,
 				CDF37991142291940071ABF7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CDF37992142291940071ABF7 /* Build configuration list for PBXNativeTarget "TWiOS5ReverseAuthExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CDF37993142291940071ABF7 /* Debug */,
-				CDF37994142291940071ABF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
