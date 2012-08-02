@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		CD14C12314B3A92B00B8A188 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CD14C12214B3A92B00B8A188 /* README.md */; };
-		CD2CBE751459D66200978544 /* ic_twitterapi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2CBE731459D66200978544 /* ic_twitterapi@2x.png */; };
-		CD2CBE761459D66200978544 /* ic_twitterapi.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2CBE741459D66200978544 /* ic_twitterapi.png */; };
-		CD2CBE791459D83D00978544 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2CBE781459D83D00978544 /* twitter.png */; };
 		CD6318571422D05400740211 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6318511422D05400740211 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD6318581422D05400740211 /* OAuth+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6318531422D05400740211 /* OAuth+Additions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD6318591422D05400740211 /* OAuthCore.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6318551422D05400740211 /* OAuthCore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CDBA27CD15CA103C00C0CDCF /* ic_twitterapi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDBA27CB15CA103C00C0CDCF /* ic_twitterapi@2x.png */; };
+		CDBA27CE15CA103C00C0CDCF /* ic_twitterapi.png in Resources */ = {isa = PBXBuildFile; fileRef = CDBA27CC15CA103C00C0CDCF /* ic_twitterapi.png */; };
+		CDBA27D015CA10BD00C0CDCF /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = CDBA27CF15CA10BD00C0CDCF /* twitter.png */; };
 		CDF37961142291940071ABF7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF37960142291940071ABF7 /* UIKit.framework */; };
 		CDF37963142291940071ABF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF37962142291940071ABF7 /* Foundation.framework */; };
 		CDF37965142291940071ABF7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF37964142291940071ABF7 /* CoreGraphics.framework */; };
@@ -42,15 +42,15 @@
 
 /* Begin PBXFileReference section */
 		CD14C12214B3A92B00B8A188 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		CD2CBE731459D66200978544 /* ic_twitterapi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_twitterapi@2x.png"; sourceTree = "<group>"; };
-		CD2CBE741459D66200978544 /* ic_twitterapi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_twitterapi.png; sourceTree = "<group>"; };
-		CD2CBE781459D83D00978544 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 		CD6318501422D05400740211 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		CD6318511422D05400740211 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		CD6318521422D05400740211 /* OAuth+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OAuth+Additions.h"; sourceTree = "<group>"; };
 		CD6318531422D05400740211 /* OAuth+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OAuth+Additions.m"; sourceTree = "<group>"; };
 		CD6318541422D05400740211 /* OAuthCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthCore.h; sourceTree = "<group>"; };
 		CD6318551422D05400740211 /* OAuthCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthCore.m; sourceTree = "<group>"; };
+		CDBA27CB15CA103C00C0CDCF /* ic_twitterapi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_twitterapi@2x.png"; sourceTree = "<group>"; };
+		CDBA27CC15CA103C00C0CDCF /* ic_twitterapi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_twitterapi.png; sourceTree = "<group>"; };
+		CDBA27CF15CA10BD00C0CDCF /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 		CDF3795C142291940071ABF7 /* ReverseAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReverseAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF37960142291940071ABF7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CDF37962142291940071ABF7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -115,9 +115,9 @@
 			isa = PBXGroup;
 			children = (
 				CD14C12214B3A92B00B8A188 /* README.md */,
-				CD2CBE781459D83D00978544 /* twitter.png */,
-				CD2CBE731459D66200978544 /* ic_twitterapi@2x.png */,
-				CD2CBE741459D66200978544 /* ic_twitterapi.png */,
+				CDBA27CB15CA103C00C0CDCF /* ic_twitterapi@2x.png */,
+				CDBA27CC15CA103C00C0CDCF /* ic_twitterapi.png */,
+				CDBA27CF15CA10BD00C0CDCF /* twitter.png */,
 				CDF37966142291940071ABF7 /* TWiOS5ReverseAuthExample */,
 				CDF3795F142291940071ABF7 /* Frameworks */,
 				CDF3795D142291940071ABF7 /* Products */,
@@ -246,10 +246,10 @@
 			files = (
 				CDF3796B142291940071ABF7 /* InfoPlist.strings in Resources */,
 				CDF37977142291940071ABF7 /* TWViewController.xib in Resources */,
-				CD2CBE751459D66200978544 /* ic_twitterapi@2x.png in Resources */,
-				CD2CBE761459D66200978544 /* ic_twitterapi.png in Resources */,
-				CD2CBE791459D83D00978544 /* twitter.png in Resources */,
 				CD14C12314B3A92B00B8A188 /* README.md in Resources */,
+				CDBA27CD15CA103C00C0CDCF /* ic_twitterapi@2x.png in Resources */,
+				CDBA27CE15CA103C00C0CDCF /* ic_twitterapi.png in Resources */,
+				CDBA27D015CA10BD00C0CDCF /* twitter.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
