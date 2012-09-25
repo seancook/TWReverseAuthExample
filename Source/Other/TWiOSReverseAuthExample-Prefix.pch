@@ -1,0 +1,14 @@
+//
+// Prefix header for all source files of the 'TWiOSReverseAuthExample' target in the 'TWiOSReverseAuthExample' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_6_0
+#warning "This project was designed to be built with iOS6."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
