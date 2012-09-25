@@ -1,6 +1,7 @@
 #	TWiOSReverseAuthExample 
 
 ##	Summary 
+
 This project illustrates how to use the reverse\_auth endpoint to generate a user's access token and secret if you are granted access to the user's ACAccount instance.  The project is configured for building with the iOS6 SDK but conditionally supports iOS5's `Twitter.framework`.  To do this, we link the project against `Twitter.framework` and `Social.framework`, with the linkage to `Social.framework` configured as _optional_.  
 
 The latest version of this project can be found at [github](https://github.com/seancook/TWiOS5ReverseAuthExample).
