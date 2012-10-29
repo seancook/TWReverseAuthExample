@@ -1,14 +1,16 @@
-#	TWiOSReverseAuthExample 
+#	TWiOSReverseAuthExample
 
-##	Summary 
+##	Summary
 
-This project illustrates how to use the reverse\_auth endpoint to generate a user's access token and secret if you are granted access to the user's ACAccount instance.  The project is configured for building with the iOS6 SDK but conditionally supports iOS5's `Twitter.framework`.  To do this, we link the project against `Twitter.framework` and `Social.framework`, with the linkage to `Social.framework` configured as _optional_.  
+This project illustrates how to use the Twitter API's reverse\_auth endpoint to obtain a user's access token and secret for your application's consumer key and secret.
 
-The latest version of this project can be found at [github](https://github.com/seancook/TWiOS5ReverseAuthExample).
+The project is configured for building with the iOS6 SDK but conditionally supports iOS5's `Twitter.framework`.  To do this, the project is linked against `Twitter.framework` and `Social.framework`, with the linkage to `Social.framework` configured as _optional_.
+
+The latest version of this project can be found at [github](https://github.com/seancook/TWReverseAuthExample).
 
 ### To use the demo:
 
-1. Follow the directions on ["Using Reverse Auth"](https://dev.twitter.com/docs/ios/using-reverse-auth) to obtain reverse auth access for your application.
+1. First, take a look at ["Using Reverse Auth"](https://dev.twitter.com/docs/ios/using-reverse-auth) to understand how the process works.
 2. Add your application's consumer key and secret in Build Settings under the User-Defined flags `TWITTER_CONSUMER_KEY` and `TWITTER_CONSUMER_SECRET`.
 3. Build and run.  Click the button labeled "Perform Token Exchange" to execute the token exchange.
 
