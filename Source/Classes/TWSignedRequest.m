@@ -98,8 +98,8 @@
                                                          _authToken,
                                                          _authTokenSecret);
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
-                                    initWithURL:_url];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:_url];
+    [request setTimeoutInterval:8];    // isn't 8 seconds more than long enough?
     [request setHTTPMethod:method];
     [request setValue:authorizationHeader
    forHTTPHeaderField:TW_HTTP_HEADER_AUTHORIZATION];
