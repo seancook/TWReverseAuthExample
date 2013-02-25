@@ -117,7 +117,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet
 clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex != (actionSheet.numberOfButtons - 1)) {
+    if (buttonIndex != actionSheet.cancelButtonIndex) {
         [_apiManager
          performReverseAuthForAccount:_accounts[buttonIndex]
          withHandler:^(NSData *responseData, NSError *error) {
@@ -210,8 +210,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
             [sheet addButtonWithTitle:acct.username];
         }
 
-        [sheet addButtonWithTitle:@"Cancel"];
-        [sheet setDestructiveButtonIndex:[_accounts count]];
+        sheet.cancelButtonIndex = [sheet addButtonWithTitle:@"Cancel"];
+        
         [sheet showInView:self.view];
     }
     else {
