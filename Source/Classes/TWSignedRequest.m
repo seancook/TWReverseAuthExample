@@ -35,6 +35,8 @@
 #define TW_CONSUMER_KEY @"TWITTER_CONSUMER_KEY"
 #define TW_CONSUMER_SECRET @"TWITTER_CONSUMER_SECRET"
 
+#define REQUEST_TIMEOUT_INTERVAL 8
+
 static NSString *gTWConsumerKey;
 static NSString *gTWConsumerSecret;
 
@@ -101,8 +103,8 @@ static NSString *gTWConsumerSecret;
                                                          _authToken,
                                                          _authTokenSecret);
 
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
-                                    initWithURL:_url];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:_url];
+    [request setTimeoutInterval:REQUEST_TIMEOUT_INTERVAL];
     [request setHTTPMethod:method];
     [request setValue:authorizationHeader
    forHTTPHeaderField:TW_HTTP_HEADER_AUTHORIZATION];
@@ -147,7 +149,7 @@ static NSString *gTWConsumerSecret;
         gTWConsumerSecret = bundle.infoDictionary[TW_CONSUMER_SECRET];
     }
 
-    NSAssert([gTWConsumerSecret length] > 0, @"You must enter your consumer secret Info.plist with the key TWITTER_CONSUMER_SECRET.");
+    NSAssert([gTWConsumerSecret length] > 0, @"You must enter your consumer secret into Info.plist with the key TWITTER_CONSUMER_SECRET.");
 
     return gTWConsumerSecret;
 }
