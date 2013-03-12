@@ -31,7 +31,6 @@
 #define TW_HTTP_METHOD_POST @"POST"
 #define TW_HTTP_METHOD_DELETE @"DELETE"
 #define TW_HTTP_HEADER_AUTHORIZATION @"Authorization"
-
 #define TW_CONSUMER_KEY @"TWITTER_CONSUMER_KEY"
 #define TW_CONSUMER_SECRET @"TWITTER_CONSUMER_SECRET"
 
@@ -55,9 +54,8 @@ static NSString *gTWConsumerSecret;
 @synthesize authToken = _authToken;
 @synthesize authTokenSecret = _authTokenSecret;
 
-- (id)initWithURL:(NSURL *)url
-       parameters:(NSDictionary *)parameters
-    requestMethod:(TWSignedRequestMethod)requestMethod;
+- (id)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters
+    requestMethod:(TWSignedRequestMethod)requestMethod
 {
     self = [super init];
     if (self) {
@@ -93,21 +91,11 @@ static NSString *gTWConsumerSecret;
 
     //  Create the authorization header and attach to our request
     NSData *bodyData = [paramsAsString dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *authorizationHeader = OAuthorizationHeader(_url,
-                                                         method,
-                                                         bodyData,
-                                                         [TWSignedRequest
-                                                          consumerKey],
-                                                         [TWSignedRequest
-                                                          consumerSecret],
-                                                         _authToken,
-                                                         _authTokenSecret);
-
+    NSString *authorizationHeader = OAuthorizationHeader(_url, method, bodyData, [TWSignedRequest consumerKey], [TWSignedRequest consumerSecret], _authToken, _authTokenSecret);
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:_url];
     [request setTimeoutInterval:REQUEST_TIMEOUT_INTERVAL];
     [request setHTTPMethod:method];
-    [request setValue:authorizationHeader
-   forHTTPHeaderField:TW_HTTP_HEADER_AUTHORIZATION];
+    [request setValue:authorizationHeader forHTTPHeaderField:TW_HTTP_HEADER_AUTHORIZATION];
     [request setHTTPBody:bodyData];
 
     return request;
@@ -115,17 +103,12 @@ static NSString *gTWConsumerSecret;
 
 - (void)performRequestWithHandler:(TWSignedRequestHandler)handler
 {
-    dispatch_async(dispatch_get_global_queue
-                   (DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                       NSURLResponse *response;
-                       NSError *error;
-                       NSData *data = [NSURLConnection
-                                       sendSynchronousRequest:
-                                       [self _buildRequest]
-                                       returningResponse:&response
-                                       error:&error];
-                       handler(data, response, error);
-                   });
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSURLResponse *response;
+        NSError *error;
+        NSData *data = [NSURLConnection sendSynchronousRequest:[self _buildRequest] returningResponse:&response error:&error];
+        handler(data, response, error);
+    });
 }
 
 // OBFUSCATE YOUR KEYS!

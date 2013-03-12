@@ -44,9 +44,7 @@ void(^TWSignedRequestHandler)
 @property (nonatomic, copy) NSString *authTokenSecret;
 
 // Creates a new request
-- (id)initWithURL:(NSURL *)url
-       parameters:(NSDictionary *)parameters
-    requestMethod:(TWSignedRequestMethod)requestMethod;
+- (id)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWSignedRequestMethod)requestMethod;
 
 // Perform the request, and notify handler of results
 - (void)performRequestWithHandler:(TWSignedRequestHandler)handler;

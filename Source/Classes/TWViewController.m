@@ -66,8 +66,7 @@
     UIView *view = [[UIView alloc] initWithFrame:appFrame];
     [view setBackgroundColor:[UIColor colorWithWhite:0.502 alpha:1.000]];
 
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:
-                              [UIImage imageNamed:@"twitter.png"]];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"twitter.png"]];
     [view addSubview:imageView];
     [imageView sizeToFit];
     imageView.center = view.center;
@@ -77,15 +76,11 @@
     imageView.frame = imageFrame;
 
     _reverseAuthBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [_reverseAuthBtn setTitle:@"Perform Token Exchange"
-                     forState:UIControlStateNormal];
-    [_reverseAuthBtn addTarget:self
-                        action:@selector(performReverseAuth:)
-              forControlEvents:UIControlEventTouchUpInside];
+    [_reverseAuthBtn setTitle:@"Perform Token Exchange" forState:UIControlStateNormal];
+    [_reverseAuthBtn addTarget:self action:@selector(performReverseAuth:) forControlEvents:UIControlEventTouchUpInside];
     _reverseAuthBtn.frame = buttonFrame;
     _reverseAuthBtn.enabled = NO;
-    [_reverseAuthBtn setTitleColor:[UIColor blackColor]
-                          forState:UIControlStateNormal];
+    [_reverseAuthBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [view addSubview:_reverseAuthBtn];
 
     self.view = view;
@@ -100,11 +95,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(refreshTwitterAccounts)
-     name:ACAccountStoreDidChangeNotification
-     object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTwitterAccounts) name:ACAccountStoreDidChangeNotification object:nil];
 }
 
 - (void)dealloc
@@ -114,37 +105,24 @@
 
 #pragma mark - UIActionSheetDelegate
 
-- (void)actionSheet:(UIActionSheet *)actionSheet
-clickedButtonAtIndex:(NSInteger)buttonIndex
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex != actionSheet.cancelButtonIndex) {
-        [_apiManager
-         performReverseAuthForAccount:_accounts[buttonIndex]
-         withHandler:^(NSData *responseData, NSError *error) {
-             if (responseData) {
-                 NSString *responseStr = [[NSString alloc]
-                                          initWithData:responseData
-                                          encoding:NSUTF8StringEncoding];
+        [_apiManager performReverseAuthForAccount:_accounts[buttonIndex] withHandler:^(NSData *responseData, NSError *error) {
+            if (responseData) {
+                NSString *responseStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+                NSArray *parts = [responseStr componentsSeparatedByString:@"&"];
+                NSString *lined = [parts componentsJoinedByString:@"\n"];
 
-                 NSArray *parts = [responseStr
-                                   componentsSeparatedByString:@"&"];
-
-                 NSString *lined = [parts componentsJoinedByString:@"\n"];
-
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     UIAlertView *alert = [[UIAlertView alloc]
-                                           initWithTitle:@"Success!"
-                                           message:lined
-                                           delegate:nil
-                                           cancelButtonTitle:@"OK"
-                                           otherButtonTitles:nil];
-                     [alert show];
-                 });
-             }
-             else {
-                 NSLog(@"Error!\n%@", [error localizedDescription]);
-             }
-         }];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success!" message:lined delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert show];
+                });
+            }
+            else {
+                NSLog(@"Error!\n%@", [error localizedDescription]);
+            }
+        }];
     }
 }
 
@@ -167,12 +145,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
 
 - (void)obtainAccessToAccountsWithBlock:(void (^)(BOOL))block
 {
-    ACAccountType *twitterType = [_accountStore
-                                  accountTypeWithAccountTypeIdentifier:
-                                  ACAccountTypeIdentifierTwitter];
+    ACAccountType *twitterType = [_accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
 
-    ACAccountStoreRequestAccessCompletionHandler handler =
-    ^(BOOL granted, NSError *error) {
+    ACAccountStoreRequestAccessCompletionHandler handler = ^(BOOL granted, NSError *error) {
         if (granted) {
             self.accounts = [_accountStore accountsWithAccountType:twitterType];
         }
@@ -183,45 +158,29 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
     //  This method changed in iOS6.  If the new version isn't available, fall
     //  back to the original (which means that we're running on iOS5+).
     if ([_accountStore
-         respondsToSelector:@selector(requestAccessToAccountsWithType:
-                                      options:
-                                      completion:)]) {
-             [_accountStore requestAccessToAccountsWithType:twitterType
-                                                    options:nil
-                                                 completion:handler];
-         }
+         respondsToSelector:@selector(requestAccessToAccountsWithType:options:completion:)]) {
+        [_accountStore requestAccessToAccountsWithType:twitterType options:nil completion:handler];
+    }
     else {
-        [_accountStore requestAccessToAccountsWithType:twitterType
-                                 withCompletionHandler:handler];
+        [_accountStore requestAccessToAccountsWithType:twitterType withCompletionHandler:handler];
     }
 }
 
 - (void)performReverseAuth:(id)sender
 {
     if ([TWAPIManager isLocalTwitterAccountAvailable]) {
-        UIActionSheet *sheet = [[UIActionSheet alloc]
-                                initWithTitle:@"Choose an Account"
-                                delegate:self
-                                cancelButtonTitle:nil
-                                destructiveButtonTitle:nil
-                                otherButtonTitles:nil];
+        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Choose an Account" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
 
         for (ACAccount *acct in _accounts) {
             [sheet addButtonWithTitle:acct.username];
         }
 
         sheet.cancelButtonIndex = [sheet addButtonWithTitle:@"Cancel"];
-        
+
         [sheet showInView:self.view];
     }
     else {
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle:@"No Accounts"
-                              message:@"Please configure a Twitter "
-                              "account in Settings.app"
-                              delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Accounts" message:@"Please configure a Twitter account in Settings.app" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
 }
