@@ -40,23 +40,33 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>TWITTER_CONSUMER_KEY</key>
-	<string></string>
-	<key>TWITTER_CONSUMER_SECRET</key>
-	<string></string>
-	<key>UIPrerenderedIcon</key>
-	<true/>
-	<key>UIStatusBarHidden</key>
-	<true/>
-	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleBlackOpaque</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleBlackOpaque</string>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UIPrerenderedIcon</key>
+	<true/>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>//////////////////////////</key>
+	<string></string>
+	<key>+++++++++++++++++</key>
+	<string></string>
+	<key>NOTE: </key>
+	<string>THIS IS FOR EXAMPLE PURPOSES ONLY. DO NOT SHIP YOUR CONSUMER KEYS AS PLAIN TEXT IN YOUR INFO.PLIST!</string>
+	<key>TWITTER_CONSUMER_KEY</key>
+	<string>2CpwWrw2XQwmbsHeBU5EeQ</string>
+	<key>TWITTER_CONSUMER_SECRET</key>
+	<string>GVgAp656YGUUOkctS90ovTPgfPBAO2lfAl3MQGng2ZU</string>
+	<key>#####################</key>
+	<string></string>
+	<key>\\\\\\\\\\\\\\\\\\\\\\\\\\</key>
+	<string></string>
 </dict>
 </plist>
