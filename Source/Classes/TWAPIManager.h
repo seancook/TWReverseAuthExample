@@ -57,16 +57,13 @@ typedef void(^ReverseAuthResponseHandler)(NSData *responseData, NSError *error);
  *      be used in conjunction with your consumer key and secret to make
  *      authenticated calls to Twitter.
  */
-- (void)performReverseAuthForAccount:(ACAccount *)account
-                         withHandler:(ReverseAuthResponseHandler)handler;
+- (void)performReverseAuthForAccount:(ACAccount *)account withHandler:(ReverseAuthResponseHandler)handler;
 
 /**
  *  Returns an instance of either SLRequest or TWRequest, depending on runtime
  *  availability.
  */
-- (id<GenericTwitterRequest>)requestWithUrl:(NSURL *)url
-                                 parameters:(NSDictionary *)dict
-                              requestMethod:(SLRequestMethod )requestMethod;
+- (id<GenericTwitterRequest>)requestWithUrl:(NSURL *)url parameters:(NSDictionary *)dict requestMethod:(SLRequestMethod )requestMethod;
 
 /**
  * Returns true if there are local Twitter accounts available.
