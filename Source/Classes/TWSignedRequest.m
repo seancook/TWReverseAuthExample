@@ -32,8 +32,11 @@
 #define TW_HTTP_METHOD_DELETE @"DELETE"
 #define TW_HTTP_HEADER_AUTHORIZATION @"Authorization"
 
-#define kTWConsumerKey TWITTER_CONSUMER_KEY
-#define kTWConsumerSecret TWITTER_CONSUMER_SECRET
+#define TW_CONSUMER_KEY @"TWITTER_CONSUMER_KEY"
+#define TW_CONSUMER_SECRET @"TWITTER_CONSUMER_SECRET"
+
+static NSString *gTWConsumerKey;
+static NSString *gTWConsumerSecret;
 
 @interface TWSignedRequest()
 {
@@ -66,7 +69,7 @@
 - (NSURLRequest *)_buildRequest
 {
     NSString *method;
-    
+
     switch (_signedRequestMethod) {
         case TWSignedRequestMethodPOST:
             method = TW_HTTP_METHOD_POST;
@@ -78,14 +81,14 @@
         default:
             method = TW_HTTP_METHOD_GET;
     }
-    
+
     //  Build our parameter string
     NSMutableString *paramsAsString = [[NSMutableString alloc] init];
     [_parameters enumerateKeysAndObjectsUsingBlock:
      ^(id key, id obj, BOOL *stop) {
          [paramsAsString appendFormat:@"%@=%@&", key, obj];
      }];
-    
+
     //  Create the authorization header and attach to our request
     NSData *bodyData = [paramsAsString dataUsingEncoding:NSUTF8StringEncoding];
     NSString *authorizationHeader = OAuthorizationHeader(_url,
@@ -97,14 +100,14 @@
                                                           consumerSecret],
                                                          _authToken,
                                                          _authTokenSecret);
-    
+
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
                                     initWithURL:_url];
     [request setHTTPMethod:method];
     [request setValue:authorizationHeader
    forHTTPHeaderField:TW_HTTP_HEADER_AUTHORIZATION];
     [request setHTTPBody:bodyData];
-    
+
     return request;
 }
 
@@ -126,17 +129,27 @@
 // OBFUSCATE YOUR KEYS!
 + (NSString *)consumerKey
 {
-    NSAssert([kTWConsumerKey length] > 0,
-             @"You must enter your consumer key in Build Settings.");
-    return kTWConsumerKey;
+    if (!gTWConsumerKey) {
+        NSBundle* bundle = [NSBundle mainBundle];
+        gTWConsumerKey = bundle.infoDictionary[TW_CONSUMER_KEY];
+    }
+
+    NSAssert([gTWConsumerKey length] > 0, @"You must enter your consumer key into Info.plist with the key TWITTER_CONSUMER_KEY.");
+
+    return gTWConsumerKey;
 }
 
 // OBFUSCATE YOUR KEYS!
 + (NSString *)consumerSecret
 {
-    NSAssert([kTWConsumerSecret length] > 0,
-             @"You must enter your consumer secret in Build Settings.");
-    return kTWConsumerSecret;
+    if (!gTWConsumerSecret) {
+        NSBundle* bundle = [NSBundle mainBundle];
+        gTWConsumerSecret = bundle.infoDictionary[TW_CONSUMER_SECRET];
+    }
+
+    NSAssert([gTWConsumerSecret length] > 0, @"You must enter your consumer secret Info.plist with the key TWITTER_CONSUMER_SECRET.");
+
+    return gTWConsumerSecret;
 }
 
 @end

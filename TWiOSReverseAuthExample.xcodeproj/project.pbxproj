@@ -289,8 +289,6 @@
 				INFOPLIST_FILE = "Source/Other/TWiOSReverseAuthExample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TWITTER_CONSUMER_KEY = "";
-				TWITTER_CONSUMER_SECRET = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -309,8 +307,6 @@
 				INFOPLIST_FILE = "Source/Other/TWiOSReverseAuthExample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TWITTER_CONSUMER_KEY = "";
-				TWITTER_CONSUMER_SECRET = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -42,6 +42,10 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>TWITTER_CONSUMER_KEY</key>
+	<string></string>
+	<key>TWITTER_CONSUMER_SECRET</key>
+	<string></string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIStatusBarHidden</key>
