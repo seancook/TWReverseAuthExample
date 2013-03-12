@@ -16,11 +16,11 @@
     for(NSString *pair in pairs) {
         NSArray *keyValue = [pair componentsSeparatedByString:@"="];
         if([keyValue count] == 2) {
-            NSString *key = [keyValue objectAtIndex:0];
-            NSString *value = [keyValue objectAtIndex:1];
+            NSString *key = keyValue[0];
+            NSString *value = keyValue[1];
             value = [value stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             if(key && value)
-                [dict setObject:value forKey:key];
+                dict[key] = value;
         }
     }
     return [NSDictionary dictionaryWithDictionary:dict];

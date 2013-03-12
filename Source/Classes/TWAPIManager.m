@@ -131,7 +131,7 @@ typedef void(^TWAPIHandler)(NSData *data, NSError *error);
     NSParameterAssert(account);
     NSParameterAssert(signedReverseAuthSignature);
 
-    NSDictionary *step2Params = [NSDictionary dictionaryWithObjectsAndKeys:[TWSignedRequest consumerKey], TW_X_AUTH_REVERSE_TARGET, signedReverseAuthSignature, TW_X_AUTH_REVERSE_PARMS, nil];
+    NSDictionary *step2Params = @{TW_X_AUTH_REVERSE_TARGET: [TWSignedRequest consumerKey], TW_X_AUTH_REVERSE_PARMS: signedReverseAuthSignature};
     NSURL *authTokenURL = [NSURL URLWithString:TW_OAUTH_URL_AUTH_TOKEN];
     id<GenericTwitterRequest> step2Request = [self requestWithUrl:authTokenURL parameters:step2Params requestMethod:SLRequestMethodPOST];
 
@@ -155,7 +155,7 @@ typedef void(^TWAPIHandler)(NSData *data, NSError *error);
 - (void)_step1WithCompletion:(TWAPIHandler)completion
 {
     NSURL *url = [NSURL URLWithString:TW_OAUTH_URL_REQUEST_TOKEN];
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:TW_X_AUTH_MODE_REVERSE_AUTH forKey:TW_X_AUTH_MODE_KEY];
+    NSDictionary *dict = @{TW_X_AUTH_MODE_KEY: TW_X_AUTH_MODE_REVERSE_AUTH};
     TWSignedRequest *step1Request = [[TWSignedRequest alloc] initWithURL:url parameters:dict requestMethod:TWSignedRequestMethodPOST];
 
     [step1Request performRequestWithHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
