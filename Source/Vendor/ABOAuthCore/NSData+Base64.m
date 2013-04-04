@@ -74,7 +74,7 @@
 @implementation NSData (Base64)
 
 //
-// Base-64 (RFC-1521) support.  The following is based on mpack-1.5 (ftp://ftp.andrew.cmu.edu/pub/mpack/)
+// Base-64 (RFC-1521) support. The following is based on mpack-1.5 (ftp://ftp.andrew.cmu.edu/pub/mpack/)
 //
 
 #define XX 127

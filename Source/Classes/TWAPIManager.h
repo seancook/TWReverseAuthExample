@@ -2,7 +2,7 @@
 //    TWAPIManager.h
 //    TWiOSReverseAuthExample
 //
-//    Copyright (c) 2012 Sean Cook
+//    Copyright (c) 2013 Sean Cook
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a
 //    copy of this software and associated documentation files (the
@@ -42,8 +42,8 @@ typedef void(^ReverseAuthResponseHandler)(NSData *responseData, NSError *error);
 @interface TWAPIManager : NSObject
 
 /**
- *  Obtains the access token and secret for |account| using either TWRequest or
- *  SLRequest.
+ *  Obtains the access token and secret for |account| using either `TWRequest` or
+ *  `SLRequest`.
  *
  *  There are two steps required for Reverse Auth:
  *

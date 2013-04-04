@@ -2,7 +2,7 @@
 //    TWAppDelegate.h
 //    TWiOSReverseAuthExample
 //
-//    Copyright (c) 2012 Sean Cook
+//    Copyright (c) 2013 Sean Cook
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a
 //    copy of this software and associated documentation files (the

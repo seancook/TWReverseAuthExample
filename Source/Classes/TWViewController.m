@@ -2,7 +2,7 @@
 //    TWViewController.m
 //    TWiOSReverseAuthExample
 //
-//    Copyright (c) 2012 Sean Cook
+//    Copyright (c) 2013 Sean Cook
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a
 //    copy of this software and associated documentation files (the
@@ -57,24 +57,24 @@
 - (void)loadView
 {
     CGRect appFrame = [UIScreen mainScreen].applicationFrame;
-
+    
     CGRect buttonFrame = appFrame;
     buttonFrame.origin.y = floorf(0.75f * appFrame.size.height);
     buttonFrame.size.height = 44.0f;
     buttonFrame = CGRectInset(buttonFrame, 20, 0);
-
+    
     UIView *view = [[UIView alloc] initWithFrame:appFrame];
     [view setBackgroundColor:[UIColor colorWithWhite:0.502 alpha:1.000]];
-
+    
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"twitter.png"]];
     [view addSubview:imageView];
     [imageView sizeToFit];
     imageView.center = view.center;
-
+    
     CGRect imageFrame = imageView.frame;
     imageFrame.origin.y = floorf(0.25f * appFrame.size.height);
     imageView.frame = imageFrame;
-
+    
     _reverseAuthBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [_reverseAuthBtn setTitle:@"Perform Token Exchange" forState:UIControlStateNormal];
     [_reverseAuthBtn addTarget:self action:@selector(performReverseAuth:) forControlEvents:UIControlEventTouchUpInside];
@@ -82,7 +82,7 @@
     _reverseAuthBtn.enabled = NO;
     [_reverseAuthBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [view addSubview:_reverseAuthBtn];
-
+    
     self.view = view;
 }
 
@@ -111,16 +111,19 @@
         [_apiManager performReverseAuthForAccount:_accounts[buttonIndex] withHandler:^(NSData *responseData, NSError *error) {
             if (responseData) {
                 NSString *responseStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+                
+                TWDLog(@"Reverse Auth process returned: %@", responseStr);
+                
                 NSArray *parts = [responseStr componentsSeparatedByString:@"&"];
                 NSString *lined = [parts componentsJoinedByString:@"\n"];
-
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success!" message:lined delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [alert show];
                 });
             }
             else {
-                NSLog(@"Error!\n%@", [error localizedDescription]);
+                TWALog(@"Reverse Auth process failed. Error returned was: %@\n", [error localizedDescription]);
             }
         }];
     }
@@ -130,14 +133,15 @@
 
 - (void)refreshTwitterAccounts
 {
-    //  Get access to the user's Twitter account(s)
+    TWDLog(@"Refreshing Twitter Accounts \n");
+    
     [self obtainAccessToAccountsWithBlock:^(BOOL granted) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (granted) {
                 _reverseAuthBtn.enabled = YES;
             }
             else {
-                NSLog(@"You were not granted access to the Twitter accounts.");
+                TWALog(@"You were not granted access to the Twitter accounts.");
             }
         });
     }];
@@ -146,19 +150,17 @@
 - (void)obtainAccessToAccountsWithBlock:(void (^)(BOOL))block
 {
     ACAccountType *twitterType = [_accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-
+    
     ACAccountStoreRequestAccessCompletionHandler handler = ^(BOOL granted, NSError *error) {
         if (granted) {
             self.accounts = [_accountStore accountsWithAccountType:twitterType];
         }
-
+        
         block(granted);
     };
-
-    //  This method changed in iOS6.  If the new version isn't available, fall
-    //  back to the original (which means that we're running on iOS5+).
-    if ([_accountStore
-         respondsToSelector:@selector(requestAccessToAccountsWithType:options:completion:)]) {
+    
+    //  This method changed in iOS6. If the new version isn't available, fall back to the original (which means that we're running on iOS5+).
+    if ([_accountStore respondsToSelector:@selector(requestAccessToAccountsWithType:options:completion:)]) {
         [_accountStore requestAccessToAccountsWithType:twitterType options:nil completion:handler];
     }
     else {
@@ -170,13 +172,12 @@
 {
     if ([TWAPIManager isLocalTwitterAccountAvailable]) {
         UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Choose an Account" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
-
+        
         for (ACAccount *acct in _accounts) {
             [sheet addButtonWithTitle:acct.username];
         }
-
+        
         sheet.cancelButtonIndex = [sheet addButtonWithTitle:@"Cancel"];
-
         [sheet showInView:self.view];
     }
     else {

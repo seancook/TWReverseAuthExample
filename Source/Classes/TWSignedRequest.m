@@ -2,7 +2,7 @@
 //    TWSignedRequest.m
 //    TWiOSReverseAuthExample
 //
-//    Copyright (c) 2012 Sean Cook
+//    Copyright (c) 2013 Sean Cook
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a
 //    copy of this software and associated documentation files (the
@@ -54,8 +54,7 @@ static NSString *gTWConsumerSecret;
 @synthesize authToken = _authToken;
 @synthesize authTokenSecret = _authTokenSecret;
 
-- (id)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters
-    requestMethod:(TWSignedRequestMethod)requestMethod
+- (id)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWSignedRequestMethod)requestMethod
 {
     self = [super init];
     if (self) {

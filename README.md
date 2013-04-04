@@ -4,7 +4,7 @@
 
 This project illustrates how to use the Twitter API's reverse\_auth endpoint to obtain a user's access token and secret for your application's consumer key and secret.
 
-The project is configured for building with the iOS6 SDK but conditionally supports iOS5's `Twitter.framework`.  To do this, the project is linked against `Twitter.framework` and `Social.framework`, with the linkage to `Social.framework` configured as _optional_.
+The project is configured for building with the iOS6 SDK but conditionally supports iOS5's `Twitter.framework`. To do this, the project is linked against `Twitter.framework` and `Social.framework`, with the linkage to `Social.framework` configured as _optional_.
 
 The latest version of this project can be found at [github](https://github.com/seancook/TWReverseAuthExample).
 
@@ -12,7 +12,7 @@ The latest version of this project can be found at [github](https://github.com/s
 
 1. First, take a look at ["Using Reverse Auth"](https://dev.twitter.com/docs/ios/using-reverse-auth) to understand how the process works.
 2. Add your application's consumer key and secret to TWiOSReverseAuthExample-Info.plist under the `TWITTER_CONSUMER_KEY` and `TWITTER_CONSUMER_SECRET` keys, respectively.
-3. Build and run.  Click the button labeled "Perform Token Exchange" to execute the token exchange.
+3. Build and run. Click the button labeled "Perform Token Exchange" to execute the token exchange.
 
 ## Author
 
@@ -20,7 +20,7 @@ This example was created by Sean Cook ([@theSeanCook](http://twitter.com/theSean
 
 ###  License
 
-Copyright (c) 2012 Sean Cook
+Copyright (c) 2013 Sean Cook
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

@@ -12,3 +12,19 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+
+//
+// I use a variation of these logging methods in most projects. If anyone knows the original author, please let me know so I can attribute.
+//
+#ifdef DEBUG
+#   define TWDLog(fmt, ...) NSLog((@"\n%s\n" fmt), __PRETTY_FUNCTION__, ##__VA_ARGS__)
+#else
+#   define TWDLog(...)
+#endif
+
+
+//
+//  Logs regardless of debug setting.
+//
+#define TWALog(fmt, ...) NSLog((@"\n%s\n" fmt), __PRETTY_FUNCTION__, ##__VA_ARGS__)
