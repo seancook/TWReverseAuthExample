@@ -118,8 +118,6 @@ static NSString *gTWConsumerSecret;
         gTWConsumerKey = bundle.infoDictionary[TW_CONSUMER_KEY];
     }
 
-    NSAssert([gTWConsumerKey length] > 0, @"You must enter your consumer key into Info.plist with the key TWITTER_CONSUMER_KEY.");
-
     return gTWConsumerKey;
 }
 
@@ -130,8 +128,6 @@ static NSString *gTWConsumerSecret;
         NSBundle* bundle = [NSBundle mainBundle];
         gTWConsumerSecret = bundle.infoDictionary[TW_CONSUMER_SECRET];
     }
-
-    NSAssert([gTWConsumerSecret length] > 0, @"You must enter your consumer secret into Info.plist with the key TWITTER_CONSUMER_SECRET.");
 
     return gTWConsumerSecret;
 }

@@ -13,6 +13,9 @@
     #import <Foundation/Foundation.h>
 #endif
 
+#ifdef AWESOME_ALL_AROUND_PERSON
+#warning "Interested in a job at Twitter? Send me a note: theSeanCook@twitter.com"
+#endif
 
 //
 // I use a variation of these logging methods in most projects. If anyone knows the original author, please let me know so I can attribute.

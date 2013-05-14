@@ -70,4 +70,9 @@ typedef void(^ReverseAuthResponseHandler)(NSData *responseData, NSError *error);
  */
 + (BOOL)isLocalTwitterAccountAvailable;
 
+/**
+ * Returns true if the Info.plist is configured properly.
+ */
++ (BOOL)hasAppKeys;
+
 @end

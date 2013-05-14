@@ -31,6 +31,12 @@
 #import "TWSignedRequest.h"
 #import "TWViewController.h"
 
+#define ERROR_TITLE_MSG @"Whoa, there cowboy"
+#define ERROR_NO_ACCOUNTS @"You must add a Twitter account in Settings.app to use this demo."
+#define ERROR_PERM_ACCESS @"We weren't granted access to the user's accounts"
+#define ERROR_NO_KEYS @"You need to add your Twitter app keys to Info.plist to use this demo.\nPlease see README.md for more info."
+#define ERROR_OK @"OK"
+
 @interface TWViewController()
 
 @property (nonatomic, strong) ACAccountStore *accountStore;
@@ -57,24 +63,24 @@
 - (void)loadView
 {
     CGRect appFrame = [UIScreen mainScreen].applicationFrame;
-    
+
     CGRect buttonFrame = appFrame;
     buttonFrame.origin.y = floorf(0.75f * appFrame.size.height);
     buttonFrame.size.height = 44.0f;
     buttonFrame = CGRectInset(buttonFrame, 20, 0);
-    
+
     UIView *view = [[UIView alloc] initWithFrame:appFrame];
     [view setBackgroundColor:[UIColor colorWithWhite:0.502 alpha:1.000]];
-    
+
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"twitter.png"]];
     [view addSubview:imageView];
     [imageView sizeToFit];
     imageView.center = view.center;
-    
+
     CGRect imageFrame = imageView.frame;
     imageFrame.origin.y = floorf(0.25f * appFrame.size.height);
     imageView.frame = imageFrame;
-    
+
     _reverseAuthBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [_reverseAuthBtn setTitle:@"Perform Token Exchange" forState:UIControlStateNormal];
     [_reverseAuthBtn addTarget:self action:@selector(performReverseAuth:) forControlEvents:UIControlEventTouchUpInside];
@@ -82,7 +88,7 @@
     _reverseAuthBtn.enabled = NO;
     [_reverseAuthBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [view addSubview:_reverseAuthBtn];
-    
+
     self.view = view;
 }
 
@@ -111,12 +117,12 @@
         [_apiManager performReverseAuthForAccount:_accounts[buttonIndex] withHandler:^(NSData *responseData, NSError *error) {
             if (responseData) {
                 NSString *responseStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-                
+
                 TWDLog(@"Reverse Auth process returned: %@", responseStr);
-                
+
                 NSArray *parts = [responseStr componentsSeparatedByString:@"&"];
                 NSString *lined = [parts componentsJoinedByString:@"\n"];
-                
+
                 dispatch_async(dispatch_get_main_queue(), ^{
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success!" message:lined delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [alert show];
@@ -130,35 +136,57 @@
 }
 
 #pragma mark - Private
-
+/**
+ *  Checks for the current Twitter configuration on the device / simulator.
+ *
+ *  First, we check to make sure that we've got keys to work with inside Info.plist (see README)
+ *
+ *  Then we check to see if the device has accounts available via +[TWAPIManager isLocalTwitterAccountAvailable].
+ *
+ *  Next, we ask the user for permission to access his/her accounts.
+ *
+ *  Upon completion, the button to continue will be displayed, or the user will be presented with a status message.
+ */
 - (void)refreshTwitterAccounts
 {
     TWDLog(@"Refreshing Twitter Accounts \n");
-    
-    [self obtainAccessToAccountsWithBlock:^(BOOL granted) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (granted) {
-                _reverseAuthBtn.enabled = YES;
-            }
-            else {
-                TWALog(@"You were not granted access to the Twitter accounts.");
-            }
-        });
-    }];
+
+    if (![TWAPIManager hasAppKeys]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:ERROR_TITLE_MSG message:ERROR_NO_KEYS delegate:nil cancelButtonTitle:ERROR_OK otherButtonTitles:nil];
+        [alert show];
+    }
+    else if (![TWAPIManager isLocalTwitterAccountAvailable]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:ERROR_TITLE_MSG message:ERROR_NO_ACCOUNTS delegate:nil cancelButtonTitle:ERROR_OK otherButtonTitles:nil];
+        [alert show];
+    }
+    else {
+        [self obtainAccessToAccountsWithBlock:^(BOOL granted) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (granted) {
+                    _reverseAuthBtn.enabled = YES;
+                }
+                else {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:ERROR_TITLE_MSG message:ERROR_PERM_ACCESS delegate:nil cancelButtonTitle:ERROR_OK otherButtonTitles:nil];
+                    [alert show];
+                    TWALog(@"You were not granted access to the Twitter accounts.");
+                }
+            });
+        }];
+    }
 }
 
 - (void)obtainAccessToAccountsWithBlock:(void (^)(BOOL))block
 {
     ACAccountType *twitterType = [_accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    
+
     ACAccountStoreRequestAccessCompletionHandler handler = ^(BOOL granted, NSError *error) {
         if (granted) {
             self.accounts = [_accountStore accountsWithAccountType:twitterType];
         }
-        
+
         block(granted);
     };
-    
+
     //  This method changed in iOS6. If the new version isn't available, fall back to the original (which means that we're running on iOS5+).
     if ([_accountStore respondsToSelector:@selector(requestAccessToAccountsWithType:options:completion:)]) {
         [_accountStore requestAccessToAccountsWithType:twitterType options:nil completion:handler];
@@ -168,22 +196,19 @@
     }
 }
 
+/**
+ *  Handles the button press that initiates the token exchange.
+ *
+ *  We check the current configuration inside -[UIViewController viewDidAppear].
+ */
 - (void)performReverseAuth:(id)sender
 {
-    if ([TWAPIManager isLocalTwitterAccountAvailable]) {
-        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Choose an Account" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
-        
-        for (ACAccount *acct in _accounts) {
-            [sheet addButtonWithTitle:acct.username];
-        }
-        
-        sheet.cancelButtonIndex = [sheet addButtonWithTitle:@"Cancel"];
-        [sheet showInView:self.view];
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Choose an Account" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+    for (ACAccount *acct in _accounts) {
+        [sheet addButtonWithTitle:acct.username];
     }
-    else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Accounts" message:@"Please configure a Twitter account in Settings.app" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-    }
+    sheet.cancelButtonIndex = [sheet addButtonWithTitle:@"Cancel"];
+    [sheet showInView:self.view];
 }
 
 @end
