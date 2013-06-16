@@ -32,7 +32,6 @@
 #import "TWViewController.h"
 
 #define ERROR_TITLE_MSG @"Whoa, there cowboy"
-#define ERROR_NO_ACCOUNTS @"You must add a Twitter account in Settings.app to use this demo."
 #define ERROR_PERM_ACCESS @"We weren't granted access to the user's accounts"
 #define ERROR_NO_KEYS @"You need to add your Twitter app keys to Info.plist to use this demo.\nPlease see README.md for more info."
 #define ERROR_OK @"OK"
@@ -92,9 +91,9 @@
     self.view = view;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
     [self refreshTwitterAccounts];
 }
 
@@ -156,8 +155,13 @@
         [alert show];
     }
     else if (![TWAPIManager isLocalTwitterAccountAvailable]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:ERROR_TITLE_MSG message:ERROR_NO_ACCOUNTS delegate:nil cancelButtonTitle:ERROR_OK otherButtonTitles:nil];
-        [alert show];
+        TWTweetComposeViewController *tweetView = [[TWTweetComposeViewController alloc] init];
+        tweetView.view.hidden = YES;
+        tweetView.completionHandler = ^(TWTweetComposeViewControllerResult result) {
+            [self dismissModalViewControllerAnimated:NO];
+        };
+        [self presentModalViewController:tweetView animated:NO];
+        [tweetView.view endEditing:YES];
     }
     else {
         [self obtainAccessToAccountsWithBlock:^(BOOL granted) {
