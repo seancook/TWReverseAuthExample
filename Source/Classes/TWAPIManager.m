@@ -71,7 +71,10 @@ typedef void(^TWAPIHandler)(NSData *data, NSError *error);
         available = [SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter];
     }
     else {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
         available = [TWTweetComposeViewController canSendTweet];
+#pragma GCC diagnostic pop
     }
 
 
@@ -101,7 +104,10 @@ typedef void(^TWAPIHandler)(NSData *data, NSError *error);
     }
     else {
         TWDLog(@"Using request class: TWRequest\n");
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
         return (id<GenericTwitterRequest>) [[TWRequest alloc] initWithURL:url parameters:dict requestMethod:requestMethod];
+#pragma GCC diagnostic pop
     }
 }
 
