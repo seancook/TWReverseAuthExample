@@ -68,7 +68,6 @@ typedef void(^TWAPIHandler)(NSData *data, NSError *error);
 {
     NSParameterAssert(url);
     NSParameterAssert(dict);
-    NSParameterAssert(requestMethod);
 
     return [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:requestMethod URL:url parameters:dict];
 }
