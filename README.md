@@ -4,7 +4,7 @@
 
 This project illustrates how to use the Twitter API's reverse\_auth endpoint to obtain a user's access token and secret for your application's consumer key and secret.
 
-The project is configured for building with the iOS6 SDK but conditionally supports iOS5's `Twitter.framework`. To do this, the project is linked against `Twitter.framework` and `Social.framework`, with the linkage to `Social.framework` configured as _optional_.
+The project is configured for building with the iOS7 SDK with a deployment target of iOS6.
 
 The latest version of this project can be found at [github](https://github.com/seancook/TWReverseAuthExample).
 

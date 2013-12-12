@@ -25,7 +25,6 @@
 //
 
 #import <Accounts/Accounts.h>
-#import <Twitter/Twitter.h>
 #import "OAuth+Additions.h"
 #import "TWAPIManager.h"
 #import "TWSignedRequest.h"
@@ -63,24 +62,24 @@
 - (void)loadView
 {
     CGRect appFrame = [UIScreen mainScreen].applicationFrame;
-
+    
     CGRect buttonFrame = appFrame;
     buttonFrame.origin.y = floorf(0.75f * appFrame.size.height);
     buttonFrame.size.height = 44.0f;
     buttonFrame = CGRectInset(buttonFrame, 20, 0);
-
+    
     UIView *view = [[UIView alloc] initWithFrame:appFrame];
     [view setBackgroundColor:[UIColor colorWithWhite:0.502 alpha:1.000]];
-
+    
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"twitter.png"]];
     [view addSubview:imageView];
     [imageView sizeToFit];
     imageView.center = view.center;
-
+    
     CGRect imageFrame = imageView.frame;
     imageFrame.origin.y = floorf(0.25f * appFrame.size.height);
     imageView.frame = imageFrame;
-
+    
     _reverseAuthBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [_reverseAuthBtn setTitle:@"Perform Token Exchange" forState:UIControlStateNormal];
     [_reverseAuthBtn addTarget:self action:@selector(performReverseAuth:) forControlEvents:UIControlEventTouchUpInside];
@@ -88,20 +87,20 @@
     _reverseAuthBtn.enabled = NO;
     [_reverseAuthBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [view addSubview:_reverseAuthBtn];
-
+    
     self.view = view;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self refreshTwitterAccounts];
+    [self _refreshTwitterAccounts];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTwitterAccounts) name:ACAccountStoreDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_refreshTwitterAccounts) name:ACAccountStoreDidChangeNotification object:nil];
 }
 
 - (void)dealloc
@@ -117,12 +116,12 @@
         [_apiManager performReverseAuthForAccount:_accounts[buttonIndex] withHandler:^(NSData *responseData, NSError *error) {
             if (responseData) {
                 NSString *responseStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-
+                
                 TWDLog(@"Reverse Auth process returned: %@", responseStr);
-
+                
                 NSArray *parts = [responseStr componentsSeparatedByString:@"&"];
                 NSString *lined = [parts componentsJoinedByString:@"\n"];
-
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success!" message:lined delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [alert show];
@@ -147,10 +146,10 @@
  *
  *  Upon completion, the button to continue will be displayed, or the user will be presented with a status message.
  */
-- (void)refreshTwitterAccounts
+- (void)_refreshTwitterAccounts
 {
     TWDLog(@"Refreshing Twitter Accounts \n");
-
+    
     if (![TWAPIManager hasAppKeys]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:ERROR_TITLE_MSG message:ERROR_NO_KEYS delegate:nil cancelButtonTitle:ERROR_OK otherButtonTitles:nil];
         [alert show];
@@ -160,7 +159,7 @@
         [alert show];
     }
     else {
-        [self obtainAccessToAccountsWithBlock:^(BOOL granted) {
+        [self _obtainAccessToAccountsWithBlock:^(BOOL granted) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (granted) {
                     _reverseAuthBtn.enabled = YES;
@@ -175,25 +174,17 @@
     }
 }
 
-- (void)obtainAccessToAccountsWithBlock:(void (^)(BOOL))block
+- (void)_obtainAccessToAccountsWithBlock:(void (^)(BOOL))block
 {
     ACAccountType *twitterType = [_accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-
     ACAccountStoreRequestAccessCompletionHandler handler = ^(BOOL granted, NSError *error) {
         if (granted) {
             self.accounts = [_accountStore accountsWithAccountType:twitterType];
         }
-
+        
         block(granted);
     };
-
-    //  This method changed in iOS6. If the new version isn't available, fall back to the original (which means that we're running on iOS5+).
-    if ([_accountStore respondsToSelector:@selector(requestAccessToAccountsWithType:options:completion:)]) {
-        [_accountStore requestAccessToAccountsWithType:twitterType options:nil completion:handler];
-    }
-    else {
-        [_accountStore requestAccessToAccountsWithType:twitterType withCompletionHandler:handler];
-    }
+    [_accountStore requestAccessToAccountsWithType:twitterType options:NULL completion:handler];
 }
 
 /**

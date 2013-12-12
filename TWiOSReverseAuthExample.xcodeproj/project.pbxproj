@@ -20,7 +20,6 @@
 		CDAACAAE1610E5D9006E4808 /* OAuth+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40A2111610E3060051AE3D /* OAuth+Additions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CDAACAB01610E5D9006E4808 /* OAuthCore.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40A2131610E3060051AE3D /* OAuthCore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CDAACAB11610E5F6006E4808 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF53BCA160BC8C500AD69A6 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		CDAACAB21610E5FA006E4808 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF379951422931E0071ABF7 /* Twitter.framework */; };
 		CDAACAB31610E606006E4808 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD40A1EA1610E0DC0051AE3D /* Default-568h@2x.png */; };
 		CDAACAB41610E606006E4808 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CD40A1EB1610E0DC0051AE3D /* Default.png */; };
 		CDAACAB51610E606006E4808 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD40A1EC1610E0DC0051AE3D /* Default@2x.png */; };
@@ -70,7 +69,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD3557481610E7290004F744 /* Accounts.framework in Frameworks */,
-				CDAACAB21610E5FA006E4808 /* Twitter.framework in Frameworks */,
 				CDAACAB11610E5F6006E4808 /* Social.framework in Frameworks */,
 				CDAACA6B1610E55A006E4808 /* UIKit.framework in Frameworks */,
 				CDAACA6C1610E55A006E4808 /* Foundation.framework in Frameworks */,
@@ -287,7 +285,7 @@
 				GCC_PREFIX_HEADER = "Source/Other/TWiOSReverseAuthExample-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				INFOPLIST_FILE = "Source/Other/TWiOSReverseAuthExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -305,7 +303,7 @@
 				GCC_PREFIX_HEADER = "Source/Other/TWiOSReverseAuthExample-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				INFOPLIST_FILE = "Source/Other/TWiOSReverseAuthExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -331,7 +329,7 @@
 				GCC_WARN_PEDANTIC = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = NO;
@@ -354,7 +352,7 @@
 				GCC_WARN_PEDANTIC = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = NO;

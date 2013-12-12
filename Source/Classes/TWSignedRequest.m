@@ -44,6 +44,7 @@ static NSString *gTWConsumerSecret;
     NSURL *_url;
     NSDictionary *_parameters;
     TWSignedRequestMethod _signedRequestMethod;
+    NSOperationQueue *_signedRequestQueue;
 }
 
 - (NSURLRequest *)_buildRequest;
@@ -61,6 +62,7 @@ static NSString *gTWConsumerSecret;
         _url = url;
         _parameters = parameters;
         _signedRequestMethod = requestMethod;
+        _signedRequestQueue = [[NSOperationQueue alloc] init];
     }
     return self;
 }
@@ -68,7 +70,7 @@ static NSString *gTWConsumerSecret;
 - (NSURLRequest *)_buildRequest
 {
     NSString *method;
-
+    
     switch (_signedRequestMethod) {
         case TWSignedRequestMethodPOST:
             method = TW_HTTP_METHOD_POST;
@@ -80,14 +82,14 @@ static NSString *gTWConsumerSecret;
         default:
             method = TW_HTTP_METHOD_GET;
     }
-
+    
     //  Build our parameter string
     NSMutableString *paramsAsString = [[NSMutableString alloc] init];
     [_parameters enumerateKeysAndObjectsUsingBlock:
      ^(id key, id obj, BOOL *stop) {
          [paramsAsString appendFormat:@"%@=%@&", key, obj];
      }];
-
+    
     //  Create the authorization header and attach to our request
     NSData *bodyData = [paramsAsString dataUsingEncoding:NSUTF8StringEncoding];
     NSString *authorizationHeader = OAuthorizationHeader(_url, method, bodyData, [TWSignedRequest consumerKey], [TWSignedRequest consumerSecret], _authToken, _authTokenSecret);
@@ -96,18 +98,16 @@ static NSString *gTWConsumerSecret;
     [request setHTTPMethod:method];
     [request setValue:authorizationHeader forHTTPHeaderField:TW_HTTP_HEADER_AUTHORIZATION];
     [request setHTTPBody:bodyData];
-
+    
     return request;
 }
 
 - (void)performRequestWithHandler:(TWSignedRequestHandler)handler
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSURLResponse *response;
-        NSError *error;
-        NSData *data = [NSURLConnection sendSynchronousRequest:[self _buildRequest] returningResponse:&response error:&error];
-        handler(data, response, error);
-    });
+    NSURLRequest *request = [self _buildRequest];
+    [NSURLConnection sendAsynchronousRequest:request queue:_signedRequestQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        handler(data, response, connectionError);
+    }];
 }
 
 // OBFUSCATE YOUR KEYS!
@@ -117,7 +117,7 @@ static NSString *gTWConsumerSecret;
         NSBundle* bundle = [NSBundle mainBundle];
         gTWConsumerKey = bundle.infoDictionary[TW_CONSUMER_KEY];
     }
-
+    
     return gTWConsumerKey;
 }
 
@@ -128,7 +128,7 @@ static NSString *gTWConsumerSecret;
         NSBundle* bundle = [NSBundle mainBundle];
         gTWConsumerSecret = bundle.infoDictionary[TW_CONSUMER_SECRET];
     }
-
+    
     return gTWConsumerSecret;
 }
 

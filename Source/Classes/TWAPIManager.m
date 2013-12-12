@@ -47,38 +47,13 @@ typedef void(^TWAPIHandler)(NSData *data, NSError *error);
 /**
  *  Returns true if there are local Twitter accounts available for use.
  *
- *  Both iOS5 and iOS6 provide convenience methods to check if accounts are
- *  available locally. Here, we just call the method that is available at
- *  run-time.
+ *  NOTE: The system will report an account as being present even if the 
+ *  account's tokens are no longer valid. For extra protection, you should
+ *  verify the user's credentials with a call to /1.1/accounts/verify_credentials
  */
 + (BOOL)isLocalTwitterAccountAvailable
 {
-    BOOL available = NO;
-
-#if TARGET_IPHONE_SIMULATOR
-
-    /**
-     *  NB: There have been many reports of +[SLComposeViewController isAvailableForServiceType] not
-     *  working on the iOS Simulator. To avoid any confusion, we'll use the more reliable method
-     *  from Twitter.framework.
-     */
-    TWDLog(@"We're running in the Simulator. Using fallback check via Twitter.framework");
-    available = [TWTweetComposeViewController canSendTweet];
-
-#else
-
-    if ([SLComposeViewController class]) {
-        available = [SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter];
-    }
-    else {
-        available = [TWTweetComposeViewController canSendTweet];
-    }
-
-
-#endif
-
-    TWDLog(@"Returning: %@", (available) ? @"YES": @"NO");
-    return available;
+    return [SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter];
 }
 
 /**
@@ -89,20 +64,13 @@ typedef void(^TWAPIHandler)(NSData *data, NSError *error);
  *  @dict               The API parameters to include with the request
  *  @requestMethod      The HTTP method to use
  */
-- (id<GenericTwitterRequest>)requestWithUrl:(NSURL *)url parameters:(NSDictionary *)dict requestMethod:(SLRequestMethod )requestMethod
+- (SLRequest *)requestWithUrl:(NSURL *)url parameters:(NSDictionary *)dict requestMethod:(SLRequestMethod )requestMethod
 {
     NSParameterAssert(url);
     NSParameterAssert(dict);
     NSParameterAssert(requestMethod);
 
-    if ([SLRequest class]) {
-        TWDLog(@"Using request class: SLRequest\n");
-        return (id<GenericTwitterRequest>) [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:requestMethod URL:url parameters:dict];
-    }
-    else {
-        TWDLog(@"Using request class: TWRequest\n");
-        return (id<GenericTwitterRequest>) [[TWRequest alloc] initWithURL:url parameters:dict requestMethod:requestMethod];
-    }
+    return [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:requestMethod URL:url parameters:dict];
 }
 
 /**
@@ -164,7 +132,7 @@ typedef void(^TWAPIHandler)(NSData *data, NSError *error);
 
     NSDictionary *step2Params = @{TW_X_AUTH_REVERSE_TARGET: [TWSignedRequest consumerKey], TW_X_AUTH_REVERSE_PARMS: signedReverseAuthSignature};
     NSURL *authTokenURL = [NSURL URLWithString:TW_OAUTH_URL_AUTH_TOKEN];
-    id<GenericTwitterRequest> step2Request = [self requestWithUrl:authTokenURL parameters:step2Params requestMethod:SLRequestMethodPOST];
+    SLRequest *step2Request = [self requestWithUrl:authTokenURL parameters:step2Params requestMethod:SLRequestMethodPOST];
 
     TWDLog(@"Step 2: Sending a request to %@\nparameters %@\n", authTokenURL, step2Params);
 
