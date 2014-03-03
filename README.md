@@ -7,12 +7,16 @@ To replace Parse's OAuth process with deep iOS Twitter integration (pictures inc
 
 2. Drag my "SuperParseTwitter" sub-folder into your project (make sure to check the "copy" box when prompted).
 
-3. In your view controller that contains the Parse login block, make 2 replacements:
+3. Add the following frameworks to your project (Select your project in the navigator, then your target, then the “Build Phases” tab, and look for the “Link Binary with Libraries” section):
+  - Accounts.framework
+  - Social.framework
+
+4. In your view controller that contains the Parse login block, make 2 replacements:
   1. Change `#import <Parse/Parse.h>` to `#import "SuperParseTwitter.h"`
   
   2. Change `[PFTwitterUtils logInWithBlock:...];` to `[SuperParseTwitter logInWithBlock:...];`
 
-4. Configure your Twitter app keys in SuperParseTwitter.m (the app will throw warnings and log errors if you don't).
+5. Configure your Twitter app keys in SuperParseTwitter.m (the app will throw warnings if you don't).
 
 ###You're done! Now you'll see none of this:
 

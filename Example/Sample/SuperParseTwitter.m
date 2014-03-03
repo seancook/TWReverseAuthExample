@@ -63,16 +63,16 @@
 + (NSString *)consumerKey
 {
     //TODO: ENTER YOUR CONSUMER KEY HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-#warning Enter your Twitter consumer key here!
-    return nil;
+#warning Return your Twitter consumer key here!
+    return @"YOUR_CONSUMER_KEY_HERE";
 }
 
 // OBFUSCATE YOUR KEYS!
 + (NSString *)consumerSecret
 {
     //TODO: ENTER YOUR CONSUMER SECRET HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-#warning Enter your Twitter consumer secret here!
-    return nil;
+#warning Return your Twitter consumer secret here!
+    return @"YOUR_CONSUMER_SECRET_HERE";
 }
 
 

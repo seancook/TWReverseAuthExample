@@ -23,8 +23,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     
-    
-    
     [SuperParseTwitter logInWithView:self.view Block:^(PFUser *user, NSError *error) {
         if (!user) {
             NSLog(@"Uh oh. The user cancelled the Twitter login.");
