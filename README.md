@@ -14,15 +14,9 @@
 2. Download this project, and drag the "SuperParseTwitter" folder into your project (make sure to check the "copy" box when prompted).
 
 3. In your ViewController that contains the Parse login block, make 2 replacements:
-  1. Change 
-    #import <Parse/Parse.h>
-to
-    #import "SuperParseTwitter"
+  1. Change `#import <Parse/Parse.h>` to `#import "SuperParseTwitter.h"`
   
-  2. Change
-    [PFTwitterUtils logInWithBlock:
-to
-    [SuperParseTwitter logInWithBlock:'''
+  2. Change `[PFTwitterUtils logInWithBlock:...];` to `[SuperParseTwitter logInWithBlock:...];`
 
 4. Configure your Twitter app keys in SuperParseTwitter.m (the app will throw warnings and log errors if you don't).
 
