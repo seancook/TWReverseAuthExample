@@ -39,4 +39,5 @@ At the time of writing, I can find no other drop-in libraries that provide this 
 
 ##Suggested Updates
 - Come up with a clever way to pull obfuscated keys from the same spot in both SuperParseTwitter.m and AppDelegate.m
+- Include support for linking an existing PFUser to a Twitter account. But really, who does that?
 - General code clean-up. Any help is appreciated; just initiate a pull-request!
