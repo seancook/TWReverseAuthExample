@@ -135,6 +135,12 @@
 }
 
 #pragma mark - Private
+- (void)_displayAlertWithMessage:(NSString *)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:ERROR_TITLE_MSG message:message delegate:nil cancelButtonTitle:ERROR_OK otherButtonTitles:nil];
+    [alert show];
+}
+
 /**
  *  Checks for the current Twitter configuration on the device / simulator.
  *
@@ -151,12 +157,10 @@
     TWDLog(@"Refreshing Twitter Accounts \n");
     
     if (![TWAPIManager hasAppKeys]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:ERROR_TITLE_MSG message:ERROR_NO_KEYS delegate:nil cancelButtonTitle:ERROR_OK otherButtonTitles:nil];
-        [alert show];
+        [self _displayAlertWithMessage:ERROR_NO_KEYS];
     }
     else if (![TWAPIManager isLocalTwitterAccountAvailable]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:ERROR_TITLE_MSG message:ERROR_NO_ACCOUNTS delegate:nil cancelButtonTitle:ERROR_OK otherButtonTitles:nil];
-        [alert show];
+        [self _displayAlertWithMessage:ERROR_NO_ACCOUNTS];
     }
     else {
         [self _obtainAccessToAccountsWithBlock:^(BOOL granted) {
@@ -165,8 +169,7 @@
                     _reverseAuthBtn.enabled = YES;
                 }
                 else {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:ERROR_TITLE_MSG message:ERROR_PERM_ACCESS delegate:nil cancelButtonTitle:ERROR_OK otherButtonTitles:nil];
-                    [alert show];
+                    [self _displayAlertWithMessage:ERROR_PERM_ACCESS];
                     TWALog(@"You were not granted access to the Twitter accounts.");
                 }
             });
