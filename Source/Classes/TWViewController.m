@@ -24,7 +24,8 @@
 //    USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Accounts/Accounts.h>
+@import Accounts;
+
 #import "OAuth+Additions.h"
 #import "TWAPIManager.h"
 #import "TWSignedRequest.h"

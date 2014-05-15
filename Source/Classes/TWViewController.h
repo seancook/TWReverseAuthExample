@@ -24,7 +24,7 @@
 //    USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface TWViewController : UIViewController<UIActionSheetDelegate>
 
