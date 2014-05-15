@@ -37,8 +37,8 @@
 #define ERROR_NO_KEYS @"You need to add your Twitter app keys to Info.plist to use this demo.\nPlease see README.md for more info."
 #define ERROR_OK @"OK"
 
-#define ONE_FOURTH 0.25f
-#define THREE_FOURTHS 3 * 0.25f
+#define ONE_FOURTH_OF(_X) floorf(0.25f * _X)
+#define THREE_FOURTHS_OF(_X) floorf(3 * ONE_FOURTH_OF(_X))
 
 @interface TWViewController()
 
@@ -68,7 +68,7 @@
     CGRect appFrame = [UIScreen mainScreen].applicationFrame;
     
     CGRect buttonFrame = appFrame;
-    buttonFrame.origin.y = floorf(THREE_FOURTHS * appFrame.size.height);
+    buttonFrame.origin.y = THREE_FOURTHS_OF(appFrame.size.height);  //floorf(THREE_FOURTHS_OF * appFrame.size.height);
     buttonFrame.size.height = 44.0f;
     buttonFrame = CGRectInset(buttonFrame, 20, 0);
     
@@ -81,7 +81,7 @@
     imageView.center = view.center;
     
     CGRect imageFrame = imageView.frame;
-    imageFrame.origin.y = floorf(ONE_FOURTH * appFrame.size.height);
+    imageFrame.origin.y = ONE_FOURTH_OF(appFrame.size.height);
     imageView.frame = imageFrame;
     
     _reverseAuthBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
