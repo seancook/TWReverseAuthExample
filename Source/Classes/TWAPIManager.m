@@ -61,9 +61,9 @@ typedef void(^TWAPIHandler)(NSData *data, NSError *error);
  *  Returns a generic self-signing request that can be used to perform Twitter
  *  API requests.
  *
- *  @param              The URL of the endpoint to retrieve
- *  @dict               The API parameters to include with the request
- *  @requestMethod      The HTTP method to use
+ *  @param  url             The URL of the endpoint to retrieve
+ *  @param  dict            The API parameters to include with the request
+ *  @param  requestMethod   The HTTP method to use
  */
 - (SLRequest *)requestWithUrl:(NSURL *)url parameters:(NSDictionary *)dict requestMethod:(SLRequestMethod )requestMethod
 {
