@@ -7,13 +7,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSURL (OAuthAdditions)
-
-+ (NSDictionary *)ab_parseURLQueryString:(NSString *)query;
-
-@end
-
 @interface NSString (OAuthAdditions)
+
+- (NSDictionary *)ab_parseURLQueryString;
 
 + (NSString *)ab_GUID;
 - (NSString *)ab_RFC3986EncodedString;
