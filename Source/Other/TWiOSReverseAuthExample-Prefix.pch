@@ -18,7 +18,8 @@
 #endif
 
 //
-// I use a variation of these logging methods in most projects. If anyone knows the original author, please let me know so I can attribute.
+// I use a variation of these logging methods in most projects.
+// Based on http://stackoverflow.com/a/969291/48062
 //
 #ifdef DEBUG
 #   define TWDLog(fmt, ...) NSLog((@"\n%s\n" fmt), __PRETTY_FUNCTION__, ##__VA_ARGS__)
