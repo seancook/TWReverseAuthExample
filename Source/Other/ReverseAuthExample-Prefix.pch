@@ -12,19 +12,3 @@
 #ifdef AWESOME_ALL_AROUND_PERSON
 #warning "Interested in a job at Twitter? Send me a note: theSeanCook@twitter.com"
 #endif
-
-//
-// I use a variation of these logging methods in most projects.
-// Based on http://stackoverflow.com/a/969291/48062
-//
-#ifdef DEBUG
-#   define TWDLog(fmt, ...) NSLog((@"\n%s\n" fmt), __PRETTY_FUNCTION__, ##__VA_ARGS__)
-#else
-#   define TWDLog(...)
-#endif
-
-
-//
-//  Logs regardless of debug setting.
-//
-#define TWALog(fmt, ...) NSLog((@"\n%s\n" fmt), __PRETTY_FUNCTION__, ##__VA_ARGS__)

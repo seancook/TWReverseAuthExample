@@ -75,9 +75,6 @@ typedef void(^TWTAPIHandler)(NSData *data, NSError *error);
  */
 - (SLRequest *)requestWithUrl:(NSURL *)url parameters:(NSDictionary *)dict requestMethod:(SLRequestMethod)requestMethod
 {
-    NSParameterAssert(url);
-    NSParameterAssert(dict);
-
     return [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:requestMethod URL:url parameters:dict];
 }
 
@@ -92,11 +89,8 @@ typedef void(^TWTAPIHandler)(NSData *data, NSError *error);
  */
 - (void)performReverseAuthForAccount:(ACAccount *)account withHandler:(TWTAPIHandler)handler
 {
-    NSParameterAssert(account);
     [self _step1WithCompletion:^(NSData *data, NSError *error) {
         if (!data) {
-            TWDLog(@"Step 1 FAILED with error %@\n", [error localizedDescription]);
-
             dispatch_async(dispatch_get_main_queue(), ^{
                 handler(nil, error);
             });
@@ -126,15 +120,9 @@ typedef void(^TWTAPIHandler)(NSData *data, NSError *error);
  */
 - (void)_step2WithAccount:(ACAccount *)account signature:(NSString *)signedReverseAuthSignature andHandler:(TWTAPIHandler)completion
 {
-    NSParameterAssert(account);
-    NSParameterAssert(signedReverseAuthSignature);
-
     NSDictionary *step2Params = @{TWT_X_AUTH_REVERSE_TARGET: [TWTSignedRequest consumerKey], TWT_X_AUTH_REVERSE_PARMS: signedReverseAuthSignature};
     NSURL *authTokenURL = [NSURL URLWithString:TWT_OAUTH_URL_AUTH_TOKEN];
     SLRequest *step2Request = [self requestWithUrl:authTokenURL parameters:step2Params requestMethod:SLRequestMethodPOST];
-
-    TWDLog(@"Step 2: Sending a request to %@\nparameters %@\n", authTokenURL, step2Params);
-
     [step2Request setAccount:account];
     [step2Request performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -154,11 +142,8 @@ typedef void(^TWTAPIHandler)(NSData *data, NSError *error);
 - (void)_step1WithCompletion:(TWTAPIHandler)completion
 {
     NSURL *url = [NSURL URLWithString:TWT_OAUTH_URL_REQUEST_TOKEN];
-    NSDictionary *dict = @{TWT_X_AUTH_MODE_KEY: TWT_X_AUTH_MODE_REVERSE_AUTH};
-    TWTSignedRequest *step1Request = [[TWTSignedRequest alloc] initWithURL:url parameters:dict requestMethod:TWSignedRequestMethodPOST];
-
-    TWDLog(@"Step 1: Sending a request to %@\nparameters %@\n", url, dict);
-
+    NSDictionary *params = @{TWT_X_AUTH_MODE_KEY: TWT_X_AUTH_MODE_REVERSE_AUTH};
+    TWTSignedRequest *step1Request = [[TWTSignedRequest alloc] initWithURL:url parameters:params requestMethod:TWSignedRequestMethodPOST];
     [step1Request performRequestWithHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             completion(data, error);

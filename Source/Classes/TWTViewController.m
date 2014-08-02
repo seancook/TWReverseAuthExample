@@ -87,8 +87,8 @@
     _reverseAuthBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [_reverseAuthBtn setTitle:@"Perform Token Exchange" forState:UIControlStateNormal];
     [_reverseAuthBtn addTarget:self action:@selector(performReverseAuth:) forControlEvents:UIControlEventTouchUpInside];
-    _reverseAuthBtn.frame = buttonFrame;
-    _reverseAuthBtn.enabled = NO;
+    [_reverseAuthBtn setFrame:buttonFrame];
+    [_reverseAuthBtn setEnabled:NO];
     [_reverseAuthBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [view addSubview:_reverseAuthBtn];
     
@@ -120,9 +120,6 @@
         [_apiManager performReverseAuthForAccount:_accounts[buttonIndex] withHandler:^(NSData *responseData, NSError *error) {
             if (responseData) {
                 NSString *responseStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-                
-                TWDLog(@"Reverse Auth process returned: %@", responseStr);
-                
                 NSArray *parts = [responseStr componentsSeparatedByString:@"&"];
                 NSString *lined = [parts componentsJoinedByString:@"\n"];
                 
@@ -132,13 +129,14 @@
                 });
             }
             else {
-                TWALog(@"Reverse Auth process failed. Error returned was: %@\n", [error localizedDescription]);
+                NSLog(@"Reverse Auth process failed. Error returned was: %@\n", [error localizedDescription]);
             }
         }];
     }
 }
 
 #pragma mark - Private
+
 - (void)_displayAlertWithMessage:(NSString *)message
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:ERROR_TITLE_MSG message:message delegate:nil cancelButtonTitle:ERROR_OK otherButtonTitles:nil];
@@ -158,8 +156,6 @@
  */
 - (void)_refreshTwitterAccounts
 {
-    TWDLog(@"Refreshing Twitter Accounts \n");
-    
     if (![TWTAPIManager hasAppKeys]) {
         [self _displayAlertWithMessage:ERROR_NO_KEYS];
     }
@@ -174,7 +170,6 @@
                 }
                 else {
                     [self _displayAlertWithMessage:ERROR_PERM_ACCESS];
-                    TWALog(@"You were not granted access to the Twitter accounts.");
                 }
             });
         }];
