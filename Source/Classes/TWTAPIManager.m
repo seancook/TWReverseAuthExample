@@ -32,7 +32,16 @@
 #import "TWTAPIManager.h"
 #import "TWTSignedRequest.h"
 
-typedef void(^TWAPIHandler)(NSData *data, NSError *error);
+#define TW_API_ROOT                  @"https://api.twitter.com"
+#define TW_X_AUTH_MODE_KEY           @"x_auth_mode"
+#define TW_X_AUTH_MODE_REVERSE_AUTH  @"reverse_auth"
+#define TW_X_AUTH_MODE_CLIENT_AUTH   @"client_auth"
+#define TW_X_AUTH_REVERSE_PARMS      @"x_reverse_auth_parameters"
+#define TW_X_AUTH_REVERSE_TARGET     @"x_reverse_auth_target"
+#define TW_OAUTH_URL_REQUEST_TOKEN   TW_API_ROOT "/oauth/request_token"
+#define TW_OAUTH_URL_AUTH_TOKEN      TW_API_ROOT "/oauth/access_token"
+
+typedef void(^TWTAPIHandler)(NSData *data, NSError *error);
 
 @implementation TWTAPIManager
 
@@ -65,7 +74,7 @@ typedef void(^TWAPIHandler)(NSData *data, NSError *error);
  *  @param  dict            The API parameters to include with the request
  *  @param  requestMethod   The HTTP method to use
  */
-- (SLRequest *)requestWithUrl:(NSURL *)url parameters:(NSDictionary *)dict requestMethod:(SLRequestMethod )requestMethod
+- (SLRequest *)requestWithUrl:(NSURL *)url parameters:(NSDictionary *)dict requestMethod:(SLRequestMethod)requestMethod
 {
     NSParameterAssert(url);
     NSParameterAssert(dict);
@@ -82,7 +91,7 @@ typedef void(^TWAPIHandler)(NSData *data, NSError *error);
  *  @param handler  The block to call upon completion. Will be called on the
  *                  main thread.
  */
-- (void)performReverseAuthForAccount:(ACAccount *)account withHandler:(TWAPIHandler)handler
+- (void)performReverseAuthForAccount:(ACAccount *)account withHandler:(TWTAPIHandler)handler
 {
     NSParameterAssert(account);
     [self _step1WithCompletion:^(NSData *data, NSError *error) {
@@ -104,15 +113,6 @@ typedef void(^TWAPIHandler)(NSData *data, NSError *error);
     }];
 }
 
-#define TW_API_ROOT                  @"https://api.twitter.com"
-#define TW_X_AUTH_MODE_KEY           @"x_auth_mode"
-#define TW_X_AUTH_MODE_REVERSE_AUTH  @"reverse_auth"
-#define TW_X_AUTH_MODE_CLIENT_AUTH   @"client_auth"
-#define TW_X_AUTH_REVERSE_PARMS      @"x_reverse_auth_parameters"
-#define TW_X_AUTH_REVERSE_TARGET     @"x_reverse_auth_target"
-#define TW_OAUTH_URL_REQUEST_TOKEN   TW_API_ROOT "/oauth/request_token"
-#define TW_OAUTH_URL_AUTH_TOKEN      TW_API_ROOT "/oauth/access_token"
-
 /**
  *  The second stage of Reverse Auth.
  *
@@ -125,7 +125,7 @@ typedef void(^TWAPIHandler)(NSData *data, NSError *error);
  *  @param completion                   The block to call when finished. Can be called on any
  *                                      thread.
  */
-- (void)_step2WithAccount:(ACAccount *)account signature:(NSString *)signedReverseAuthSignature andHandler:(TWAPIHandler)completion
+- (void)_step2WithAccount:(ACAccount *)account signature:(NSString *)signedReverseAuthSignature andHandler:(TWTAPIHandler)completion
 {
     NSParameterAssert(account);
     NSParameterAssert(signedReverseAuthSignature);
@@ -152,7 +152,7 @@ typedef void(^TWAPIHandler)(NSData *data, NSError *error);
  *
  *  @param completion   The block to call when finished. Can be called on any thread.
  */
-- (void)_step1WithCompletion:(TWAPIHandler)completion
+- (void)_step1WithCompletion:(TWTAPIHandler)completion
 {
     NSURL *url = [NSURL URLWithString:TW_OAUTH_URL_REQUEST_TOKEN];
     NSDictionary *dict = @{TW_X_AUTH_MODE_KEY: TW_X_AUTH_MODE_REVERSE_AUTH};

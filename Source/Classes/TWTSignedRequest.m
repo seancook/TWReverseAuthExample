@@ -47,13 +47,9 @@ static NSString *gTWConsumerSecret;
     NSOperationQueue *_signedRequestQueue;
 }
 
-- (NSURLRequest *)_buildRequest;
-
 @end
 
 @implementation TWTSignedRequest
-@synthesize authToken = _authToken;
-@synthesize authTokenSecret = _authTokenSecret;
 
 - (id)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWSignedRequestMethod)requestMethod
 {
