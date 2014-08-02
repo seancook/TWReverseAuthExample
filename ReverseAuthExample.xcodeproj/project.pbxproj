@@ -30,8 +30,8 @@
 
 /* Begin PBXFileReference section */
 		CD14C12214B3A92B00B8A188 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		CD21A6191610E4EA002E73B7 /* TWiOSReverseAuthExample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TWiOSReverseAuthExample-Info.plist"; sourceTree = "<group>"; };
-		CD21A61A1610E4EA002E73B7 /* TWiOSReverseAuthExample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TWiOSReverseAuthExample-Prefix.pch"; sourceTree = "<group>"; };
+		CD21A6191610E4EA002E73B7 /* ReverseAuthExample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ReverseAuthExample-Info.plist"; sourceTree = "<group>"; };
+		CD21A61A1610E4EA002E73B7 /* ReverseAuthExample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ReverseAuthExample-Prefix.pch"; sourceTree = "<group>"; };
 		CD40A1EA1610E0DC0051AE3D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CD40A1EB1610E0DC0051AE3D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		CD40A1EC1610E0DC0051AE3D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -120,8 +120,8 @@
 		CD40A2061610E3060051AE3D /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				CD21A6191610E4EA002E73B7 /* TWiOSReverseAuthExample-Info.plist */,
-				CD21A61A1610E4EA002E73B7 /* TWiOSReverseAuthExample-Prefix.pch */,
+				CD21A6191610E4EA002E73B7 /* ReverseAuthExample-Info.plist */,
+				CD21A61A1610E4EA002E73B7 /* ReverseAuthExample-Prefix.pch */,
 				CD40A2071610E3060051AE3D /* InfoPlist.strings */,
 				CD40A2091610E3060051AE3D /* main.m */,
 			);
@@ -184,9 +184,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CDAACA681610E55A006E4808 /* ReverseAuth */ = {
+		CDAACA681610E55A006E4808 /* ReverseAuthSampleApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CDAACA9C1610E55A006E4808 /* Build configuration list for PBXNativeTarget "ReverseAuth" */;
+			buildConfigurationList = CDAACA9C1610E55A006E4808 /* Build configuration list for PBXNativeTarget "ReverseAuthSampleApp" */;
 			buildPhases = (
 				CDAACA651610E55A006E4808 /* Sources */,
 				CDAACA661610E55A006E4808 /* Frameworks */,
@@ -196,7 +196,7 @@
 			);
 			dependencies = (
 			);
-			name = ReverseAuth;
+			name = ReverseAuthSampleApp;
 			productName = ReverseAuth;
 			productReference = CDAACA691610E55A006E4808 /* ReverseAuth.app */;
 			productType = "com.apple.product-type.application";
@@ -215,7 +215,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CDF37956142291940071ABF7 /* Build configuration list for PBXProject "TWiOSReverseAuthExample" */;
+			buildConfigurationList = CDF37956142291940071ABF7 /* Build configuration list for PBXProject "ReverseAuthExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -227,7 +227,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CDAACA681610E55A006E4808 /* ReverseAuth */,
+				CDAACA681610E55A006E4808 /* ReverseAuthSampleApp */,
 			);
 		};
 /* End PBXProject section */
@@ -289,9 +289,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Source/Other/TWiOSReverseAuthExample-Prefix.pch";
+				GCC_PREFIX_HEADER = "Source/Other/ReverseAuthExample-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "Source/Other/TWiOSReverseAuthExample-Info.plist";
+				INFOPLIST_FILE = "Source/Other/ReverseAuthExample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -310,9 +310,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Source/Other/TWiOSReverseAuthExample-Prefix.pch";
+				GCC_PREFIX_HEADER = "Source/Other/ReverseAuthExample-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "Source/Other/TWiOSReverseAuthExample-Info.plist";
+				INFOPLIST_FILE = "Source/Other/ReverseAuthExample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -384,7 +384,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CDAACA9C1610E55A006E4808 /* Build configuration list for PBXNativeTarget "ReverseAuth" */ = {
+		CDAACA9C1610E55A006E4808 /* Build configuration list for PBXNativeTarget "ReverseAuthSampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CDAACA9D1610E55A006E4808 /* Debug */,
@@ -393,7 +393,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CDF37956142291940071ABF7 /* Build configuration list for PBXProject "TWiOSReverseAuthExample" */ = {
+		CDF37956142291940071ABF7 /* Build configuration list for PBXProject "ReverseAuthExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CDF3798D142291940071ABF7 /* Debug */,
