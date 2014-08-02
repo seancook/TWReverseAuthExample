@@ -25,7 +25,7 @@
 //
 
 #import "OAuthCore.h"
-#import "TWSignedRequest.h"
+#import "TWTSignedRequest.h"
 
 #define TW_HTTP_METHOD_GET @"GET"
 #define TW_HTTP_METHOD_POST @"POST"
@@ -39,7 +39,7 @@
 static NSString *gTWConsumerKey;
 static NSString *gTWConsumerSecret;
 
-@interface TWSignedRequest()
+@interface TWTSignedRequest()
 {
     NSURL *_url;
     NSDictionary *_parameters;
@@ -51,7 +51,7 @@ static NSString *gTWConsumerSecret;
 
 @end
 
-@implementation TWSignedRequest
+@implementation TWTSignedRequest
 @synthesize authToken = _authToken;
 @synthesize authTokenSecret = _authTokenSecret;
 
@@ -92,7 +92,7 @@ static NSString *gTWConsumerSecret;
     
     //  Create the authorization header and attach to our request
     NSData *bodyData = [paramsAsString dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *authorizationHeader = OAuthorizationHeader(_url, method, bodyData, [TWSignedRequest consumerKey], [TWSignedRequest consumerSecret], _authToken, _authTokenSecret);
+    NSString *authorizationHeader = OAuthorizationHeader(_url, method, bodyData, [TWTSignedRequest consumerKey], [TWTSignedRequest consumerSecret], _authToken, _authTokenSecret);
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:_url];
     [request setTimeoutInterval:REQUEST_TIMEOUT_INTERVAL];
     [request setHTTPMethod:method];

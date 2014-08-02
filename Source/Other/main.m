@@ -26,11 +26,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "TWAppDelegate.h"
+#import "TWTAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([TWAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([TWTAppDelegate class]));
     }
 }

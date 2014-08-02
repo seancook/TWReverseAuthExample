@@ -1,5 +1,5 @@
 //
-//    TWViewController.h
+//    TWSignedRequest.h
 //    TWiOSReverseAuthExample
 //
 //    Copyright (c) 2011-2014 Sean Cook
@@ -24,8 +24,30 @@
 //    USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-@import UIKit;
+@import Foundation;
 
-@interface TWViewController : UIViewController<UIActionSheetDelegate>
+enum TWSignedRequestMethod {
+    TWSignedRequestMethodGET,
+    TWSignedRequestMethodPOST,
+    TWSignedRequestMethodDELETE
+};
 
+typedef enum TWSignedRequestMethod TWSignedRequestMethod;
+
+typedef void(^TWSignedRequestHandler) (NSData *data, NSURLResponse *response, NSError *error);
+
+@interface TWTSignedRequest : NSObject
+
+@property (nonatomic, copy) NSString *authToken;
+@property (nonatomic, copy) NSString *authTokenSecret;
+
+// Creates a new request
+- (id)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWSignedRequestMethod)requestMethod;
+
+// Perform the request, and notify handler of results
+- (void)performRequestWithHandler:(TWSignedRequestHandler)handler;
+
+// You should ensure that you obfuscate your keys before shipping
++ (NSString *)consumerKey;
++ (NSString *)consumerSecret;
 @end

@@ -27,9 +27,9 @@
 @import Accounts;
 
 #import "OAuth+Additions.h"
-#import "TWAPIManager.h"
-#import "TWSignedRequest.h"
-#import "TWViewController.h"
+#import "TWTAPIManager.h"
+#import "TWTSignedRequest.h"
+#import "TWTViewController.h"
 
 #define ERROR_TITLE_MSG @"Whoa, there cowboy"
 #define ERROR_NO_ACCOUNTS @"You must add a Twitter account in Settings.app to use this demo."
@@ -40,16 +40,16 @@
 #define ONE_FOURTH_OF(_X) floorf(0.25f * _X)
 #define THREE_FOURTHS_OF(_X) floorf(3 * ONE_FOURTH_OF(_X))
 
-@interface TWViewController()
+@interface TWTViewController()
 
 @property (nonatomic, strong) ACAccountStore *accountStore;
-@property (nonatomic, strong) TWAPIManager *apiManager;
+@property (nonatomic, strong) TWTAPIManager *apiManager;
 @property (nonatomic, strong) NSArray *accounts;
 @property (nonatomic, strong) UIButton *reverseAuthBtn;
 
 @end
 
-@implementation TWViewController
+@implementation TWTViewController
 
 #pragma mark - UIViewController
 
@@ -58,7 +58,7 @@
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         _accountStore = [[ACAccountStore alloc] init];
-        _apiManager = [[TWAPIManager alloc] init];
+        _apiManager = [[TWTAPIManager alloc] init];
     }
     return self;
 }
@@ -160,10 +160,10 @@
 {
     TWDLog(@"Refreshing Twitter Accounts \n");
     
-    if (![TWAPIManager hasAppKeys]) {
+    if (![TWTAPIManager hasAppKeys]) {
         [self _displayAlertWithMessage:ERROR_NO_KEYS];
     }
-    else if (![TWAPIManager isLocalTwitterAccountAvailable]) {
+    else if (![TWTAPIManager isLocalTwitterAccountAvailable]) {
         [self _displayAlertWithMessage:ERROR_NO_ACCOUNTS];
     }
     else {
