@@ -68,7 +68,7 @@
     CGRect appFrame = [UIScreen mainScreen].applicationFrame;
     
     CGRect buttonFrame = appFrame;
-    buttonFrame.origin.y = THREE_FOURTHS_OF(appFrame.size.height);  //floorf(THREE_FOURTHS_OF * appFrame.size.height);
+    buttonFrame.origin.y = THREE_FOURTHS_OF(appFrame.size.height);
     buttonFrame.size.height = 44.0f;
     buttonFrame = CGRectInset(buttonFrame, 20, 0);
     
