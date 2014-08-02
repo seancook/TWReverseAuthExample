@@ -1,4 +1,4 @@
-#	TWiOSReverseAuthExample
+#	ReverseAuthExample
 
 ##	Summary
 

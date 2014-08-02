@@ -1,6 +1,6 @@
 //
-//    TWViewController.m
-//    TWiOSReverseAuthExample
+//    TWTViewController.m
+//    ReverseAuthExample
 //
 //    Copyright (c) 2011-2014 Sean Cook
 //

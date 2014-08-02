@@ -1,6 +1,6 @@
 //
-//    TWSignedRequest.m
-//    TWiOSReverseAuthExample
+//    TWTSignedRequest.m
+//    ReverseAuthExample
 //
 //    Copyright (c) 2011-2014 Sean Cook
 //
@@ -43,7 +43,7 @@ static NSString *gTWConsumerSecret;
 {
     NSURL *_url;
     NSDictionary *_parameters;
-    TWSignedRequestMethod _signedRequestMethod;
+    TWTSignedRequestMethod _signedRequestMethod;
     NSOperationQueue *_signedRequestQueue;
 }
 
@@ -51,7 +51,7 @@ static NSString *gTWConsumerSecret;
 
 @implementation TWTSignedRequest
 
-- (id)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWSignedRequestMethod)requestMethod
+- (id)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWTSignedRequestMethod)requestMethod
 {
     self = [super init];
     if (self) {
@@ -98,7 +98,7 @@ static NSString *gTWConsumerSecret;
     return request;
 }
 
-- (void)performRequestWithHandler:(TWSignedRequestHandler)handler
+- (void)performRequestWithHandler:(TWTSignedRequestHandler)handler
 {
     NSURLRequest *request = [self _buildRequest];
     [NSURLConnection sendAsynchronousRequest:request queue:_signedRequestQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {

@@ -1,6 +1,6 @@
 //
-//    TWSignedRequest.h
-//    TWiOSReverseAuthExample
+//    TWTSignedRequest.h
+//    ReverseAuthExample
 //
 //    Copyright (c) 2011-2014 Sean Cook
 //
@@ -26,13 +26,13 @@
 
 @import Foundation;
 
-typedef NS_ENUM(NSInteger, TWSignedRequestMethod) {
+typedef NS_ENUM(NSInteger, TWTSignedRequestMethod) {
     TWSignedRequestMethodGET,
     TWSignedRequestMethodPOST,
     TWSignedRequestMethodDELETE
 };
 
-typedef void(^TWSignedRequestHandler) (NSData *data, NSURLResponse *response, NSError *error);
+typedef void(^TWTSignedRequestHandler) (NSData *data, NSURLResponse *response, NSError *error);
 
 @interface TWTSignedRequest : NSObject
 
@@ -40,10 +40,10 @@ typedef void(^TWSignedRequestHandler) (NSData *data, NSURLResponse *response, NS
 @property (nonatomic, copy) NSString *authTokenSecret;
 
 // Creates a new request
-- (id)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWSignedRequestMethod)requestMethod;
+- (id)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWTSignedRequestMethod)requestMethod;
 
 // Perform the request, and notify handler of results
-- (void)performRequestWithHandler:(TWSignedRequestHandler)handler;
+- (void)performRequestWithHandler:(TWTSignedRequestHandler)handler;
 
 // You should ensure that you obfuscate your keys before shipping
 + (NSString *)consumerKey;

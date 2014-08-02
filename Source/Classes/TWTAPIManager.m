@@ -1,6 +1,6 @@
 //
-//    TWAPIManager.m
-//    TWiOSReverseAuthExample
+//    TWTAPIManager.m
+//    ReverseAuthExample
 //
 //    Copyright (c) 2011-2014 Sean Cook
 //
@@ -32,14 +32,14 @@
 #import "TWTAPIManager.h"
 #import "TWTSignedRequest.h"
 
-#define TW_API_ROOT                  @"https://api.twitter.com"
-#define TW_X_AUTH_MODE_KEY           @"x_auth_mode"
-#define TW_X_AUTH_MODE_REVERSE_AUTH  @"reverse_auth"
-#define TW_X_AUTH_MODE_CLIENT_AUTH   @"client_auth"
-#define TW_X_AUTH_REVERSE_PARMS      @"x_reverse_auth_parameters"
-#define TW_X_AUTH_REVERSE_TARGET     @"x_reverse_auth_target"
-#define TW_OAUTH_URL_REQUEST_TOKEN   TW_API_ROOT "/oauth/request_token"
-#define TW_OAUTH_URL_AUTH_TOKEN      TW_API_ROOT "/oauth/access_token"
+#define TWT_API_ROOT                  @"https://api.twitter.com"
+#define TWT_X_AUTH_MODE_KEY           @"x_auth_mode"
+#define TWT_X_AUTH_MODE_REVERSE_AUTH  @"reverse_auth"
+#define TWT_X_AUTH_MODE_CLIENT_AUTH   @"client_auth"
+#define TWT_X_AUTH_REVERSE_PARMS      @"x_reverse_auth_parameters"
+#define TWT_X_AUTH_REVERSE_TARGET     @"x_reverse_auth_target"
+#define TWT_OAUTH_URL_REQUEST_TOKEN   TWT_API_ROOT "/oauth/request_token"
+#define TWT_OAUTH_URL_AUTH_TOKEN      TWT_API_ROOT "/oauth/access_token"
 
 typedef void(^TWTAPIHandler)(NSData *data, NSError *error);
 
@@ -47,7 +47,6 @@ typedef void(^TWTAPIHandler)(NSData *data, NSError *error);
 
 /**
  *  Ensures that we have a consumer key and secret configured
- *
  */
 + (BOOL)hasAppKeys
 {
@@ -70,9 +69,9 @@ typedef void(^TWTAPIHandler)(NSData *data, NSError *error);
  *  Returns a generic self-signing request that can be used to perform Twitter
  *  API requests.
  *
- *  @param  url             The URL of the endpoint to retrieve
- *  @param  dict            The API parameters to include with the request
- *  @param  requestMethod   The HTTP method to use
+ *  @param url             The URL of the endpoint to retrieve
+ *  @param dict            The API parameters to include with the request
+ *  @param requestMethod   The HTTP method to use
  */
 - (SLRequest *)requestWithUrl:(NSURL *)url parameters:(NSDictionary *)dict requestMethod:(SLRequestMethod)requestMethod
 {
@@ -130,8 +129,8 @@ typedef void(^TWTAPIHandler)(NSData *data, NSError *error);
     NSParameterAssert(account);
     NSParameterAssert(signedReverseAuthSignature);
 
-    NSDictionary *step2Params = @{TW_X_AUTH_REVERSE_TARGET: [TWTSignedRequest consumerKey], TW_X_AUTH_REVERSE_PARMS: signedReverseAuthSignature};
-    NSURL *authTokenURL = [NSURL URLWithString:TW_OAUTH_URL_AUTH_TOKEN];
+    NSDictionary *step2Params = @{TWT_X_AUTH_REVERSE_TARGET: [TWTSignedRequest consumerKey], TWT_X_AUTH_REVERSE_PARMS: signedReverseAuthSignature};
+    NSURL *authTokenURL = [NSURL URLWithString:TWT_OAUTH_URL_AUTH_TOKEN];
     SLRequest *step2Request = [self requestWithUrl:authTokenURL parameters:step2Params requestMethod:SLRequestMethodPOST];
 
     TWDLog(@"Step 2: Sending a request to %@\nparameters %@\n", authTokenURL, step2Params);
@@ -154,8 +153,8 @@ typedef void(^TWTAPIHandler)(NSData *data, NSError *error);
  */
 - (void)_step1WithCompletion:(TWTAPIHandler)completion
 {
-    NSURL *url = [NSURL URLWithString:TW_OAUTH_URL_REQUEST_TOKEN];
-    NSDictionary *dict = @{TW_X_AUTH_MODE_KEY: TW_X_AUTH_MODE_REVERSE_AUTH};
+    NSURL *url = [NSURL URLWithString:TWT_OAUTH_URL_REQUEST_TOKEN];
+    NSDictionary *dict = @{TWT_X_AUTH_MODE_KEY: TWT_X_AUTH_MODE_REVERSE_AUTH};
     TWTSignedRequest *step1Request = [[TWTSignedRequest alloc] initWithURL:url parameters:dict requestMethod:TWSignedRequestMethodPOST];
 
     TWDLog(@"Step 1: Sending a request to %@\nparameters %@\n", url, dict);

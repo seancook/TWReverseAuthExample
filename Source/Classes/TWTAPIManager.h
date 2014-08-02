@@ -1,6 +1,6 @@
 //
-//    TWAPIManager.h
-//    TWiOSReverseAuthExample
+//    TWTAPIManager.h
+//    ReverseAuthExample
 //
 //    Copyright (c) 2011-2014 Sean Cook
 //

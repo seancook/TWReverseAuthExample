@@ -1,6 +1,6 @@
 //
-//    TWAppDelegate.m
-//    TWiOSReverseAuthExample
+//    TWTAppDelegate.m
+//    ReverseAuthExample
 //
 //    Copyright (c) 2011-2014 Sean Cook
 //
