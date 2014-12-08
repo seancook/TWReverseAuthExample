@@ -34,7 +34,7 @@
 #define ERROR_TITLE_MSG @"Whoa, there cowboy"
 #define ERROR_NO_ACCOUNTS @"You must add a Twitter account in Settings.app to use this demo."
 #define ERROR_PERM_ACCESS @"We weren't granted access to the user's accounts"
-#define ERROR_NO_KEYS @"You need to add your Twitter app keys to Info.plist to use this demo.\nPlease see README.md for more info."
+#define ERROR_NO_KEYS @"You need to add your Twitter app keys to TWTViewController.m to use this demo.\nPlease see README.md for more info."
 #define ERROR_OK @"OK"
 
 #define ONE_FOURTH_OF(_X) floorf(0.25f * _X)
@@ -59,6 +59,11 @@
     if (self) {
         _accountStore = [[ACAccountStore alloc] init];
         _apiManager = [[TWTAPIManager alloc] init];
+
+        /////////////// YOUR CONSUMER KEY AND SECRET TO HERE ///////////////
+        [TWTSignedRequest setConsumerKey:@""];
+        [TWTSignedRequest setConsumerSecret:@""];
+        ////////////////////////////////////////////////////////////////////
     }
     return self;
 }

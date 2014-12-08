@@ -110,8 +110,7 @@ static NSString *gTWConsumerSecret;
 + (NSString *)consumerKey
 {
     if (!gTWConsumerKey) {
-        NSBundle* bundle = [NSBundle mainBundle];
-        gTWConsumerKey = bundle.infoDictionary[TW_CONSUMER_KEY];
+        NSAssert(gTWConsumerKey, @"You must call [TWSTSignedRequest setConsumerSecret:] before trying to make a request");
     }
     
     return gTWConsumerKey;
@@ -121,11 +120,18 @@ static NSString *gTWConsumerSecret;
 + (NSString *)consumerSecret
 {
     if (!gTWConsumerSecret) {
-        NSBundle* bundle = [NSBundle mainBundle];
-        gTWConsumerSecret = bundle.infoDictionary[TW_CONSUMER_SECRET];
+        NSAssert(gTWConsumerSecret, @"You must call [TWSTSignedRequest setConsumerSecret:] before trying to make a request");
     }
     
     return gTWConsumerSecret;
+}
+
++ (void)setConsumerKey:(NSString*)consumerKey {
+    gTWConsumerKey = consumerKey;
+}
+
++ (void)setConsumerSecret:(NSString *)consumerSecret {
+    gTWConsumerSecret = consumerSecret;
 }
 
 @end
