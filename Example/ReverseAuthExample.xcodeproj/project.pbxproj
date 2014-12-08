@@ -7,18 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54C838E558A78BC0D30B9597 /* libPods-ReverseAuthSampleApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A36C6B0CCA2B4907B824AA8 /* libPods-ReverseAuthSampleApp.a */; };
 		CD3557481610E7290004F744 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF37997142293220071ABF7 /* Accounts.framework */; };
 		CDAACA6B1610E55A006E4808 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF37960142291940071ABF7 /* UIKit.framework */; };
 		CDAACA6C1610E55A006E4808 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF37962142291940071ABF7 /* Foundation.framework */; };
 		CDAACA6E1610E55A006E4808 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDAACA6D1610E55A006E4808 /* CoreGraphics.framework */; };
-		CDAACAA31610E5D9006E4808 /* TWTAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40A1FF1610E3060051AE3D /* TWTAPIManager.m */; };
 		CDAACAA51610E5D9006E4808 /* TWTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40A2011610E3060051AE3D /* TWTAppDelegate.m */; };
-		CDAACAA71610E5D9006E4808 /* TWTSignedRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40A2031610E3060051AE3D /* TWTSignedRequest.m */; settings = {COMPILER_FLAGS = "-D'TWITTER_CONSUMER_KEY=@\"$(TWITTER_CONSUMER_KEY)\"' -D'TWITTER_CONSUMER_SECRET=@\"$(TWITTER_CONSUMER_SECRET)\"'"; }; };
 		CDAACAA91610E5D9006E4808 /* TWTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40A2051610E3060051AE3D /* TWTViewController.m */; };
 		CDAACAAA1610E5D9006E4808 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40A2091610E3060051AE3D /* main.m */; };
-		CDAACAAC1610E5D9006E4808 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40A20F1610E3060051AE3D /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		CDAACAAE1610E5D9006E4808 /* OAuth+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40A2111610E3060051AE3D /* OAuth+Additions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		CDAACAB01610E5D9006E4808 /* OAuthCore.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40A2131610E3060051AE3D /* OAuthCore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CDAACAB11610E5F6006E4808 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF53BCA160BC8C500AD69A6 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CDAACAB31610E606006E4808 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD40A1EA1610E0DC0051AE3D /* Default-568h@2x.png */; };
 		CDAACAB41610E606006E4808 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CD40A1EB1610E0DC0051AE3D /* Default.png */; };
@@ -26,10 +22,12 @@
 		CDAACAB61610E606006E4808 /* ic_twitterapi.png in Resources */ = {isa = PBXBuildFile; fileRef = CD40A1ED1610E0DC0051AE3D /* ic_twitterapi.png */; };
 		CDAACAB71610E606006E4808 /* ic_twitterapi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD40A1EE1610E0DC0051AE3D /* ic_twitterapi@2x.png */; };
 		CDAACAB81610E606006E4808 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = CD40A1EF1610E0DC0051AE3D /* twitter.png */; };
+		FB8B69021A35C5DF007C4289 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = FB8B69011A35C5DF007C4289 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CD14C12214B3A92B00B8A188 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		4A36C6B0CCA2B4907B824AA8 /* libPods-ReverseAuthSampleApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReverseAuthSampleApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D176ACDFD12899B5B4FD6A7 /* Pods-ReverseAuthSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReverseAuthSampleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReverseAuthSampleApp/Pods-ReverseAuthSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CD21A6191610E4EA002E73B7 /* ReverseAuthExample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ReverseAuthExample-Info.plist"; sourceTree = "<group>"; };
 		CD21A61A1610E4EA002E73B7 /* ReverseAuthExample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ReverseAuthExample-Prefix.pch"; sourceTree = "<group>"; };
 		CD40A1EA1610E0DC0051AE3D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -38,29 +36,21 @@
 		CD40A1ED1610E0DC0051AE3D /* ic_twitterapi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_twitterapi.png; sourceTree = "<group>"; };
 		CD40A1EE1610E0DC0051AE3D /* ic_twitterapi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_twitterapi@2x.png"; sourceTree = "<group>"; };
 		CD40A1EF1610E0DC0051AE3D /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
-		CD40A1FE1610E3060051AE3D /* TWTAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWTAPIManager.h; sourceTree = "<group>"; };
-		CD40A1FF1610E3060051AE3D /* TWTAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWTAPIManager.m; sourceTree = "<group>"; };
 		CD40A2001610E3060051AE3D /* TWTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWTAppDelegate.h; sourceTree = "<group>"; };
 		CD40A2011610E3060051AE3D /* TWTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWTAppDelegate.m; sourceTree = "<group>"; };
-		CD40A2021610E3060051AE3D /* TWTSignedRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWTSignedRequest.h; sourceTree = "<group>"; };
-		CD40A2031610E3060051AE3D /* TWTSignedRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWTSignedRequest.m; sourceTree = "<group>"; };
 		CD40A2041610E3060051AE3D /* TWTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWTViewController.h; sourceTree = "<group>"; };
 		CD40A2051610E3060051AE3D /* TWTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWTViewController.m; sourceTree = "<group>"; };
 		CD40A2081610E3060051AE3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CD40A2091610E3060051AE3D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CD40A20E1610E3060051AE3D /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		CD40A20F1610E3060051AE3D /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
-		CD40A2101610E3060051AE3D /* OAuth+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OAuth+Additions.h"; sourceTree = "<group>"; };
-		CD40A2111610E3060051AE3D /* OAuth+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OAuth+Additions.m"; sourceTree = "<group>"; };
-		CD40A2121610E3060051AE3D /* OAuthCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthCore.h; sourceTree = "<group>"; };
-		CD40A2131610E3060051AE3D /* OAuthCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthCore.m; sourceTree = "<group>"; };
-		CDAACA691610E55A006E4808 /* ReverseAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ReverseAuth.app; path = ReverseAuthSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDAACA691610E55A006E4808 /* ReverseAuthSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReverseAuthSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDAACA6D1610E55A006E4808 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CDF37960142291940071ABF7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CDF37962142291940071ABF7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CDF379951422931E0071ABF7 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		CDF37997142293220071ABF7 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		CDF53BCA160BC8C500AD69A6 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		F4AB16408B1FF6A2311AF64B /* Pods-ReverseAuthSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReverseAuthSampleApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReverseAuthSampleApp/Pods-ReverseAuthSampleApp.release.xcconfig"; sourceTree = "<group>"; };
+		FB8B69011A35C5DF007C4289 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +63,7 @@
 				CDAACA6B1610E55A006E4808 /* UIKit.framework in Frameworks */,
 				CDAACA6C1610E55A006E4808 /* Foundation.framework in Frameworks */,
 				CDAACA6E1610E55A006E4808 /* CoreGraphics.framework in Frameworks */,
+				54C838E558A78BC0D30B9597 /* libPods-ReverseAuthSampleApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +88,6 @@
 			children = (
 				CD40A1FD1610E3060051AE3D /* Classes */,
 				CD40A2061610E3060051AE3D /* Other */,
-				CD40A20C1610E3060051AE3D /* Vendor */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -105,12 +95,8 @@
 		CD40A1FD1610E3060051AE3D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				CD40A1FE1610E3060051AE3D /* TWTAPIManager.h */,
-				CD40A1FF1610E3060051AE3D /* TWTAPIManager.m */,
 				CD40A2001610E3060051AE3D /* TWTAppDelegate.h */,
 				CD40A2011610E3060051AE3D /* TWTAppDelegate.m */,
-				CD40A2021610E3060051AE3D /* TWTSignedRequest.h */,
-				CD40A2031610E3060051AE3D /* TWTSignedRequest.m */,
 				CD40A2041610E3060051AE3D /* TWTViewController.h */,
 				CD40A2051610E3060051AE3D /* TWTViewController.m */,
 			);
@@ -128,42 +114,22 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
-		CD40A20C1610E3060051AE3D /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				CD40A20D1610E3060051AE3D /* ABOAuthCore */,
-			);
-			path = Vendor;
-			sourceTree = "<group>";
-		};
-		CD40A20D1610E3060051AE3D /* ABOAuthCore */ = {
-			isa = PBXGroup;
-			children = (
-				CD40A20E1610E3060051AE3D /* NSData+Base64.h */,
-				CD40A20F1610E3060051AE3D /* NSData+Base64.m */,
-				CD40A2101610E3060051AE3D /* OAuth+Additions.h */,
-				CD40A2111610E3060051AE3D /* OAuth+Additions.m */,
-				CD40A2121610E3060051AE3D /* OAuthCore.h */,
-				CD40A2131610E3060051AE3D /* OAuthCore.m */,
-			);
-			path = ABOAuthCore;
-			sourceTree = "<group>";
-		};
 		CDF37951142291940071ABF7 = {
 			isa = PBXGroup;
 			children = (
-				CD14C12214B3A92B00B8A188 /* README.md */,
+				FB8B69011A35C5DF007C4289 /* README.md */,
 				CD40A1FC1610E3060051AE3D /* Source */,
 				CD40A1E91610E0DC0051AE3D /* Resources */,
 				CDF3795D142291940071ABF7 /* Products */,
 				CDF3795F142291940071ABF7 /* Frameworks */,
+				EB2B7C6097A72606644592F3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		CDF3795D142291940071ABF7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CDAACA691610E55A006E4808 /* ReverseAuth.app */,
+				CDAACA691610E55A006E4808 /* ReverseAuthSampleApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,8 +143,18 @@
 				CDF37960142291940071ABF7 /* UIKit.framework */,
 				CDF37962142291940071ABF7 /* Foundation.framework */,
 				CDAACA6D1610E55A006E4808 /* CoreGraphics.framework */,
+				4A36C6B0CCA2B4907B824AA8 /* libPods-ReverseAuthSampleApp.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB2B7C6097A72606644592F3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4D176ACDFD12899B5B4FD6A7 /* Pods-ReverseAuthSampleApp.debug.xcconfig */,
+				F4AB16408B1FF6A2311AF64B /* Pods-ReverseAuthSampleApp.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,9 +164,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDAACA9C1610E55A006E4808 /* Build configuration list for PBXNativeTarget "ReverseAuthSampleApp" */;
 			buildPhases = (
+				208832DDB9E52D95EAEF8FB9 /* Check Pods Manifest.lock */,
 				CDAACA651610E55A006E4808 /* Sources */,
 				CDAACA661610E55A006E4808 /* Frameworks */,
 				CDAACA671610E55A006E4808 /* Resources */,
+				3642D2DDDAD1411ED2B7E795 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -198,7 +176,7 @@
 			);
 			name = ReverseAuthSampleApp;
 			productName = ReverseAuth;
-			productReference = CDAACA691610E55A006E4808 /* ReverseAuth.app */;
+			productReference = CDAACA691610E55A006E4808 /* ReverseAuthSampleApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -248,19 +226,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		208832DDB9E52D95EAEF8FB9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3642D2DDDAD1411ED2B7E795 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReverseAuthSampleApp/Pods-ReverseAuthSampleApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CDAACA651610E55A006E4808 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDAACAA31610E5D9006E4808 /* TWTAPIManager.m in Sources */,
 				CDAACAA51610E5D9006E4808 /* TWTAppDelegate.m in Sources */,
-				CDAACAA71610E5D9006E4808 /* TWTSignedRequest.m in Sources */,
 				CDAACAA91610E5D9006E4808 /* TWTViewController.m in Sources */,
+				FB8B69021A35C5DF007C4289 /* README.md in Sources */,
 				CDAACAAA1610E5D9006E4808 /* main.m in Sources */,
-				CDAACAAC1610E5D9006E4808 /* NSData+Base64.m in Sources */,
-				CDAACAAE1610E5D9006E4808 /* OAuth+Additions.m in Sources */,
-				CDAACAB01610E5D9006E4808 /* OAuthCore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +287,7 @@
 /* Begin XCBuildConfiguration section */
 		CDAACA9D1610E55A006E4808 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D176ACDFD12899B5B4FD6A7 /* Pods-ReverseAuthSampleApp.debug.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -301,6 +309,7 @@
 		};
 		CDAACA9E1610E55A006E4808 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4AB16408B1FF6A2311AF64B /* Pods-ReverseAuthSampleApp.release.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

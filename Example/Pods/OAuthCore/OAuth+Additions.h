@@ -10,6 +10,7 @@
 @interface NSURL (OAuthAdditions)
 
 + (NSDictionary *)ab_parseURLQueryString:(NSString *)query;
+- (NSString *)ab_actualPath;
 
 @end
 

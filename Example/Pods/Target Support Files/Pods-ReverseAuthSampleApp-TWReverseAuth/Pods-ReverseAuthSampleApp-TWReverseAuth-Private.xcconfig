@@ -1,0 +1,5 @@
+#include "Pods-ReverseAuthSampleApp-TWReverseAuth.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/TWReverseAuth" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/NSData+Base64" "${PODS_ROOT}/Headers/Public/OAuthCore" "${PODS_ROOT}/Headers/Public/TWReverseAuth"
+OTHER_LDFLAGS = ${PODS_REVERSEAUTHSAMPLEAPP_TWREVERSEAUTH_OTHER_LDFLAGS} -ObjC
+PODS_ROOT = ${SRCROOT}
