@@ -1,0 +1,20 @@
+PODS:
+  - NSData+Base64 (1.0.0)
+  - OAuthCore (0.0.1):
+    - NSData+Base64
+  - TWReverseAuth (0.1.0):
+    - OAuthCore
+
+DEPENDENCIES:
+  - TWReverseAuth (from `../`)
+
+EXTERNAL SOURCES:
+  TWReverseAuth:
+    :path: ../
+
+SPEC CHECKSUMS:
+  NSData+Base64: aae92a2e3f0bd88b29fe6093551ded3f5c062548
+  OAuthCore: 09d3c56dd3f64a61d1ffcbf103f28118ff8ca2e9
+  TWReverseAuth: 59473ef53a59d4ab66d39b1261c3f64cd1f856f6
+
+COCOAPODS: 0.35.0

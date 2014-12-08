@@ -1,0 +1,846 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05363A92965F4804E231D2DB /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC2AA7402AD75C7CC41A207 /* Accounts.framework */; };
+		1DF17B1566CCF202B47F7D49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5682CE7ECBC9DDC4C964BF4C /* Foundation.framework */; };
+		30312F4ABC241E358ED6574B /* OAuth+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 71FD8F4911F5F2B02AC675F0 /* OAuth+Additions.h */; };
+		4CD6941712134F6736AAF189 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5682CE7ECBC9DDC4C964BF4C /* Foundation.framework */; };
+		4D6147B4A6E42D44A85A72A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5682CE7ECBC9DDC4C964BF4C /* Foundation.framework */; };
+		4E8595112377BEC391E8C531 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = B53BEB060B0D2BF67AF6713C /* NSData+Base64.h */; };
+		6C9AF4DDD77D767B61C78E76 /* Pods-ReverseAuthSampleApp-NSData+Base64-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E6CF9FA646442FECFD3D5D /* Pods-ReverseAuthSampleApp-NSData+Base64-dummy.m */; };
+		6E341881D56C0900E8F339EE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A199F8AAA6069A6B38EFCF03 /* Social.framework */; };
+		78FDFD39566DC81ECB9A4A5E /* TWTSignedRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F7BD96B10D0B334F928FFE8 /* TWTSignedRequest.m */; };
+		7E27548949A6B95988BC46C9 /* OAuthCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DB9A3BAD2569BDE51D6310 /* OAuthCore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		978463BB13D06ED1E07155FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5682CE7ECBC9DDC4C964BF4C /* Foundation.framework */; };
+		A1E9887E5FEC72E4527CACEC /* Pods-ReverseAuthSampleApp-OAuthCore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E217950D59264C2B9EC591D /* Pods-ReverseAuthSampleApp-OAuthCore-dummy.m */; };
+		AD48DD42839B8E5DFA51631C /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A280C4D3921D9ED7D0099C29 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CBE273FF79AA0AD7A208576C /* TWTAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6B3771D7B9466B49817EF /* TWTAPIManager.m */; };
+		D39E204A42C01DDC7CB50FB3 /* OAuth+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CD82FA0770C4B79302DB9E /* OAuth+Additions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D5DAD2CC1B655BC546D181DA /* Pods-ReverseAuthSampleApp-TWReverseAuth-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C4538E19F3EC2AC407143EC0 /* Pods-ReverseAuthSampleApp-TWReverseAuth-dummy.m */; };
+		D676526FA941B703B2095AED /* OAuthCore.h in Headers */ = {isa = PBXBuildFile; fileRef = E170F50C363046DF4992517A /* OAuthCore.h */; };
+		DC3B6C8F661307F59DA1C210 /* Pods-ReverseAuthSampleApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF34F731CFA75627F3B47EA /* Pods-ReverseAuthSampleApp-dummy.m */; };
+		E978923AC16B8AA749470AC9 /* TWTSignedRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A9B1CF7C33DCF586764BB6E /* TWTSignedRequest.h */; };
+		EE05C74A0FCA7D88A460B610 /* TWTAPIManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C1ECDBBF6BBFC8C60542A6E /* TWTAPIManager.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		48FF64729C885FD5B07401A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 415352FF3473ECD8D62A17C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A164FC711186DEB91B9C42A8;
+			remoteInfo = "Pods-ReverseAuthSampleApp-NSData+Base64";
+		};
+		4F6FE18DF2FAD848584BC709 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 415352FF3473ECD8D62A17C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A164FC711186DEB91B9C42A8;
+			remoteInfo = "Pods-ReverseAuthSampleApp-NSData+Base64";
+		};
+		B73C014CD6451C89FC09D9A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 415352FF3473ECD8D62A17C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 697D5251A9ED128FE5601F88;
+			remoteInfo = "Pods-ReverseAuthSampleApp-OAuthCore";
+		};
+		DF5EEC5C05ED9AAA6E7368A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 415352FF3473ECD8D62A17C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B8661518997CFE051BD363C;
+			remoteInfo = "Pods-ReverseAuthSampleApp-TWReverseAuth";
+		};
+		E11A0CB333DD16DB1EE6D2AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 415352FF3473ECD8D62A17C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 697D5251A9ED128FE5601F88;
+			remoteInfo = "Pods-ReverseAuthSampleApp-OAuthCore";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		06987C76CE80B1C5FE9DDB75 /* Pods-ReverseAuthSampleApp-OAuthCore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReverseAuthSampleApp-OAuthCore.xcconfig"; sourceTree = "<group>"; };
+		17BA2A13FBDA67A6A17091A7 /* Pods-ReverseAuthSampleApp-NSData+Base64-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ReverseAuthSampleApp-NSData+Base64-prefix.pch"; sourceTree = "<group>"; };
+		19E6CF9FA646442FECFD3D5D /* Pods-ReverseAuthSampleApp-NSData+Base64-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ReverseAuthSampleApp-NSData+Base64-dummy.m"; sourceTree = "<group>"; };
+		265A86B611201AF9A7693150 /* libPods-ReverseAuthSampleApp-NSData+Base64.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReverseAuthSampleApp-NSData+Base64.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		27CD82FA0770C4B79302DB9E /* OAuth+Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OAuth+Additions.m"; sourceTree = "<group>"; };
+		2DDE9E051F6F7C9DECDA9210 /* Pods-ReverseAuthSampleApp-OAuthCore-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReverseAuthSampleApp-OAuthCore-Private.xcconfig"; sourceTree = "<group>"; };
+		3DDFB26A01280538294B2206 /* Pods-ReverseAuthSampleApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ReverseAuthSampleApp-acknowledgements.plist"; sourceTree = "<group>"; };
+		3E217950D59264C2B9EC591D /* Pods-ReverseAuthSampleApp-OAuthCore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ReverseAuthSampleApp-OAuthCore-dummy.m"; sourceTree = "<group>"; };
+		3E65EF8C39A2423B91EAA441 /* libPods-ReverseAuthSampleApp-TWReverseAuth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReverseAuthSampleApp-TWReverseAuth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40346F1F3BB4F7D3EBCB8691 /* Pods-ReverseAuthSampleApp-OAuthCore-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ReverseAuthSampleApp-OAuthCore-prefix.pch"; sourceTree = "<group>"; };
+		49A8C2EA7BAB4FB96A63588B /* Pods-ReverseAuthSampleApp-TWReverseAuth-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ReverseAuthSampleApp-TWReverseAuth-prefix.pch"; sourceTree = "<group>"; };
+		510E8C26B973B84C2751D2A6 /* libPods-ReverseAuthSampleApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReverseAuthSampleApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5682CE7ECBC9DDC4C964BF4C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5EC2AA7402AD75C7CC41A207 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Accounts.framework; sourceTree = DEVELOPER_DIR; };
+		6578C8CFF5EDCAEE1C5B1CCA /* Pods-ReverseAuthSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReverseAuthSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
+		6A9B1CF7C33DCF586764BB6E /* TWTSignedRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TWTSignedRequest.h; path = Classes/TWTSignedRequest.h; sourceTree = "<group>"; };
+		6EA6B3771D7B9466B49817EF /* TWTAPIManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TWTAPIManager.m; path = Classes/TWTAPIManager.m; sourceTree = "<group>"; };
+		71FD8F4911F5F2B02AC675F0 /* OAuth+Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OAuth+Additions.h"; sourceTree = "<group>"; };
+		7AC1EEF6D1A57010A8B9EB38 /* Pods-ReverseAuthSampleApp-NSData+Base64.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReverseAuthSampleApp-NSData+Base64.xcconfig"; sourceTree = "<group>"; };
+		7C1ECDBBF6BBFC8C60542A6E /* TWTAPIManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TWTAPIManager.h; path = Classes/TWTAPIManager.h; sourceTree = "<group>"; };
+		7DF34F731CFA75627F3B47EA /* Pods-ReverseAuthSampleApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ReverseAuthSampleApp-dummy.m"; sourceTree = "<group>"; };
+		89DB9A3BAD2569BDE51D6310 /* OAuthCore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = OAuthCore.m; sourceTree = "<group>"; };
+		8F7BD96B10D0B334F928FFE8 /* TWTSignedRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TWTSignedRequest.m; path = Classes/TWTSignedRequest.m; sourceTree = "<group>"; };
+		91E9805AF27E4D7FF7571544 /* Pods-ReverseAuthSampleApp-TWReverseAuth-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReverseAuthSampleApp-TWReverseAuth-Private.xcconfig"; sourceTree = "<group>"; };
+		A199F8AAA6069A6B38EFCF03 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Social.framework; sourceTree = DEVELOPER_DIR; };
+		A280C4D3921D9ED7D0099C29 /* NSData+Base64.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		B53BEB060B0D2BF67AF6713C /* NSData+Base64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		B70727DD2774D3FCF3044D57 /* Pods-ReverseAuthSampleApp-NSData+Base64-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReverseAuthSampleApp-NSData+Base64-Private.xcconfig"; sourceTree = "<group>"; };
+		B95EAF1C4347116318C5D24D /* Pods-ReverseAuthSampleApp-TWReverseAuth.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReverseAuthSampleApp-TWReverseAuth.xcconfig"; sourceTree = "<group>"; };
+		BFB33A45CB8AD3EA034C0F5E /* Pods-ReverseAuthSampleApp-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ReverseAuthSampleApp-environment.h"; sourceTree = "<group>"; };
+		C4538E19F3EC2AC407143EC0 /* Pods-ReverseAuthSampleApp-TWReverseAuth-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ReverseAuthSampleApp-TWReverseAuth-dummy.m"; sourceTree = "<group>"; };
+		E170F50C363046DF4992517A /* OAuthCore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OAuthCore.h; sourceTree = "<group>"; };
+		E4D9483E6A26E62A2BBA9DD3 /* libPods-ReverseAuthSampleApp-OAuthCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReverseAuthSampleApp-OAuthCore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED35D4E197FC065AD474FC31 /* Pods-ReverseAuthSampleApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ReverseAuthSampleApp-resources.sh"; sourceTree = "<group>"; };
+		EDCBED35EF4123137EDB0044 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F94CCCB87BAD9E2905E9C3F6 /* Pods-ReverseAuthSampleApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ReverseAuthSampleApp-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FFE1F9D9C6DB09864091105A /* Pods-ReverseAuthSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReverseAuthSampleApp.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		30F5F22AB13AF0D6A9B6B422 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05363A92965F4804E231D2DB /* Accounts.framework in Frameworks */,
+				1DF17B1566CCF202B47F7D49 /* Foundation.framework in Frameworks */,
+				6E341881D56C0900E8F339EE /* Social.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE277F43B20C0BB09AEFB3FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D6147B4A6E42D44A85A72A7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAD46B31A7287ED7DC6A1D5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				978463BB13D06ED1E07155FE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F081BAFB51CB7E9EB1AA74E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CD6941712134F6736AAF189 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F306E33B52FB22516DB3F88 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5EC2AA7402AD75C7CC41A207 /* Accounts.framework */,
+				5682CE7ECBC9DDC4C964BF4C /* Foundation.framework */,
+				A199F8AAA6069A6B38EFCF03 /* Social.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		4078B346E924BFF34AE5611A /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				93330574B34B58EC0BCC310D /* Pods-ReverseAuthSampleApp */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		434CDDBC6ED928906677C0C2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7AC1EEF6D1A57010A8B9EB38 /* Pods-ReverseAuthSampleApp-NSData+Base64.xcconfig */,
+				B70727DD2774D3FCF3044D57 /* Pods-ReverseAuthSampleApp-NSData+Base64-Private.xcconfig */,
+				19E6CF9FA646442FECFD3D5D /* Pods-ReverseAuthSampleApp-NSData+Base64-dummy.m */,
+				17BA2A13FBDA67A6A17091A7 /* Pods-ReverseAuthSampleApp-NSData+Base64-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-ReverseAuthSampleApp-NSData+Base64";
+			sourceTree = "<group>";
+		};
+		45CE192F65FCF77B8B73CF68 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F5AA5331E3D5C0FED2D108CA /* NSData+Base64 */,
+				809CBC7982A1B754B1DA5CA4 /* OAuthCore */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		65369E77A45F9B555969ABAA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F306E33B52FB22516DB3F88 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		67BCDC24B2129315FBE8339D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B95EAF1C4347116318C5D24D /* Pods-ReverseAuthSampleApp-TWReverseAuth.xcconfig */,
+				91E9805AF27E4D7FF7571544 /* Pods-ReverseAuthSampleApp-TWReverseAuth-Private.xcconfig */,
+				C4538E19F3EC2AC407143EC0 /* Pods-ReverseAuthSampleApp-TWReverseAuth-dummy.m */,
+				49A8C2EA7BAB4FB96A63588B /* Pods-ReverseAuthSampleApp-TWReverseAuth-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Pods-ReverseAuthSampleApp-TWReverseAuth";
+			sourceTree = "<group>";
+		};
+		7DFE3EFDB09E4EFD328E720C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				06987C76CE80B1C5FE9DDB75 /* Pods-ReverseAuthSampleApp-OAuthCore.xcconfig */,
+				2DDE9E051F6F7C9DECDA9210 /* Pods-ReverseAuthSampleApp-OAuthCore-Private.xcconfig */,
+				3E217950D59264C2B9EC591D /* Pods-ReverseAuthSampleApp-OAuthCore-dummy.m */,
+				40346F1F3BB4F7D3EBCB8691 /* Pods-ReverseAuthSampleApp-OAuthCore-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-ReverseAuthSampleApp-OAuthCore";
+			sourceTree = "<group>";
+		};
+		809CBC7982A1B754B1DA5CA4 /* OAuthCore */ = {
+			isa = PBXGroup;
+			children = (
+				71FD8F4911F5F2B02AC675F0 /* OAuth+Additions.h */,
+				27CD82FA0770C4B79302DB9E /* OAuth+Additions.m */,
+				E170F50C363046DF4992517A /* OAuthCore.h */,
+				89DB9A3BAD2569BDE51D6310 /* OAuthCore.m */,
+				7DFE3EFDB09E4EFD328E720C /* Support Files */,
+			);
+			path = OAuthCore;
+			sourceTree = "<group>";
+		};
+		93330574B34B58EC0BCC310D /* Pods-ReverseAuthSampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				F94CCCB87BAD9E2905E9C3F6 /* Pods-ReverseAuthSampleApp-acknowledgements.markdown */,
+				3DDFB26A01280538294B2206 /* Pods-ReverseAuthSampleApp-acknowledgements.plist */,
+				7DF34F731CFA75627F3B47EA /* Pods-ReverseAuthSampleApp-dummy.m */,
+				BFB33A45CB8AD3EA034C0F5E /* Pods-ReverseAuthSampleApp-environment.h */,
+				ED35D4E197FC065AD474FC31 /* Pods-ReverseAuthSampleApp-resources.sh */,
+				6578C8CFF5EDCAEE1C5B1CCA /* Pods-ReverseAuthSampleApp.debug.xcconfig */,
+				FFE1F9D9C6DB09864091105A /* Pods-ReverseAuthSampleApp.release.xcconfig */,
+			);
+			name = "Pods-ReverseAuthSampleApp";
+			path = "Target Support Files/Pods-ReverseAuthSampleApp";
+			sourceTree = "<group>";
+		};
+		A57E0D87A06C4038CAFF7E2A /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C42B4A4E14F1FBEB535DF3F2 /* TWReverseAuth */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		C42B4A4E14F1FBEB535DF3F2 /* TWReverseAuth */ = {
+			isa = PBXGroup;
+			children = (
+				7C1ECDBBF6BBFC8C60542A6E /* TWTAPIManager.h */,
+				6EA6B3771D7B9466B49817EF /* TWTAPIManager.m */,
+				6A9B1CF7C33DCF586764BB6E /* TWTSignedRequest.h */,
+				8F7BD96B10D0B334F928FFE8 /* TWTSignedRequest.m */,
+				67BCDC24B2129315FBE8339D /* Support Files */,
+			);
+			name = TWReverseAuth;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		CC37C1FBD83BFAA210BDAB47 = {
+			isa = PBXGroup;
+			children = (
+				EDCBED35EF4123137EDB0044 /* Podfile */,
+				A57E0D87A06C4038CAFF7E2A /* Development Pods */,
+				65369E77A45F9B555969ABAA /* Frameworks */,
+				45CE192F65FCF77B8B73CF68 /* Pods */,
+				E6972A6C937D143E78B13271 /* Products */,
+				4078B346E924BFF34AE5611A /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		E6972A6C937D143E78B13271 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				510E8C26B973B84C2751D2A6 /* libPods-ReverseAuthSampleApp.a */,
+				265A86B611201AF9A7693150 /* libPods-ReverseAuthSampleApp-NSData+Base64.a */,
+				E4D9483E6A26E62A2BBA9DD3 /* libPods-ReverseAuthSampleApp-OAuthCore.a */,
+				3E65EF8C39A2423B91EAA441 /* libPods-ReverseAuthSampleApp-TWReverseAuth.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5AA5331E3D5C0FED2D108CA /* NSData+Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				B53BEB060B0D2BF67AF6713C /* NSData+Base64.h */,
+				A280C4D3921D9ED7D0099C29 /* NSData+Base64.m */,
+				434CDDBC6ED928906677C0C2 /* Support Files */,
+			);
+			path = "NSData+Base64";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5770CA74EE3FCC214B8E821D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30312F4ABC241E358ED6574B /* OAuth+Additions.h in Headers */,
+				D676526FA941B703B2095AED /* OAuthCore.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE3FD09D870F4D122F2894EF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E8595112377BEC391E8C531 /* NSData+Base64.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3E84B07762BB9B82F3633B6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE05C74A0FCA7D88A460B610 /* TWTAPIManager.h in Headers */,
+				E978923AC16B8AA749470AC9 /* TWTSignedRequest.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		086F05F2F95A210EB4DA1331 /* Pods-ReverseAuthSampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C45210A4D2E0028B394E476F /* Build configuration list for PBXNativeTarget "Pods-ReverseAuthSampleApp" */;
+			buildPhases = (
+				F745F5389ED4F5065747F8E3 /* Sources */,
+				F081BAFB51CB7E9EB1AA74E5 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7FA188B66AA1148E22AD1B39 /* PBXTargetDependency */,
+				666C6F36E38BCFEDE51F2667 /* PBXTargetDependency */,
+				0ED6BF4A9721195A7278F549 /* PBXTargetDependency */,
+			);
+			name = "Pods-ReverseAuthSampleApp";
+			productName = "Pods-ReverseAuthSampleApp";
+			productReference = 510E8C26B973B84C2751D2A6 /* libPods-ReverseAuthSampleApp.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		5B8661518997CFE051BD363C /* Pods-ReverseAuthSampleApp-TWReverseAuth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A051F76DB7B7EAC0197CB746 /* Build configuration list for PBXNativeTarget "Pods-ReverseAuthSampleApp-TWReverseAuth" */;
+			buildPhases = (
+				9A46219FC5B0994E1528F655 /* Sources */,
+				30F5F22AB13AF0D6A9B6B422 /* Frameworks */,
+				F3E84B07762BB9B82F3633B6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA4D494B5D8D237A711B1C71 /* PBXTargetDependency */,
+			);
+			name = "Pods-ReverseAuthSampleApp-TWReverseAuth";
+			productName = "Pods-ReverseAuthSampleApp-TWReverseAuth";
+			productReference = 3E65EF8C39A2423B91EAA441 /* libPods-ReverseAuthSampleApp-TWReverseAuth.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		697D5251A9ED128FE5601F88 /* Pods-ReverseAuthSampleApp-OAuthCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A8A2C9C2F2F66C019F6E286 /* Build configuration list for PBXNativeTarget "Pods-ReverseAuthSampleApp-OAuthCore" */;
+			buildPhases = (
+				7877B2EDA4EC309A94E360CA /* Sources */,
+				EAD46B31A7287ED7DC6A1D5F /* Frameworks */,
+				5770CA74EE3FCC214B8E821D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9A0EA6F518A8CA736F1E17BC /* PBXTargetDependency */,
+			);
+			name = "Pods-ReverseAuthSampleApp-OAuthCore";
+			productName = "Pods-ReverseAuthSampleApp-OAuthCore";
+			productReference = E4D9483E6A26E62A2BBA9DD3 /* libPods-ReverseAuthSampleApp-OAuthCore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A164FC711186DEB91B9C42A8 /* Pods-ReverseAuthSampleApp-NSData+Base64 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1238F3F1C96205DA897F8B59 /* Build configuration list for PBXNativeTarget "Pods-ReverseAuthSampleApp-NSData+Base64" */;
+			buildPhases = (
+				8FF330DA3D40130039A57DFC /* Sources */,
+				AE277F43B20C0BB09AEFB3FD /* Frameworks */,
+				BE3FD09D870F4D122F2894EF /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-ReverseAuthSampleApp-NSData+Base64";
+			productName = "Pods-ReverseAuthSampleApp-NSData+Base64";
+			productReference = 265A86B611201AF9A7693150 /* libPods-ReverseAuthSampleApp-NSData+Base64.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		415352FF3473ECD8D62A17C2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = 321FD8C3CC4202DB9BD6DFF8 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CC37C1FBD83BFAA210BDAB47;
+			productRefGroup = E6972A6C937D143E78B13271 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				086F05F2F95A210EB4DA1331 /* Pods-ReverseAuthSampleApp */,
+				A164FC711186DEB91B9C42A8 /* Pods-ReverseAuthSampleApp-NSData+Base64 */,
+				697D5251A9ED128FE5601F88 /* Pods-ReverseAuthSampleApp-OAuthCore */,
+				5B8661518997CFE051BD363C /* Pods-ReverseAuthSampleApp-TWReverseAuth */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7877B2EDA4EC309A94E360CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D39E204A42C01DDC7CB50FB3 /* OAuth+Additions.m in Sources */,
+				7E27548949A6B95988BC46C9 /* OAuthCore.m in Sources */,
+				A1E9887E5FEC72E4527CACEC /* Pods-ReverseAuthSampleApp-OAuthCore-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FF330DA3D40130039A57DFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD48DD42839B8E5DFA51631C /* NSData+Base64.m in Sources */,
+				6C9AF4DDD77D767B61C78E76 /* Pods-ReverseAuthSampleApp-NSData+Base64-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A46219FC5B0994E1528F655 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5DAD2CC1B655BC546D181DA /* Pods-ReverseAuthSampleApp-TWReverseAuth-dummy.m in Sources */,
+				CBE273FF79AA0AD7A208576C /* TWTAPIManager.m in Sources */,
+				78FDFD39566DC81ECB9A4A5E /* TWTSignedRequest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F745F5389ED4F5065747F8E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC3B6C8F661307F59DA1C210 /* Pods-ReverseAuthSampleApp-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0ED6BF4A9721195A7278F549 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-ReverseAuthSampleApp-TWReverseAuth";
+			target = 5B8661518997CFE051BD363C /* Pods-ReverseAuthSampleApp-TWReverseAuth */;
+			targetProxy = DF5EEC5C05ED9AAA6E7368A8 /* PBXContainerItemProxy */;
+		};
+		666C6F36E38BCFEDE51F2667 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-ReverseAuthSampleApp-OAuthCore";
+			target = 697D5251A9ED128FE5601F88 /* Pods-ReverseAuthSampleApp-OAuthCore */;
+			targetProxy = B73C014CD6451C89FC09D9A4 /* PBXContainerItemProxy */;
+		};
+		7FA188B66AA1148E22AD1B39 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-ReverseAuthSampleApp-NSData+Base64";
+			target = A164FC711186DEB91B9C42A8 /* Pods-ReverseAuthSampleApp-NSData+Base64 */;
+			targetProxy = 4F6FE18DF2FAD848584BC709 /* PBXContainerItemProxy */;
+		};
+		9A0EA6F518A8CA736F1E17BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-ReverseAuthSampleApp-NSData+Base64";
+			target = A164FC711186DEB91B9C42A8 /* Pods-ReverseAuthSampleApp-NSData+Base64 */;
+			targetProxy = 48FF64729C885FD5B07401A5 /* PBXContainerItemProxy */;
+		};
+		EA4D494B5D8D237A711B1C71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-ReverseAuthSampleApp-OAuthCore";
+			target = 697D5251A9ED128FE5601F88 /* Pods-ReverseAuthSampleApp-OAuthCore */;
+			targetProxy = E11A0CB333DD16DB1EE6D2AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0D22634989BC0EF12092183A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91E9805AF27E4D7FF7571544 /* Pods-ReverseAuthSampleApp-TWReverseAuth-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-ReverseAuthSampleApp-TWReverseAuth/Pods-ReverseAuthSampleApp-TWReverseAuth-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		3AFD6D0D851E5A35498841FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		4E5EC4A2CF2F54462D96B629 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DDE9E051F6F7C9DECDA9210 /* Pods-ReverseAuthSampleApp-OAuthCore-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-ReverseAuthSampleApp-OAuthCore/Pods-ReverseAuthSampleApp-OAuthCore-prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7173EBB68DD807080ECC4C05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8D49A427979B67E901281A63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B70727DD2774D3FCF3044D57 /* Pods-ReverseAuthSampleApp-NSData+Base64-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-ReverseAuthSampleApp-NSData+Base64/Pods-ReverseAuthSampleApp-NSData+Base64-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		8F8ABDAEB47C376A794C0188 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6578C8CFF5EDCAEE1C5B1CCA /* Pods-ReverseAuthSampleApp.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A2931B43E396369B5FC7FF8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DDE9E051F6F7C9DECDA9210 /* Pods-ReverseAuthSampleApp-OAuthCore-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-ReverseAuthSampleApp-OAuthCore/Pods-ReverseAuthSampleApp-OAuthCore-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C78DDB5053CDC567F8EF4675 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B70727DD2774D3FCF3044D57 /* Pods-ReverseAuthSampleApp-NSData+Base64-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-ReverseAuthSampleApp-NSData+Base64/Pods-ReverseAuthSampleApp-NSData+Base64-prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E8E92C8240E338D2E5D281B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91E9805AF27E4D7FF7571544 /* Pods-ReverseAuthSampleApp-TWReverseAuth-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-ReverseAuthSampleApp-TWReverseAuth/Pods-ReverseAuthSampleApp-TWReverseAuth-prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F0D5ACAE933BA0123C90F4FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFE1F9D9C6DB09864091105A /* Pods-ReverseAuthSampleApp.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1238F3F1C96205DA897F8B59 /* Build configuration list for PBXNativeTarget "Pods-ReverseAuthSampleApp-NSData+Base64" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D49A427979B67E901281A63 /* Debug */,
+				C78DDB5053CDC567F8EF4675 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		321FD8C3CC4202DB9BD6DFF8 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AFD6D0D851E5A35498841FE /* Debug */,
+				7173EBB68DD807080ECC4C05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A8A2C9C2F2F66C019F6E286 /* Build configuration list for PBXNativeTarget "Pods-ReverseAuthSampleApp-OAuthCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2931B43E396369B5FC7FF8D /* Debug */,
+				4E5EC4A2CF2F54462D96B629 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A051F76DB7B7EAC0197CB746 /* Build configuration list for PBXNativeTarget "Pods-ReverseAuthSampleApp-TWReverseAuth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D22634989BC0EF12092183A /* Debug */,
+				E8E92C8240E338D2E5D281B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C45210A4D2E0028B394E476F /* Build configuration list for PBXNativeTarget "Pods-ReverseAuthSampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F8ABDAEB47C376A794C0188 /* Debug */,
+				F0D5ACAE933BA0123C90F4FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 415352FF3473ECD8D62A17C2 /* Project object */;
+}

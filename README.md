@@ -9,7 +9,7 @@ The latest version of this project can be found at [github](https://github.com/s
 ### To use the demo:
 
 1. First, take a look at ["Using Reverse Auth"](https://dev.twitter.com/docs/ios/using-reverse-auth) to understand how the process works.
-2. Add your application's consumer key and secret to TWiOSReverseAuthExample-Info.plist under the `TWITTER_CONSUMER_KEY` and `TWITTER_CONSUMER_SECRET` keys, respectively.
+2. Add your application's consumer key and secret to TWTViewController.m in `-initWithNibName:bundle:`.
 3. Build and run. Click the button labeled "Perform Token Exchange" to execute the token exchange.
 
 ## Author
