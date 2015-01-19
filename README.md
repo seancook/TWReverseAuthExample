@@ -4,6 +4,8 @@
 
 This project illustrates how to use the Twitter API's reverse\_auth endpoint to obtain a user's access token and secret for your application's consumer key and secret.
 
+__Note:__ I created this project prior to the launch of [Twitter Fabric](https://www.fabric.io). I am a Product Manager for Fabric, and it includes reverse auth as well as many other useful features that I've helped developers with over the years. If you're looking for a full-featured Twitter SDK, I highly recommend taking a look at that project.
+
 The latest version of this project can be found at [github](https://github.com/seancook/TWReverseAuthExample).
 
 ### To use the demo:
