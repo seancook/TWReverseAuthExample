@@ -20,23 +20,14 @@
 		CDAACAAE1610E5D9006E4808 /* OAuth+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40A2111610E3060051AE3D /* OAuth+Additions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CDAACAB01610E5D9006E4808 /* OAuthCore.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40A2131610E3060051AE3D /* OAuthCore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CDAACAB11610E5F6006E4808 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF53BCA160BC8C500AD69A6 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		CDAACAB31610E606006E4808 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD40A1EA1610E0DC0051AE3D /* Default-568h@2x.png */; };
-		CDAACAB41610E606006E4808 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CD40A1EB1610E0DC0051AE3D /* Default.png */; };
-		CDAACAB51610E606006E4808 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD40A1EC1610E0DC0051AE3D /* Default@2x.png */; };
-		CDAACAB61610E606006E4808 /* ic_twitterapi.png in Resources */ = {isa = PBXBuildFile; fileRef = CD40A1ED1610E0DC0051AE3D /* ic_twitterapi.png */; };
-		CDAACAB71610E606006E4808 /* ic_twitterapi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD40A1EE1610E0DC0051AE3D /* ic_twitterapi@2x.png */; };
 		CDAACAB81610E606006E4808 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = CD40A1EF1610E0DC0051AE3D /* twitter.png */; };
+		CDC57C191A6D689300818A34 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC57C181A6D689300818A34 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CD14C12214B3A92B00B8A188 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		CD21A6191610E4EA002E73B7 /* ReverseAuthExample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ReverseAuthExample-Info.plist"; sourceTree = "<group>"; };
 		CD21A61A1610E4EA002E73B7 /* ReverseAuthExample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ReverseAuthExample-Prefix.pch"; sourceTree = "<group>"; };
-		CD40A1EA1610E0DC0051AE3D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		CD40A1EB1610E0DC0051AE3D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		CD40A1EC1610E0DC0051AE3D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		CD40A1ED1610E0DC0051AE3D /* ic_twitterapi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_twitterapi.png; sourceTree = "<group>"; };
-		CD40A1EE1610E0DC0051AE3D /* ic_twitterapi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_twitterapi@2x.png"; sourceTree = "<group>"; };
 		CD40A1EF1610E0DC0051AE3D /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 		CD40A1FE1610E3060051AE3D /* TWTAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWTAPIManager.h; sourceTree = "<group>"; };
 		CD40A1FF1610E3060051AE3D /* TWTAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWTAPIManager.m; sourceTree = "<group>"; };
@@ -54,8 +45,9 @@
 		CD40A2111610E3060051AE3D /* OAuth+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OAuth+Additions.m"; sourceTree = "<group>"; };
 		CD40A2121610E3060051AE3D /* OAuthCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthCore.h; sourceTree = "<group>"; };
 		CD40A2131610E3060051AE3D /* OAuthCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthCore.m; sourceTree = "<group>"; };
-		CDAACA691610E55A006E4808 /* ReverseAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ReverseAuth.app; path = ReverseAuthSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDAACA691610E55A006E4808 /* ReverseAuthSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReverseAuthSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDAACA6D1610E55A006E4808 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CDC57C181A6D689300818A34 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReverseAuthSampleApp/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		CDF37960142291940071ABF7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CDF37962142291940071ABF7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CDF379951422931E0071ABF7 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
@@ -82,11 +74,7 @@
 		CD40A1E91610E0DC0051AE3D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CD40A1EA1610E0DC0051AE3D /* Default-568h@2x.png */,
-				CD40A1EB1610E0DC0051AE3D /* Default.png */,
-				CD40A1EC1610E0DC0051AE3D /* Default@2x.png */,
-				CD40A1ED1610E0DC0051AE3D /* ic_twitterapi.png */,
-				CD40A1EE1610E0DC0051AE3D /* ic_twitterapi@2x.png */,
+				CDC57C181A6D689300818A34 /* Images.xcassets */,
 				CD40A1EF1610E0DC0051AE3D /* twitter.png */,
 			);
 			path = Resources;
@@ -163,7 +151,7 @@
 		CDF3795D142291940071ABF7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CDAACA691610E55A006E4808 /* ReverseAuth.app */,
+				CDAACA691610E55A006E4808 /* ReverseAuthSampleApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,9 +172,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CDAACA681610E55A006E4808 /* ReverseAuthSampleApp */ = {
+		CDAACA681610E55A006E4808 /* ReverseAuth */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CDAACA9C1610E55A006E4808 /* Build configuration list for PBXNativeTarget "ReverseAuthSampleApp" */;
+			buildConfigurationList = CDAACA9C1610E55A006E4808 /* Build configuration list for PBXNativeTarget "ReverseAuth" */;
 			buildPhases = (
 				CDAACA651610E55A006E4808 /* Sources */,
 				CDAACA661610E55A006E4808 /* Frameworks */,
@@ -196,9 +184,9 @@
 			);
 			dependencies = (
 			);
-			name = ReverseAuthSampleApp;
+			name = ReverseAuth;
 			productName = ReverseAuth;
-			productReference = CDAACA691610E55A006E4808 /* ReverseAuth.app */;
+			productReference = CDAACA691610E55A006E4808 /* ReverseAuthSampleApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -209,11 +197,6 @@
 			attributes = {
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "";
-				TargetAttributes = {
-					CDAACA681610E55A006E4808 = {
-						DevelopmentTeam = 4BWCPA7A73;
-					};
-				};
 			};
 			buildConfigurationList = CDF37956142291940071ABF7 /* Build configuration list for PBXProject "ReverseAuthExample" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -227,7 +210,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CDAACA681610E55A006E4808 /* ReverseAuthSampleApp */,
+				CDAACA681610E55A006E4808 /* ReverseAuth */,
 			);
 		};
 /* End PBXProject section */
@@ -237,11 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDAACAB31610E606006E4808 /* Default-568h@2x.png in Resources */,
-				CDAACAB41610E606006E4808 /* Default.png in Resources */,
-				CDAACAB51610E606006E4808 /* Default@2x.png in Resources */,
-				CDAACAB61610E606006E4808 /* ic_twitterapi.png in Resources */,
-				CDAACAB71610E606006E4808 /* ic_twitterapi@2x.png in Resources */,
+				CDC57C191A6D689300818A34 /* Images.xcassets in Resources */,
 				CDAACAB81610E606006E4808 /* twitter.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +260,8 @@
 		CDAACA9D1610E55A006E4808 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -292,7 +273,7 @@
 				GCC_PREFIX_HEADER = "Source/Other/ReverseAuthExample-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				INFOPLIST_FILE = "Source/Other/ReverseAuthExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -302,6 +283,8 @@
 		CDAACA9E1610E55A006E4808 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -313,7 +296,7 @@
 				GCC_PREFIX_HEADER = "Source/Other/ReverseAuthExample-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				INFOPLIST_FILE = "Source/Other/ReverseAuthExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -388,7 +371,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CDAACA9C1610E55A006E4808 /* Build configuration list for PBXNativeTarget "ReverseAuthSampleApp" */ = {
+		CDAACA9C1610E55A006E4808 /* Build configuration list for PBXNativeTarget "ReverseAuth" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CDAACA9D1610E55A006E4808 /* Debug */,
