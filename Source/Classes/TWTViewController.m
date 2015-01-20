@@ -2,7 +2,7 @@
 //    TWTViewController.m
 //    ReverseAuthExample
 //
-//    Copyright (c) 2011-2014 Sean Cook
+//    Copyright (c) 2011-2015 Sean Cook
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a
 //    copy of this software and associated documentation files (the
