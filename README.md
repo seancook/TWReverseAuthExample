@@ -1,3 +1,6 @@
+#Update
+This functionality is now included by default in the latest Parse SDK. If you need to support an older version of the Parse SDK, you might still find it useful. However, you should really just use the latest version of the Parse SDK instead.
+
 #Purpose
 
 To replace Parse's OAuth process with deep iOS Twitter integration (pictures included below). This requires minimal changes to your existing code, and it becomes **so much easier** for a user to link their Twitter account and start using your app!
