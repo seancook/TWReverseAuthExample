@@ -26,7 +26,7 @@
 
 @import Accounts;
 
-#import "OAuth+Additions.h"
+#import <OAuthCore/OAuth+Additions.h>
 #import "TWTAPIManager.h"
 #import "TWTSignedRequest.h"
 #import "TWTViewController.h"

@@ -24,7 +24,7 @@
 //    USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "OAuthCore.h"
+#import <OAuthCore/OAuthCore.h>
 #import "TWTSignedRequest.h"
 
 #define TW_HTTP_METHOD_GET @"GET"

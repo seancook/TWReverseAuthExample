@@ -8,10 +8,22 @@ __Note:__ I created this project prior to the launch of [Twitter Fabric](https:/
 
 The latest version of this project can be found at [github](https://github.com/seancook/TWReverseAuthExample).
 
-### To use the demo:
+### To see the demo in action:
 
-1. First, take a look at ["Using Reverse Auth"](https://dev.twitter.com/docs/ios/using-reverse-auth) to understand how the process works.
+This project uses [cocoapods](https://www.cocoapods.org) to manage its dependencies.
+
+1. Get the code:
+```sh
+git clone https://github.com/seancook/TWReverseAuthExample.git
+cd TWReverseAuthExample
+pod install
+open ReverseAuthExample.xcworkspace
+```
+
 2. Add your application's consumer key and secret to TWiOSReverseAuthExample-Info.plist under the `TWITTER_CONSUMER_KEY` and `TWITTER_CONSUMER_SECRET` keys, respectively.
+
+  **Note: Including your consumer secret in a mobile app is a bad idea.**
+
 3. Build and run. Click the button labeled "Perform Token Exchange" to execute the token exchange.
 
 ## Author
@@ -34,9 +46,4 @@ The use of the Twitter logos is governed by the [Guidelines for Use of the Twitt
 
 ### Memory Management Style
 
-Main application:  Automatic Reference Counting (ARC)
-
-Third party libraries: Manual reference counting
-
-### Library Credits
-Loren Brichter's ([@atebits](http://twitter.com/lorenb)) ABOAuthCore is available for download at [https://bitbucket.org/atebits/oauthcore](https://bitbucket.org/atebits/oauthcore) (see source files for license information).
+Automatic Reference Counting (ARC)

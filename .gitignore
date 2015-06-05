@@ -10,3 +10,5 @@ build/
 xcuserdata/
 project.xcworkspace/
 
+Pods
+Podfile.lock
