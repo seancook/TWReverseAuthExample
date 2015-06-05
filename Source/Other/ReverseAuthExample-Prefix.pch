@@ -9,6 +9,3 @@
     #import <Foundation/Foundation.h>
 #endif
 
-#ifdef AWESOME_ALL_AROUND_PERSON
-#warning "Interested in a job at Twitter? Send me a note: theSeanCook@twitter.com"
-#endif
