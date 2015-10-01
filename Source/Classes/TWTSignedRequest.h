@@ -40,7 +40,7 @@ typedef void(^TWTSignedRequestHandler) (NSData *data, NSURLResponse *response, N
 @property (nonatomic, copy) NSString *authTokenSecret;
 
 // Creates a new request
-- (id)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWTSignedRequestMethod)requestMethod;
+- (instancetype)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWTSignedRequestMethod)requestMethod;
 
 // Perform the request, and notify handler of results
 - (void)performRequestWithHandler:(TWTSignedRequestHandler)handler;

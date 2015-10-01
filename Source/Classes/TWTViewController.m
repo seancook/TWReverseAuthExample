@@ -53,7 +53,7 @@
 
 #pragma mark - UIViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
@@ -73,7 +73,7 @@
     buttonFrame = CGRectInset(buttonFrame, 20, 0);
     
     UIView *view = [[UIView alloc] initWithFrame:appFrame];
-    [view setBackgroundColor:[UIColor colorWithWhite:0.502 alpha:1.000]];
+    view.backgroundColor = [UIColor colorWithWhite:0.502 alpha:1.000];
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"twitter.png"]];
     [view addSubview:imageView];
@@ -87,7 +87,7 @@
     _reverseAuthBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [_reverseAuthBtn setTitle:@"Perform Token Exchange" forState:UIControlStateNormal];
     [_reverseAuthBtn addTarget:self action:@selector(performReverseAuth:) forControlEvents:UIControlEventTouchUpInside];
-    [_reverseAuthBtn setFrame:buttonFrame];
+    _reverseAuthBtn.frame = buttonFrame;
     [_reverseAuthBtn setEnabled:NO];
     [_reverseAuthBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [view addSubview:_reverseAuthBtn];
@@ -129,7 +129,7 @@
                 });
             }
             else {
-                NSLog(@"Reverse Auth process failed. Error returned was: %@\n", [error localizedDescription]);
+                NSLog(@"Reverse Auth process failed. Error returned was: %@\n", error.localizedDescription);
             }
         }];
     }

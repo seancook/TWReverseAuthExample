@@ -51,7 +51,7 @@ static NSString *gTWConsumerSecret;
 
 @implementation TWTSignedRequest
 
-- (id)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWTSignedRequestMethod)requestMethod
+- (instancetype)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWTSignedRequestMethod)requestMethod
 {
     self = [super init];
     if (self) {
@@ -91,9 +91,9 @@ static NSString *gTWConsumerSecret;
     NSString *authorizationHeader = OAuthorizationHeader(_url, method, bodyData, [TWTSignedRequest consumerKey], [TWTSignedRequest consumerSecret], _authToken, _authTokenSecret);
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:_url];
     [request setTimeoutInterval:REQUEST_TIMEOUT_INTERVAL];
-    [request setHTTPMethod:method];
+    request.HTTPMethod = method;
     [request setValue:authorizationHeader forHTTPHeaderField:TW_HTTP_HEADER_AUTHORIZATION];
-    [request setHTTPBody:bodyData];
+    request.HTTPBody = bodyData;
     
     return request;
 }
