@@ -50,7 +50,7 @@ typedef void(^TWTAPIHandler)(NSData *data, NSError *error);
  */
 + (BOOL)hasAppKeys
 {
-    return ([[TWTSignedRequest consumerKey] length] && [[TWTSignedRequest consumerSecret] length]);
+    return ([TWTSignedRequest consumerKey].length && [TWTSignedRequest consumerSecret].length);
 }
 
 /**
@@ -123,7 +123,7 @@ typedef void(^TWTAPIHandler)(NSData *data, NSError *error);
     NSDictionary *step2Params = @{TWT_X_AUTH_REVERSE_TARGET: [TWTSignedRequest consumerKey], TWT_X_AUTH_REVERSE_PARMS: signedReverseAuthSignature};
     NSURL *authTokenURL = [NSURL URLWithString:TWT_OAUTH_URL_AUTH_TOKEN];
     SLRequest *step2Request = [self requestWithUrl:authTokenURL parameters:step2Params requestMethod:SLRequestMethodPOST];
-    [step2Request setAccount:account];
+    step2Request.account = account;
     [step2Request performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             completion(responseData, error);
