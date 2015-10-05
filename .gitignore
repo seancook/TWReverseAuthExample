@@ -12,3 +12,5 @@ project.xcworkspace/
 
 Pods
 Podfile.lock
+
+.ruby-version
