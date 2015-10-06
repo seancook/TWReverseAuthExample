@@ -33,7 +33,7 @@ typedef void(^TWTSignedRequestHandler) (NSData *data, NSURLResponse *response, N
 @property (nonatomic, copy) NSString *authToken;
 @property (nonatomic, copy) NSString *authTokenSecret;
 
-// Creates a new request
+// Creates a new signed POST request
 - (instancetype)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters NS_DESIGNATED_INITIALIZER;
 
 // Perform the request, and notify handler of results

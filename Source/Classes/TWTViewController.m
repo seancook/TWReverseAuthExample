@@ -31,14 +31,11 @@
 #import "TWTSignedPOSTRequest.h"
 #import "TWTViewController.h"
 
-#define ERROR_TITLE_MSG @"Whoa, there cowboy"
-#define ERROR_NO_ACCOUNTS @"You must add a Twitter account in Settings.app to use this demo."
-#define ERROR_PERM_ACCESS @"We weren't granted access to the user's accounts"
-#define ERROR_NO_KEYS @"You need to add your Twitter app keys to Info.plist to use this demo.\n\nPlease see README.md for more info."
+#define ERROR_TITLE_MSG     @"Error"
+#define ERROR_NO_ACCOUNTS   @"You must add a Twitter account in Settings.app to use this demo."
+#define ERROR_PERM_ACCESS   @"We weren't granted access to the user's accounts"
+#define ERROR_NO_KEYS       @"You need to add your Twitter app keys to Info.plist to use this demo.\n\nPlease see README.md for more info."
 #define ERROR_OK @"OK"
-
-#define ONE_FOURTH_OF(_X) floorf(0.25f * _X)
-#define THREE_FOURTHS_OF(_X) floorf(3 * ONE_FOURTH_OF(_X))
 
 @interface TWTViewController()
 
@@ -197,7 +194,7 @@
 - (void)performReverseAuth:(id)sender
 {
     UIAlertController *sheet = [UIAlertController alertControllerWithTitle:@"Choose an Account" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    for (NSUInteger i = 0; i < [_accounts count]; i++) {
+    for (NSUInteger i = 0; i < _accounts.count; i++) {
         ACAccount *acct = _accounts[i];
         NSString *accountTitle = [NSString stringWithFormat:@"@%@", acct.username];
         [sheet addAction:[UIAlertAction actionWithTitle:accountTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
