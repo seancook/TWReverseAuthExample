@@ -3,7 +3,7 @@ WORKSPACE := $(PROJECT)Example.xcworkspace
 SCHEME := $(PROJECT)
 
 default: check-xctool
-	xctool -workspace $(WORKSPACE) -scheme $(SCHEME)
+	xctool -workspace $(WORKSPACE) -scheme $(SCHEME) -jobs 4
 
 check-xctool:
 	@which xctool > /dev/null

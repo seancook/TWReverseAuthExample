@@ -73,7 +73,7 @@
     buttonFrame = CGRectInset(buttonFrame, 20, 0);
 
     UIView *view = [[UIView alloc] initWithFrame:appFrame];
-    view.backgroundColor = [UIColor colorWithWhite:0.502 alpha:1.000];
+    view.backgroundColor = [UIColor colorWithWhite:0.502f alpha:1.f];
 
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"twitter.png"]];
     [view addSubview:imageView];
@@ -119,7 +119,10 @@
 
 - (void)_accountSelected:(NSUInteger)selectedAccountIndex
 {
+    NSLog(@"User selected account %lu - %@", (unsigned long)selectedAccountIndex, _accounts[selectedAccountIndex]);
     [_apiManager performReverseAuthForAccount:_accounts[selectedAccountIndex] withHandler:^(NSData *responseData, NSError *error) {
+
+        
         if (responseData) {
             NSString *responseStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
             NSArray *parts = [responseStr componentsSeparatedByString:@"&"];
@@ -201,6 +204,8 @@
         ACAccount *acct = _accounts[i];
         NSString *accountTitle = [NSString stringWithFormat:@"@%@", acct.username];
         [sheet addAction:[UIAlertAction actionWithTitle:accountTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"%@", [NSThread currentThread]);
+            NSLog(@"User selected an account.");
             [self _accountSelected:i];
         }]];
     }

@@ -26,7 +26,6 @@
 
 @import Accounts;
 @import Social;
-@import Twitter;
 
 #import "OAuth+Additions.h"
 #import "TWTAPIManager.h"
@@ -89,7 +88,10 @@ typedef void(^TWTAPIHandler)(NSData *data, NSError *error);
  */
 - (void)performReverseAuthForAccount:(ACAccount *)account withHandler:(TWTAPIHandler)handler
 {
+    NSAssert(account, @"ACAccount was nil");
+    
     [self _step1WithCompletion:^(NSData *data, NSError *error) {
+        NSLog(@"%@", error);
         if (!data) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 handler(nil, error);
