@@ -26,8 +26,7 @@
 
 @import Accounts;
 
-#import <OAuthCore/OAuth+Additions.h>
-#import "TWTAPIManager.h"
+#import "TwitterReverseAuth.h"
 #import "TWTSignedPOSTRequest.h"
 #import "TWTViewController.h"
 
