@@ -26,6 +26,6 @@
 
 @import UIKit;
 
-@interface TWTViewController : UIViewController<UIActionSheetDelegate>
+@interface TWTViewController : UIViewController
 
 @end

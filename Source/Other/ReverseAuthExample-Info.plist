@@ -36,9 +36,9 @@
 	<key>NOTE: </key>
 	<string>THIS IS FOR EXAMPLE PURPOSES ONLY. DO NOT SHIP YOUR CONSUMER KEYS AS PLAIN TEXT IN YOUR INFO.PLIST!</string>
 	<key>TWITTER_CONSUMER_KEY</key>
-	<string></string>
+	<string>5LTJxBFSa0XSMoWtKKntQ</string>
 	<key>TWITTER_CONSUMER_SECRET</key>
-	<string></string>
+	<string>Ds23weJVO4ibPTv8hEsmMxSC6CW1JeVCwWYDFWKjw</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIStatusBarHidden</key>

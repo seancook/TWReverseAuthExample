@@ -84,12 +84,15 @@
     imageFrame.origin.y = 0.25f * appFrame.size.height;
     imageView.frame = imageFrame;
 
-    _reverseAuthBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _reverseAuthBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_reverseAuthBtn setTitle:@"Perform Token Exchange" forState:UIControlStateNormal];
     [_reverseAuthBtn addTarget:self action:@selector(performReverseAuth:) forControlEvents:UIControlEventTouchUpInside];
-    _reverseAuthBtn.frame = buttonFrame;
-    [_reverseAuthBtn setEnabled:NO];
     [_reverseAuthBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+
+    _reverseAuthBtn.titleLabel.font = [UIFont systemFontOfSize:24.f];
+    _reverseAuthBtn.frame = buttonFrame;
+    _reverseAuthBtn.enabled = NO;
+
     [view addSubview:_reverseAuthBtn];
 
     self.view = view;
@@ -97,7 +100,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
     [self _refreshTwitterAccounts];
 }
 
@@ -114,10 +117,9 @@
 
 #pragma mark - UIActionSheetDelegate
 
-- (void)foo
+- (void)_accountSelected:(NSUInteger)selectedAccountIndex
 {
-    NSUInteger selectAccountIndex = 0;
-    [_apiManager performReverseAuthForAccount:_accounts[selectAccountIndex] withHandler:^(NSData *responseData, NSError *error) {
+    [_apiManager performReverseAuthForAccount:_accounts[selectedAccountIndex] withHandler:^(NSData *responseData, NSError *error) {
         if (responseData) {
             NSString *responseStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
             NSArray *parts = [responseStr componentsSeparatedByString:@"&"];
@@ -182,7 +184,6 @@
         if (granted) {
             self.accounts = [self->_accountStore accountsWithAccountType:twitterType];
         }
-
         block(granted);
     };
     [_accountStore requestAccessToAccountsWithType:twitterType options:NULL completion:handler];
@@ -195,10 +196,12 @@
  */
 - (void)performReverseAuth:(id)sender
 {
-    UIAlertController *sheet = [UIAlertController alertControllerWithTitle:@"Choose an Account" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    for (ACAccount *acct in _accounts) {
-        [sheet addAction:[UIAlertAction actionWithTitle:acct.username style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"Called with action = %@", action);
+    UIAlertController *sheet = [UIAlertController alertControllerWithTitle:@"Choose an Account" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    for (NSUInteger i = 0; i < [_accounts count]; i++) {
+        ACAccount *acct = _accounts[i];
+        NSString *accountTitle = [NSString stringWithFormat:@"@%@", acct.username];
+        [sheet addAction:[UIAlertAction actionWithTitle:accountTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self _accountSelected:i];
         }]];
     }
     [sheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:NULL]];
