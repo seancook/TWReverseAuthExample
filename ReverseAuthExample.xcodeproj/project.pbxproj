@@ -93,7 +93,6 @@
 			children = (
 				CD40A1FD1610E3060051AE3D /* Classes */,
 				CD40A2061610E3060051AE3D /* Other */,
-				CD40A20C1610E3060051AE3D /* Vendor */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -122,13 +121,6 @@
 				CD40A2091610E3060051AE3D /* main.m */,
 			);
 			path = Other;
-			sourceTree = "<group>";
-		};
-		CD40A20C1610E3060051AE3D /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Vendor;
 			sourceTree = "<group>";
 		};
 		CDF37951142291940071ABF7 = {
