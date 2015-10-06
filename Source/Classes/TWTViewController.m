@@ -34,7 +34,7 @@
 #define ERROR_TITLE_MSG @"Whoa, there cowboy"
 #define ERROR_NO_ACCOUNTS @"You must add a Twitter account in Settings.app to use this demo."
 #define ERROR_PERM_ACCESS @"We weren't granted access to the user's accounts"
-#define ERROR_NO_KEYS @"You need to add your Twitter app keys to Info.plist to use this demo.\nPlease see README.md for more info."
+#define ERROR_NO_KEYS @"You need to add your Twitter app keys to Info.plist to use this demo.\n\nPlease see README.md for more info."
 #define ERROR_OK @"OK"
 
 #define ONE_FOURTH_OF(_X) floorf(0.25f * _X)
@@ -65,25 +65,25 @@
 
 - (void)loadView
 {
-    CGRect appFrame = [UIScreen mainScreen].applicationFrame;
-    
+    CGRect appFrame = [UIScreen mainScreen].bounds;
+
     CGRect buttonFrame = appFrame;
-    buttonFrame.origin.y = THREE_FOURTHS_OF(appFrame.size.height);
+    buttonFrame.origin.y = 0.75f * appFrame.size.height;
     buttonFrame.size.height = 44.0f;
     buttonFrame = CGRectInset(buttonFrame, 20, 0);
-    
+
     UIView *view = [[UIView alloc] initWithFrame:appFrame];
     view.backgroundColor = [UIColor colorWithWhite:0.502 alpha:1.000];
-    
+
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"twitter.png"]];
     [view addSubview:imageView];
     [imageView sizeToFit];
     imageView.center = view.center;
-    
+
     CGRect imageFrame = imageView.frame;
-    imageFrame.origin.y = ONE_FOURTH_OF(appFrame.size.height);
+    imageFrame.origin.y = 0.25f * appFrame.size.height;
     imageView.frame = imageFrame;
-    
+
     _reverseAuthBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [_reverseAuthBtn setTitle:@"Perform Token Exchange" forState:UIControlStateNormal];
     [_reverseAuthBtn addTarget:self action:@selector(performReverseAuth:) forControlEvents:UIControlEventTouchUpInside];
@@ -91,11 +91,11 @@
     [_reverseAuthBtn setEnabled:NO];
     [_reverseAuthBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [view addSubview:_reverseAuthBtn];
-    
+
     self.view = view;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self _refreshTwitterAccounts];
@@ -114,33 +114,32 @@
 
 #pragma mark - UIActionSheetDelegate
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+- (void)foo
 {
-    if (buttonIndex != actionSheet.cancelButtonIndex) {
-        [_apiManager performReverseAuthForAccount:_accounts[buttonIndex] withHandler:^(NSData *responseData, NSError *error) {
-            if (responseData) {
-                NSString *responseStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-                NSArray *parts = [responseStr componentsSeparatedByString:@"&"];
-                NSString *lined = [parts componentsJoinedByString:@"\n"];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success!" message:lined delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    [alert show];
-                });
-            }
-            else {
-                NSLog(@"Reverse Auth process failed. Error returned was: %@\n", error.localizedDescription);
-            }
-        }];
-    }
+    NSUInteger selectAccountIndex = 0;
+    [_apiManager performReverseAuthForAccount:_accounts[selectAccountIndex] withHandler:^(NSData *responseData, NSError *error) {
+        if (responseData) {
+            NSString *responseStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+            NSArray *parts = [responseStr componentsSeparatedByString:@"&"];
+            NSString *lined = [parts componentsJoinedByString:@"\n"];
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self _displayAlertWithMessage:lined title:@"Success!"];
+            });
+        }
+        else {
+            NSLog(@"Reverse Auth process failed. Error returned was: %@\n", error.localizedDescription);
+        }
+    }];
 }
 
 #pragma mark - Private
 
-- (void)_displayAlertWithMessage:(NSString *)message
+- (void)_displayAlertWithMessage:(NSString *)message title:(NSString *)title
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:ERROR_TITLE_MSG message:message delegate:nil cancelButtonTitle:ERROR_OK otherButtonTitles:nil];
-    [alert show];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:ERROR_OK style:UIAlertActionStyleDefault handler:NULL]];
+    [self presentViewController:alert animated:YES completion:NULL];
 }
 
 /**
@@ -157,19 +156,19 @@
 - (void)_refreshTwitterAccounts
 {
     if (![TWTAPIManager hasAppKeys]) {
-        [self _displayAlertWithMessage:ERROR_NO_KEYS];
+        [self _displayAlertWithMessage:ERROR_NO_KEYS title:ERROR_TITLE_MSG];
     }
     else if (![TWTAPIManager isLocalTwitterAccountAvailable]) {
-        [self _displayAlertWithMessage:ERROR_NO_ACCOUNTS];
+        [self _displayAlertWithMessage:ERROR_NO_ACCOUNTS title:ERROR_TITLE_MSG];
     }
     else {
         [self _obtainAccessToAccountsWithBlock:^(BOOL granted) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (granted) {
-                    _reverseAuthBtn.enabled = YES;
+                    self->_reverseAuthBtn.enabled = YES;
                 }
                 else {
-                    [self _displayAlertWithMessage:ERROR_PERM_ACCESS];
+                    [self _displayAlertWithMessage:ERROR_PERM_ACCESS title:ERROR_TITLE_MSG];
                 }
             });
         }];
@@ -181,9 +180,9 @@
     ACAccountType *twitterType = [_accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
     ACAccountStoreRequestAccessCompletionHandler handler = ^(BOOL granted, NSError *error) {
         if (granted) {
-            self.accounts = [_accountStore accountsWithAccountType:twitterType];
+            self.accounts = [self->_accountStore accountsWithAccountType:twitterType];
         }
-        
+
         block(granted);
     };
     [_accountStore requestAccessToAccountsWithType:twitterType options:NULL completion:handler];
@@ -196,12 +195,14 @@
  */
 - (void)performReverseAuth:(id)sender
 {
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Choose an Account" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+    UIAlertController *sheet = [UIAlertController alertControllerWithTitle:@"Choose an Account" message:nil preferredStyle:UIAlertControllerStyleAlert];
     for (ACAccount *acct in _accounts) {
-        [sheet addButtonWithTitle:acct.username];
+        [sheet addAction:[UIAlertAction actionWithTitle:acct.username style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"Called with action = %@", action);
+        }]];
     }
-    sheet.cancelButtonIndex = [sheet addButtonWithTitle:@"Cancel"];
-    [sheet showInView:self.view];
+    [sheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:NULL]];
+    [self presentViewController:sheet animated:YES completion:NULL];
 }
 
 @end

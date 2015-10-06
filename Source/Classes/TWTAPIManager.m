@@ -97,9 +97,9 @@ typedef void(^TWTAPIHandler)(NSData *data, NSError *error);
         }
         else {
             NSString *signedReverseAuthSignature = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            [self _step2WithAccount:account signature:signedReverseAuthSignature andHandler:^(NSData *responseData, NSError *error) {
+            [self _step2WithAccount:account signature:signedReverseAuthSignature andHandler:^(NSData *response2Data, NSError *error2) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    handler(responseData, error);
+                    handler(response2Data, error2);
                 });
             }];
         }

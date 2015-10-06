@@ -101,8 +101,9 @@ static NSString *gTWConsumerSecret;
 - (void)performRequestWithHandler:(TWTSignedRequestHandler)handler
 {
     NSURLRequest *request = [self _buildRequest];
-    [NSURLConnection sendAsynchronousRequest:request queue:_signedRequestQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        handler(data, response, connectionError);
+
+    [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        handler(data, response, error);
     }];
 }
 
