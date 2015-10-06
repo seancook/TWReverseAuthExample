@@ -28,7 +28,7 @@
 
 #import <OAuthCore/OAuth+Additions.h>
 #import "TWTAPIManager.h"
-#import "TWTSignedRequest.h"
+#import "TWTSignedPOSTRequest.h"
 #import "TWTViewController.h"
 
 #define ERROR_TITLE_MSG @"Whoa, there cowboy"

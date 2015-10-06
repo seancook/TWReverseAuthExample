@@ -25,60 +25,47 @@
 //
 
 #import <OAuthCore/OAuthCore.h>
-#import "TWTSignedRequest.h"
+#import "TWTSignedPOSTRequest.h"
 
-#define TW_HTTP_METHOD_GET @"GET"
-#define TW_HTTP_METHOD_POST @"POST"
-#define TW_HTTP_METHOD_DELETE @"DELETE"
 #define TW_HTTP_HEADER_AUTHORIZATION @"Authorization"
 #define TW_CONSUMER_KEY @"TWITTER_CONSUMER_KEY"
 #define TW_CONSUMER_SECRET @"TWITTER_CONSUMER_SECRET"
 
-#define REQUEST_TIMEOUT_INTERVAL 8
+#define REQUEST_TIMEOUT_INTERVAL 8 // seconds
 
 static NSString *gTWConsumerKey;
 static NSString *gTWConsumerSecret;
 
-@interface TWTSignedRequest()
+@interface TWTSignedPOSTRequest()
 {
     NSURL *_url;
     NSDictionary *_parameters;
-    TWTSignedRequestMethod _signedRequestMethod;
-    NSOperationQueue *_signedRequestQueue;
 }
 
 @end
 
-@implementation TWTSignedRequest
+@implementation TWTSignedPOSTRequest
 
-- (instancetype)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWTSignedRequestMethod)requestMethod
+- (instancetype)init
+{
+    return [self initWithURL:nil parameters:nil];
+}
+
+- (instancetype)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters
 {
     self = [super init];
     if (self) {
         _url = url;
         _parameters = parameters;
-        _signedRequestMethod = requestMethod;
-        _signedRequestQueue = [[NSOperationQueue alloc] init];
     }
     return self;
 }
 
+/**
+ *  Builds this as a signed POST NSURLRequest
+ */
 - (NSURLRequest *)_buildRequest
 {
-    NSString *method;
-    
-    switch (_signedRequestMethod) {
-        case TWSignedRequestMethodPOST:
-            method = TW_HTTP_METHOD_POST;
-            break;
-        case TWSignedRequestMethodDELETE:
-            method = TW_HTTP_METHOD_DELETE;
-            break;
-        case TWSignedRequestMethodGET:
-        default:
-            method = TW_HTTP_METHOD_GET;
-    }
-    
     //  Build our parameter string
     NSMutableString *paramsAsString = [[NSMutableString alloc] init];
     [_parameters enumerateKeysAndObjectsUsingBlock:
@@ -88,10 +75,10 @@ static NSString *gTWConsumerSecret;
     
     //  Create the authorization header and attach to our request
     NSData *bodyData = [paramsAsString dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *authorizationHeader = OAuthorizationHeader(_url, method, bodyData, [TWTSignedRequest consumerKey], [TWTSignedRequest consumerSecret], _authToken, _authTokenSecret);
+    NSString *authorizationHeader = OAuthorizationHeader(_url, @"POST", bodyData, [TWTSignedPOSTRequest consumerKey], [TWTSignedPOSTRequest consumerSecret], _authToken, _authTokenSecret);
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:_url];
     [request setTimeoutInterval:REQUEST_TIMEOUT_INTERVAL];
-    request.HTTPMethod = method;
+    request.HTTPMethod = @"POST";
     [request setValue:authorizationHeader forHTTPHeaderField:TW_HTTP_HEADER_AUTHORIZATION];
     request.HTTPBody = bodyData;
     
@@ -101,7 +88,6 @@ static NSString *gTWConsumerSecret;
 - (void)performRequestWithHandler:(TWTSignedRequestHandler)handler
 {
     NSURLRequest *request = [self _buildRequest];
-
     [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         handler(data, response, error);
     }];

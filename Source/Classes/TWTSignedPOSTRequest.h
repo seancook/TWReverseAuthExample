@@ -26,21 +26,15 @@
 
 @import Foundation;
 
-typedef NS_ENUM(NSInteger, TWTSignedRequestMethod) {
-    TWSignedRequestMethodGET,
-    TWSignedRequestMethodPOST,
-    TWSignedRequestMethodDELETE
-};
-
 typedef void(^TWTSignedRequestHandler) (NSData *data, NSURLResponse *response, NSError *error);
 
-@interface TWTSignedRequest : NSObject
+@interface TWTSignedPOSTRequest : NSObject
 
 @property (nonatomic, copy) NSString *authToken;
 @property (nonatomic, copy) NSString *authTokenSecret;
 
 // Creates a new request
-- (instancetype)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TWTSignedRequestMethod)requestMethod;
+- (instancetype)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters NS_DESIGNATED_INITIALIZER;
 
 // Perform the request, and notify handler of results
 - (void)performRequestWithHandler:(TWTSignedRequestHandler)handler;

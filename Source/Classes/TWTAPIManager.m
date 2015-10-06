@@ -30,7 +30,7 @@
 
 #import "OAuth+Additions.h"
 #import "TWTAPIManager.h"
-#import "TWTSignedRequest.h"
+#import "TWTSignedPOSTRequest.h"
 
 #define TWT_API_ROOT                  @"https://api.twitter.com"
 #define TWT_X_AUTH_MODE_KEY           @"x_auth_mode"
@@ -50,7 +50,7 @@ typedef void(^TWTAPIHandler)(NSData *data, NSError *error);
  */
 + (BOOL)hasAppKeys
 {
-    return ([TWTSignedRequest consumerKey].length && [TWTSignedRequest consumerSecret].length);
+    return ([TWTSignedPOSTRequest consumerKey].length && [TWTSignedPOSTRequest consumerSecret].length);
 }
 
 /**
@@ -120,7 +120,7 @@ typedef void(^TWTAPIHandler)(NSData *data, NSError *error);
  */
 - (void)_step2WithAccount:(ACAccount *)account signature:(NSString *)signedReverseAuthSignature andHandler:(TWTAPIHandler)completion
 {
-    NSDictionary *step2Params = @{TWT_X_AUTH_REVERSE_TARGET: [TWTSignedRequest consumerKey], TWT_X_AUTH_REVERSE_PARMS: signedReverseAuthSignature};
+    NSDictionary *step2Params = @{TWT_X_AUTH_REVERSE_TARGET: [TWTSignedPOSTRequest consumerKey], TWT_X_AUTH_REVERSE_PARMS: signedReverseAuthSignature};
     NSURL *authTokenURL = [NSURL URLWithString:TWT_OAUTH_URL_AUTH_TOKEN];
     SLRequest *step2Request = [self requestWithUrl:authTokenURL parameters:step2Params requestMethod:SLRequestMethodPOST];
     step2Request.account = account;
@@ -143,7 +143,7 @@ typedef void(^TWTAPIHandler)(NSData *data, NSError *error);
 {
     NSURL *url = [NSURL URLWithString:TWT_OAUTH_URL_REQUEST_TOKEN];
     NSDictionary *params = @{TWT_X_AUTH_MODE_KEY: TWT_X_AUTH_MODE_REVERSE_AUTH};
-    TWTSignedRequest *step1Request = [[TWTSignedRequest alloc] initWithURL:url parameters:params requestMethod:TWSignedRequestMethodPOST];
+    TWTSignedPOSTRequest *step1Request = [[TWTSignedPOSTRequest alloc] initWithURL:url parameters:params];
     [step1Request performRequestWithHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             completion(data, error);

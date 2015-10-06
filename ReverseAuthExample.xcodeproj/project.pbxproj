@@ -14,7 +14,7 @@
 		CDAACA6E1610E55A006E4808 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDAACA6D1610E55A006E4808 /* CoreGraphics.framework */; };
 		CDAACAA31610E5D9006E4808 /* TWTAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40A1FF1610E3060051AE3D /* TWTAPIManager.m */; };
 		CDAACAA51610E5D9006E4808 /* TWTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40A2011610E3060051AE3D /* TWTAppDelegate.m */; };
-		CDAACAA71610E5D9006E4808 /* TWTSignedRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40A2031610E3060051AE3D /* TWTSignedRequest.m */; settings = {COMPILER_FLAGS = "-D'TWITTER_CONSUMER_KEY=@\"$(TWITTER_CONSUMER_KEY)\"' -D'TWITTER_CONSUMER_SECRET=@\"$(TWITTER_CONSUMER_SECRET)\"'"; }; };
+		CDAACAA71610E5D9006E4808 /* TWTSignedPOSTRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40A2031610E3060051AE3D /* TWTSignedPOSTRequest.m */; settings = {COMPILER_FLAGS = "-D'TWITTER_CONSUMER_KEY=@\"$(TWITTER_CONSUMER_KEY)\"' -D'TWITTER_CONSUMER_SECRET=@\"$(TWITTER_CONSUMER_SECRET)\"'"; }; };
 		CDAACAA91610E5D9006E4808 /* TWTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40A2051610E3060051AE3D /* TWTViewController.m */; };
 		CDAACAAA1610E5D9006E4808 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40A2091610E3060051AE3D /* main.m */; };
 		CDAACAB11610E5F6006E4808 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF53BCA160BC8C500AD69A6 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -34,8 +34,8 @@
 		CD40A1FF1610E3060051AE3D /* TWTAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TWTAPIManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CD40A2001610E3060051AE3D /* TWTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TWTAppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CD40A2011610E3060051AE3D /* TWTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TWTAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		CD40A2021610E3060051AE3D /* TWTSignedRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TWTSignedRequest.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		CD40A2031610E3060051AE3D /* TWTSignedRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TWTSignedRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		CD40A2021610E3060051AE3D /* TWTSignedPOSTRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TWTSignedPOSTRequest.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		CD40A2031610E3060051AE3D /* TWTSignedPOSTRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TWTSignedPOSTRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CD40A2041610E3060051AE3D /* TWTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TWTViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CD40A2051610E3060051AE3D /* TWTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TWTViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CD40A2081610E3060051AE3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -102,8 +102,8 @@
 				CD40A1FF1610E3060051AE3D /* TWTAPIManager.m */,
 				CD40A2001610E3060051AE3D /* TWTAppDelegate.h */,
 				CD40A2011610E3060051AE3D /* TWTAppDelegate.m */,
-				CD40A2021610E3060051AE3D /* TWTSignedRequest.h */,
-				CD40A2031610E3060051AE3D /* TWTSignedRequest.m */,
+				CD40A2021610E3060051AE3D /* TWTSignedPOSTRequest.h */,
+				CD40A2031610E3060051AE3D /* TWTSignedPOSTRequest.m */,
 				CD40A2041610E3060051AE3D /* TWTViewController.h */,
 				CD40A2051610E3060051AE3D /* TWTViewController.m */,
 			);
@@ -295,7 +295,7 @@
 			files = (
 				CDAACAA31610E5D9006E4808 /* TWTAPIManager.m in Sources */,
 				CDAACAA51610E5D9006E4808 /* TWTAppDelegate.m in Sources */,
-				CDAACAA71610E5D9006E4808 /* TWTSignedRequest.m in Sources */,
+				CDAACAA71610E5D9006E4808 /* TWTSignedPOSTRequest.m in Sources */,
 				CDAACAA91610E5D9006E4808 /* TWTViewController.m in Sources */,
 				CDAACAAA1610E5D9006E4808 /* main.m in Sources */,
 			);
