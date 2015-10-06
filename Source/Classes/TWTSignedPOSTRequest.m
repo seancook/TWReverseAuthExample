@@ -88,9 +88,10 @@ static NSString *gTWConsumerSecret;
 - (void)performRequestWithHandler:(TWTSignedRequestHandler)handler
 {
     NSURLRequest *request = [self _buildRequest];
-    [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         handler(data, response, error);
-    }];
+    }] resume];
 }
 
 // OBFUSCATE YOUR KEYS!

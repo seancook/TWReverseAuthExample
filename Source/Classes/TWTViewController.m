@@ -119,10 +119,8 @@
 
 - (void)_accountSelected:(NSUInteger)selectedAccountIndex
 {
-    NSLog(@"User selected account %lu - %@", (unsigned long)selectedAccountIndex, _accounts[selectedAccountIndex]);
-    [_apiManager performReverseAuthForAccount:_accounts[selectedAccountIndex] withHandler:^(NSData *responseData, NSError *error) {
-
-        
+    ACAccount *selectedAccount = _accounts[selectedAccountIndex];
+    [_apiManager performReverseAuthForAccount:selectedAccount withHandler:^(NSData *responseData, NSError *error) {
         if (responseData) {
             NSString *responseStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
             NSArray *parts = [responseStr componentsSeparatedByString:@"&"];
@@ -183,13 +181,12 @@
 - (void)_obtainAccessToAccountsWithBlock:(void (^)(BOOL))block
 {
     ACAccountType *twitterType = [_accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    ACAccountStoreRequestAccessCompletionHandler handler = ^(BOOL granted, NSError *error) {
+    [_accountStore requestAccessToAccountsWithType:twitterType options:NULL completion:^(BOOL granted, NSError *error) {
         if (granted) {
-            self.accounts = [self->_accountStore accountsWithAccountType:twitterType];
+            self->_accounts = [self->_accountStore accountsWithAccountType:twitterType];
         }
         block(granted);
-    };
-    [_accountStore requestAccessToAccountsWithType:twitterType options:NULL completion:handler];
+    }];
 }
 
 /**
@@ -204,8 +201,6 @@
         ACAccount *acct = _accounts[i];
         NSString *accountTitle = [NSString stringWithFormat:@"@%@", acct.username];
         [sheet addAction:[UIAlertAction actionWithTitle:accountTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"%@", [NSThread currentThread]);
-            NSLog(@"User selected an account.");
             [self _accountSelected:i];
         }]];
     }

@@ -39,6 +39,8 @@
 	<string>5LTJxBFSa0XSMoWtKKntQ</string>
 	<key>TWITTER_CONSUMER_SECRET</key>
 	<string>Ds23weJVO4ibPTv8hEsmMxSC6CW1JeVCwWYDFWKjw</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIStatusBarHidden</key>
