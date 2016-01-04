@@ -2,7 +2,7 @@
 //    TWTAPIManager.m
 //    ReverseAuthExample
 //
-//    Copyright (c) 2011-2015 Sean Cook
+//    Copyright (c) 2011-2016 Sean Cook
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a
 //    copy of this software and associated documentation files (the
@@ -97,9 +97,9 @@ typedef void(^TWTAPIHandler)(NSData *data, NSError *error);
         }
         else {
             NSString *signedReverseAuthSignature = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            [self _step2WithAccount:account signature:signedReverseAuthSignature andHandler:^(NSData *responseData, NSError *error) {
+            [self _step2WithAccount:account signature:signedReverseAuthSignature andHandler:^(NSData *responseData, NSError *error2) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    handler(responseData, error);
+                    handler(responseData, error2);
                 });
             }];
         }

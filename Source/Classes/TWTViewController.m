@@ -2,7 +2,7 @@
 //    TWTViewController.m
 //    ReverseAuthExample
 //
-//    Copyright (c) 2011-2015 Sean Cook
+//    Copyright (c) 2011-2016 Sean Cook
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a
 //    copy of this software and associated documentation files (the
@@ -31,14 +31,14 @@
 #import "TWTSignedRequest.h"
 #import "TWTViewController.h"
 
-#define ERROR_TITLE_MSG @"Whoa, there cowboy"
+#define ERROR_TITLE_MSG @"Whoa there cowboy"
 #define ERROR_NO_ACCOUNTS @"You must add a Twitter account in Settings.app to use this demo."
 #define ERROR_PERM_ACCESS @"We weren't granted access to the user's accounts"
 #define ERROR_NO_KEYS @"You need to add your Twitter app keys to Info.plist to use this demo.\nPlease see README.md for more info."
 #define ERROR_OK @"OK"
 
-#define ONE_FOURTH_OF(_X) floorf(0.25f * _X)
-#define THREE_FOURTHS_OF(_X) floorf(3 * ONE_FOURTH_OF(_X))
+#define ONE_FOURTH_OF(_X) floorf(0.25f * (float)_X)
+#define THREE_FOURTHS_OF(_X) floorf(3.f * ONE_FOURTH_OF(_X))
 
 @interface TWTViewController()
 
@@ -73,7 +73,7 @@
     buttonFrame = CGRectInset(buttonFrame, 20, 0);
     
     UIView *view = [[UIView alloc] initWithFrame:appFrame];
-    view.backgroundColor = [UIColor colorWithWhite:0.502 alpha:1.000];
+    view.backgroundColor = [UIColor colorWithWhite:0.502f alpha:1.000];
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"twitter.png"]];
     [view addSubview:imageView];
@@ -117,7 +117,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex != actionSheet.cancelButtonIndex) {
-        [_apiManager performReverseAuthForAccount:_accounts[buttonIndex] withHandler:^(NSData *responseData, NSError *error) {
+        [_apiManager performReverseAuthForAccount:_accounts[(NSUInteger)buttonIndex] withHandler:^(NSData *responseData, NSError *error) {
             if (responseData) {
                 NSString *responseStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
                 NSArray *parts = [responseStr componentsSeparatedByString:@"&"];
@@ -166,7 +166,7 @@
         [self _obtainAccessToAccountsWithBlock:^(BOOL granted) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (granted) {
-                    _reverseAuthBtn.enabled = YES;
+                    self->_reverseAuthBtn.enabled = YES;
                 }
                 else {
                     [self _displayAlertWithMessage:ERROR_PERM_ACCESS];
@@ -181,7 +181,7 @@
     ACAccountType *twitterType = [_accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
     ACAccountStoreRequestAccessCompletionHandler handler = ^(BOOL granted, NSError *error) {
         if (granted) {
-            self.accounts = [_accountStore accountsWithAccountType:twitterType];
+            self.accounts = [self->_accountStore accountsWithAccountType:twitterType];
         }
         
         block(granted);
