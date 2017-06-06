@@ -1,6 +1,11 @@
 #	ReverseAuthExample
 
-##	Summary
+### iOS 11 ###
+![Back to the future](./back-to-the-future.jpg)
+
+It appears that [Twitter accounts will not be available via Accounts.framework in iOS 11](https://developer.apple.com/documentation/accounts/acaccounttype/account_type_identifiers?changes=latest_minor). If you need reverse auth, start migrating your apps to [Twitter Kit](https://dev.twitter.com/twitterkit/ios/overview) _today_. Seriously, just do it.
+
+##    Summary
 
 This project illustrates how to use the Twitter API's reverse\_auth endpoint to obtain a user's access token and secret for your application's consumer key and secret.
 
@@ -32,7 +37,7 @@ This example was created by Sean Cook ([@theSeanCook](http://twitter.com/theSean
 
 ###  License
 
-Copyright (c) 2011-2016 Sean Cook
+Copyright (c) 2011-2017 Sean Cook
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
